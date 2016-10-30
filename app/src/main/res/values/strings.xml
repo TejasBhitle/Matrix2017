@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Matrix 2017</string>
+
+    <string name="sponsors">Sponsors</string>
+
+    <!-- Navigation Drawer-->
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="mega">Mega</string>
+    <string name="tech">Tech</string>
+    <string name="fun">Fun</string>
+    <string name="committee">Committee</string>
+    <string name="about">About Us</string>
+    <string name="developers">Developers</string>
+
+
+    <string name="share">Share App</string>
+    <string name="playstore_link">Put Playstore Link Here</string>
+    <string name="share_message">Share link via</string>
+</resources>
