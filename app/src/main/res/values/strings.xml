@@ -17,4 +17,28 @@
     <string name="share">Share App</string>
     <string name="playstore_link">Put Playstore Link Here</string>
     <string name="share_message">Share link via</string>
+    <string name="title_activity_event_details">EventDetails</string>
+    <string name="fake_description">
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic. "
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics."
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="description">Description</string>
+    <string name="rules">Rules</string>
+    <string name="prizes">Prizes</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="contact_person_two">Contact Person Two (9874561230)</string>
+    <string name="contact_person_one">Contact Person One (3120456987)</string>
+    <string name="fake_rules">
+        " Some Rule 1\n Much Rule 2\n Wow Rule 3"
+    </string>
+    <string name="fake_prizes"> Some Prize \n Much Prize \n Wow Prize</string>
+    <string name="add_to_favourites">Add to Favourites</string>
+    <string name="set_reminder">Set Reminder</string>
+    <string name="share_event">Share</string>
 </resources>
