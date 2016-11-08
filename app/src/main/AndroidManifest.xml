@@ -3,8 +3,8 @@
     package="spit.matrix2017">
 
     <provider
-        android:name=".providers.MatrixContentProvider"
-        android:authorities="spit.matrix2017"
+        android:name=".HelperClasses.MatrixContentProvider"
+        android:authorities="spit.matrix2017.provider"
         android:enabled="true"
         android:exported="false" />
 
