@@ -1,16 +1,18 @@
 package spit.matrix2017.Activities;
 
+import android.content.ContentResolver;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,17 +38,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        toolbar = (Toolbar)findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("");
+        setTitle("");
 
         //instantiation
-        navigationView = (NavigationView) findViewById(R.id.navigation_view);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        viewPager = (ViewPager) findViewById(R.id.viewPager_tabLayout);
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout_main);
-        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbar_main);
-        appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
+        navigationView =(NavigationView)findViewById(R.id.navigation_view);
+        drawerLayout =(DrawerLayout)findViewById(R.id.drawer_layout);
+        viewPager = (ViewPager)findViewById(R.id.viewPager_tabLayout);
+        tabLayout =(TabLayout)findViewById(R.id.tabLayout_main);
+        collapsingToolbarLayout= (CollapsingToolbarLayout)findViewById(R.id.collapsingToolbar_main);
+        appBarLayout = (AppBarLayout)findViewById(R.id.app_bar_layout);
 
 
         /*Code to make title visible only in collapsed state*/
@@ -62,18 +64,19 @@ public class MainActivity extends AppCompatActivity {
                 if (scrollRange + verticalOffset == 0) {
                     collapsingToolbarLayout.setTitle(getResources().getString(R.string.app_name));
                     isShow = true;
-                } else if (isShow) {
+                } else if(isShow) {
                     collapsingToolbarLayout.setTitle(" ");
                     isShow = false;
                 }
             }
         });
 
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
-                R.string.drawer_open, R.string.drawer_close);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
+                R.string.drawer_open,R.string.drawer_close);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
+
 
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -81,18 +84,26 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(MenuItem item) {
 
                         /*Add Your Intents here*/
-                        switch (item.getItemId()) {
+                        Intent intent;
+                        switch (item.getItemId()){
+                            case R.id.homepage_menuItem:
+                                // Do Nothing
+                                break;
+                            case R.id.favorites_menuItem:
+                                intent = new Intent(getApplicationContext(),Favorites.class);
+                                startActivity(intent);
+                                break;
                             case R.id.sponsors_menuItem:
-
+                                intent = new Intent(getApplicationContext(),Sponsors.class);
+                                startActivity(intent);
                                 break;
                             case R.id.commitee_menuItem:
-
-                                break;
-                            case R.id.aboutus_menuItem:
-
+                                intent = new Intent(getApplicationContext(),Committee.class);
+                                startActivity(intent);
                                 break;
                             case R.id.developers_menuItem:
-
+                                intent = new Intent(getApplicationContext(),Developers.class);
+                                startActivity(intent);
                                 break;
                         }
                         //item.setChecked(true);
@@ -107,27 +118,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void addEventFragmentsToViewPager(ViewPager viewPager) {
+    private void addEventFragmentsToViewPager(ViewPager viewPager){
         customFragmentPagerAdapter = new CustomFragmentPagerAdapter(getSupportFragmentManager());
 
-        EventListFragment megaEventPage = new EventListFragment();
-        megaEventPage.setCategory(getResources().getString(R.string.mega));
 
-        EventListFragment techEventPage = new EventListFragment();
-        techEventPage.setCategory(getResources().getString(R.string.tech));
+        EventListFragment megaEventPage = EventListFragment.newInstance(getResources().getString(R.string.mega));
 
-        EventListFragment funEventPage = new EventListFragment();
-        funEventPage.setCategory(getResources().getString(R.string.fun));
+        EventListFragment techEventPage =  EventListFragment.newInstance(getResources().getString(R.string.tech));
 
-        customFragmentPagerAdapter.AddFragment(megaEventPage, getResources().getString(R.string.mega));
-        customFragmentPagerAdapter.AddFragment(techEventPage, getResources().getString(R.string.tech));
-        customFragmentPagerAdapter.AddFragment(funEventPage, getResources().getString(R.string.fun));
+        EventListFragment funEventPage =  EventListFragment.newInstance(getResources().getString(R.string.fun));
+
+        customFragmentPagerAdapter.AddFragment(megaEventPage,getResources().getString(R.string.mega));
+        customFragmentPagerAdapter.AddFragment(techEventPage,getResources().getString(R.string.tech));
+        customFragmentPagerAdapter.AddFragment(funEventPage,getResources().getString(R.string.fun));
         viewPager.setAdapter(customFragmentPagerAdapter);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.mainactivity_menu, menu);
+        getMenuInflater().inflate(R.menu.mainactivity_menu,menu);
         return true;
     }
 
@@ -140,9 +149,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.share_menuItem:
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.playstore_link));
+                intent.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.playstore_link));
                 intent.setType("text/plain");
-                startActivity(Intent.createChooser(intent, getResources().getString(R.string.share_message)));
+                startActivity(Intent.createChooser(intent,getResources().getString(R.string.share_message)));
                 return true;
         }
 

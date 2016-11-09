@@ -3,8 +3,8 @@
     package="spit.matrix2017">
 
     <provider
-        android:name=".providers.MatrixContentProvider"
-        android:authorities="spit.matrix2017"
+        android:name=".HelperClasses.MatrixContentProvider"
+        android:authorities="spit.matrix2017.provider"
         android:enabled="true"
         android:exported="false" />
 
@@ -30,6 +30,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="spit.matrix2017.Activities.MainActivity" />
         </activity>
+
+        <activity android:name=".Activities.Sponsors"
+            android:parentActivityName=".Activities.MainActivity"/>
+
+        <activity android:name=".Activities.Favorites"
+            android:parentActivityName=".Activities.MainActivity"/>
+
+        <activity android:name=".Activities.Committee"
+            android:parentActivityName=".Activities.MainActivity"/>
+
+        <activity android:name=".Activities.Developers"
+            android:parentActivityName=".Activities.MainActivity"/>
+
     </application>
 
 </manifest>
