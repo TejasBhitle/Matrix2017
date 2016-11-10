@@ -56,7 +56,7 @@ public class EventListFragment extends Fragment{
         int[] resId = {ID's of the corresponding views e.g TextViews of the list item whose ID is given in R.id.<listitem> (order should be corresponding to the cursorColumns array)};
 
         SimpleCursorAdapter cursorAdapter = new
-        SimpleCursorAdapter(<Activity_name>.this, layoutResId, cursor, cursorColumns, resId, 0);*/
+        SimpleCursorAdapter(<Activity_name>.this, la,,youtResId, cursor, cursorColumns, resId, 0);*/
 
 
         /*String Category contains the options of sorting into mega,fun,tech*/

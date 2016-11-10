@@ -8,11 +8,11 @@
         <item
             android:title="Favorites"
             android:id="@+id/favorites_menuItem"/>
+        <item android:title="@string/contact_us"
+            android:id="@+id/contact_us_menuItem"/>
         <item
             android:title="@string/sponsors"
             android:id="@+id/sponsors_menuItem"/>
-
-
     </group>
 
     <group android:id="@+id/group2">

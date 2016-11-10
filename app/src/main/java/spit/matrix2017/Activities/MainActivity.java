@@ -40,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
-        setTitle("");
+        //setTitle("");
+
 
         //instantiation
         navigationView =(NavigationView)findViewById(R.id.navigation_view);
@@ -51,25 +52,9 @@ public class MainActivity extends AppCompatActivity {
         appBarLayout = (AppBarLayout)findViewById(R.id.app_bar_layout);
 
 
-        /*Code to make title visible only in collapsed state*/
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbarLayout.setTitle(getResources().getString(R.string.app_name));
-                    isShow = true;
-                } else if(isShow) {
-                    collapsingToolbarLayout.setTitle(" ");
-                    isShow = false;
-                }
-            }
-        });
+        /*Code to make title visible only in collapsed state
+        * Set The Color as that of the background */
+        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.colorPrimary));
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
                 R.string.drawer_open,R.string.drawer_close);
@@ -91,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             case R.id.favorites_menuItem:
                                 intent = new Intent(getApplicationContext(),Favorites.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.contact_us_menuItem:
+                                intent = new Intent(getApplicationContext(),ContactUs.class);
                                 startActivity(intent);
                                 break;
                             case R.id.sponsors_menuItem:

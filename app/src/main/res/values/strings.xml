@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">Matrix 2017</string>
+    <string name="app_name">Matrix 17</string>
+    <string name="playstore_link">Put Playstore Link Here</string>
+
 
     <string name="sponsors">Sponsors</string>
+    <string name="share">Share App</string>
+    <string name="share_message">Share link via</string>
 
     <!-- Navigation Drawer-->
     <string name="drawer_open">Open navigation drawer</string>
@@ -13,10 +17,39 @@
     <string name="about">About Us</string>
     <string name="developers">Developers</string>
 
+    <!--Contact us Details -->
+    <string name="college_name">Sardar Patel Institute Of Technology</string>
+    <string name="college_address">Bharatiya Vidya Bhavans Sardar Patel Institute of Technology Munshi Nagar, Andheri (West), Mumbai 400 058</string>
+    <string name="contact_us_contact1_name">Contact 1</string>
+    <string name="contact_us_contact1_number">0000000017</string>
+    <string name="contact_us_contact2_name">Contact 2</string>
+    <string name="contact_us_contact2_number">0000000045</string>
+    <string name="email_matrix"><u>Enter Matrix Email ID here</u></string>
 
-    <string name="share">Share App</string>
-    <string name="playstore_link">Put Playstore Link Here</string>
-    <string name="share_message">Share link via</string>
+    <!-- Email Ids-->
+    <string name="email_tejas"><u>bhitletejas@gmail.com</u></string>
+    <string name="email_shubham"><u>shubh12197@gmail.com</u></string>
+    <string name="email_adnan"><u>adnan.ans26@gmail.com</u></string>
+    <string name="email_rohit"><u>rnahata1997@gmail.com</u></string>
+    <string name="email_mithil"><u>mithilgotarne@gmail.com</u></string>
+    <string name="email_akshay"><u>akshah1997@gmail.com</u></string>
+
+    <!--Google+-->
+    <string name="googleplus_tejas">https://plus.google.com/116889615357123798600</string>
+    <string name="googleplus_shubham">https://plus.google.com/105339466507922161056</string>
+    <string name="googleplus_adnan">https://plus.google.com/+AdnanAnsari26</string>
+    <string name="googleplus_rohit"></string>
+    <string name="googleplus_mithil">https://plus.google.com/+MitzzGotarne</string>
+    <string name="googleplus_akshay">https://plus.google.com/+AkshayShahakshah1997</string>
+
+    <!--LinkedIN-->
+    <string name="linkedin_tejas">https://www.linkedin.com/in/tejas-bhitle-ab6597126</string>
+    <string name="linkedin_shubham">https://www.linkedin.com/profile/view?id=116787827</string>
+    <string name="linkedin_adnan">https://www.linkedin.com/in/adnan-ansari-819898131</string>
+    <string name="linkedin_rohit"></string>
+    <string name="linkedin_mithil">https://www.linkedin.com/in/mithil-gotarne-470786131</string>
+    <string name="linkedin_akshay">https://in.linkedin.com/in/akshah1997</string>
+
     <string name="title_activity_event_details">EventDetails</string>
     <string name="fake_description">
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."
@@ -41,4 +74,5 @@
     <string name="add_to_favourites">Add to Favourites</string>
     <string name="set_reminder">Set Reminder</string>
     <string name="share_event">Share</string>
+
 </resources>

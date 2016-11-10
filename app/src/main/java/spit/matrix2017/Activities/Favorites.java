@@ -57,6 +57,11 @@ public class Favorites extends AppCompatActivity {
                             case R.id.favorites_menuItem:
                                 //DO Nothing
                                 break;
+                            case R.id.contact_us_menuItem:
+                                intent = new Intent(getApplicationContext(),ContactUs.class);
+                                startActivity(intent);
+                                finish();
+                                break;
                             case R.id.sponsors_menuItem:
                                 intent = new Intent(getApplicationContext(),Sponsors.class);
                                 startActivity(intent);

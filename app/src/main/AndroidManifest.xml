@@ -43,6 +43,9 @@
         <activity android:name=".Activities.Developers"
             android:parentActivityName=".Activities.MainActivity"/>
 
+        <activity android:name=".Activities.ContactUs"
+            android:parentActivityName=".Activities.MainActivity"/>
+
     </application>
 
 </manifest>

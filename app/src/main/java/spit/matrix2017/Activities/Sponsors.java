@@ -59,6 +59,11 @@ public class Sponsors extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                                 break;
+                            case R.id.contact_us_menuItem:
+                                intent = new Intent(getApplicationContext(),ContactUs.class);
+                                startActivity(intent);
+                                finish();
+                                break;
                             case R.id.sponsors_menuItem:
                                 // Do Nothing
                                 break;
