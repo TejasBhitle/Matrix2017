@@ -111,6 +111,11 @@ public class Developers extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                                 break;
+                            case R.id.contact_us_menuItem:
+                                intent = new Intent(getApplicationContext(),ContactUs.class);
+                                startActivity(intent);
+                                finish();
+                                break;
                             case R.id.commitee_menuItem:
                                 intent = new Intent(getApplicationContext(),Committee.class);
                                 startActivity(intent);
