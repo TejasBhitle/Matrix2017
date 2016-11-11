@@ -1,6 +1,8 @@
 package spit.matrix2017.Activities;
 
 import android.content.Intent;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -22,13 +24,15 @@ import java.util.ArrayList;
 
 import spit.matrix2017.R;
 
-public class EventDetails extends AppCompatActivity {
-
+public class EventDetails
+        extends AppCompatActivity
+{
     private boolean isFavouriteEvent;
     private boolean isReminderSet;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -37,28 +41,39 @@ public class EventDetails extends AppCompatActivity {
         getSupportActionBar().setTitle("");
 
         //get intent from eventlist adapter
-        if (getIntent().getStringExtra("EVENT_NAME") != null && getSupportActionBar() != null) {
-            this.setTitle(getIntent().getStringExtra("EVENT_NAME"));
-        } else
+        if (getIntent().getStringExtra("name") != null && getSupportActionBar() != null)
+            this.setTitle(getIntent().getStringExtra("name"));
+        else
             this.setTitle("Some event");
-        // TODO: 11/1/2016 Add logic to get selected event from db
-        setDescription(getString(R.string.fake_description));
+
+        // TODO: 11/1/2016 Add logic to get selected event from db (FIXED [get it from intent instead])
+        //setDescription(getString(R.string.fake_description));
+        setDescription(getIntent().getStringExtra("description"));
+
         setRules();
         setPrizes();
-        setContacts("Contact Person 1", 9874563210L, "Contact Person 2", 3216549870L);
-        isFavouriteEvent = false; // TODO: 11/1/2016 according to event set this value
-        isReminderSet = false;  // TODO: 11/1/2016 according to event set this value
+        //setContacts("Contact Person 1", 9874563210L, "Contact Person 2", 3216549870L);
+        setContacts(getIntent().getStringExtra("contact1name"), getIntent().getLongExtra("contact1no", 9999999999l), getIntent().getStringExtra("contact2name"), getIntent().getLongExtra("contact2no", 9999999999l))
+
+        //isFavouriteEvent = false; // TODO: 11/1/2016 according to event set this value (FIXED below)
+        isFavouriteEvent = getIntent().getIntExtra("favorite", 0)==1 ? true : false;
+        // TODO: 11/11/2016 Set the action bar icon based on the value of isFavouriteEvent
+
+        //isReminderSet = false;  // TODO: 11/1/2016 according to event set this value (FIXED below)
+        isReminderSet = getIntent().getIntExtra("reminder", 0)==1 ? true : false;
+        // TODO: 11/11/2016 Set the action bar icon based on the value of isReminderSet
 
         ImageView mainImageView = (ImageView) findViewById(R.id.main_imageView);
         assert mainImageView != null;
-        mainImageView.setImageResource(R.drawable.virtual_stock_market); // TODO: 11/2/2016 according to event set this value
+        //mainImageView.setImageResource(R.drawable.virtual_stock_market); // TODO: 11/2/2016 according to event set this value (FIXED below)
+        mainImageView.setImageResource(getIntent().getIntExtra("image", R.drawable.virtual_stock_market));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Snackbar snackbar = Snackbar.make(view, "Do you want to register ?", Snackbar.LENGTH_LONG);
+                final Snackbar snackbar = Snackbar.make(view, "Do you want to register?", Snackbar.LENGTH_LONG);
                 snackbar.setAction("Yes", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -237,20 +252,48 @@ public class EventDetails extends AppCompatActivity {
 
     private void setFavourite(MenuItem menuItem, boolean isFavourite) {
         isFavouriteEvent = isFavourite;
-        // TODO: 11/2/2016 logic to update db
-        if (isFavourite) {
+
+        // TODO: 11/2/2016 logic to update db (FIXED below)
+        ContentResolver contentResolver = getContentResolver();
+        Uri uri = Uri.parse("content://spit.matrix2017.provider");
+        String selection = "name = ?";
+        String[] selectionArgs = {getIntent().getStringExtra("name")};
+        ContentValues cv = new ContentValues();
+
+        if (isFavourite)
+        {
+            cv.put("favorite", 1);
+            contentResolver.update(uri, cv, selection, selectionArgs);
             menuItem.setIcon(R.drawable.heart_red_filled);
-        } else {
+        }
+        else
+        {
+            cv.put("favorite", 0);
+            contentResolver.update(uri, cv, selection, selectionArgs);
             menuItem.setIcon(R.drawable.heart_white_filled);
         }
     }
 
     private void setReminder(MenuItem menuItem, boolean isReminderSet) {
         this.isReminderSet = isReminderSet;
-        // TODO: 11/2/2016 logic to update db
-        if (isReminderSet) {
+
+        // TODO: 11/2/2016 logic to update db (FIXED below)
+        ContentResolver contentResolver = getContentResolver();
+        Uri uri = Uri.parse("content://spit.matrix2017.provider");
+        String selection = "name = ?";
+        String[] selectionArgs = {getIntent().getStringExtra("name")};
+        ContentValues cv = new ContentValues();
+
+        if (isReminderSet)
+        {
+            cv.put("reminder", 1);
+            contentResolver.update(uri, cv, selection, selectionArgs);
             menuItem.setIcon(R.drawable.bell_ring);
-        } else {
+        }
+        else
+        {
+            cv.put("reminder", 0);
+            contentResolver.update(uri, cv, selection, selectionArgs);
             menuItem.setIcon(R.drawable.bell_ring_outline);
         }
     }
