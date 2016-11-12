@@ -1,5 +1,7 @@
 package spit.matrix2017.Fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -10,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -77,6 +80,121 @@ public class DevelopersFragment extends Fragment {
         Picasso.with(getActivity()).load(R.drawable.shubhammahajan).into(image5);
         Picasso.with(getActivity()).load(R.drawable.shubhammahajan).into(image6);
 
+
+        View.OnClickListener linkListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri;
+                switch (v.getId()){
+
+                    /*Google+ links*/
+                    case R.id.google_tejas:
+                        uri=Uri.parse(getResources().getString(R.string.googleplus_tejas));
+                        break;
+                    case R.id.google_shubham:
+                        uri=Uri.parse(getResources().getString(R.string.googleplus_shubham));
+                        break;
+                    case R.id.google_adnan:
+                        uri=Uri.parse(getResources().getString(R.string.googleplus_adnan));
+                        break;
+                    case R.id.google_rohit:
+                        uri=Uri.parse(getResources().getString(R.string.googleplus_rohit));
+                        break;
+                    case R.id.google_mithil:
+                        uri=Uri.parse(getResources().getString(R.string.googleplus_mithil));
+                        break;
+                    case R.id.google_akshay:
+                        uri=Uri.parse(getResources().getString(R.string.googleplus_akshay));
+                        break;
+
+                    /*LInkedin Links*/
+                    case R.id.linkedin_tejas:
+                        uri=Uri.parse(getResources().getString(R.string.linkedin_tejas));
+                        break;
+                    case R.id.linkedin_shubham:
+                        uri=Uri.parse(getResources().getString(R.string.linkedin_shubham));
+                        break;
+                    case R.id.linkedin_adnan:
+                        uri=Uri.parse(getResources().getString(R.string.linkedin_adnan));
+                        break;
+                    case R.id.linkedin_rohit:
+                        uri=Uri.parse(getResources().getString(R.string.linkedin_rohit));
+                        break;
+                    case R.id.linkedin_mithil:
+                        uri=Uri.parse(getResources().getString(R.string.linkedin_mithil));
+                        break;
+                    case R.id.linkedin_akshay:
+                        uri=Uri.parse(getResources().getString(R.string.linkedin_akshay));
+                        break;
+                    default:uri =Uri.parse(getResources().getString(R.string.linkedin_tejas));
+                }
+                Intent i = new Intent(Intent.ACTION_VIEW,uri);
+                try{
+                    startActivity(i);
+                }
+                catch (Exception e){
+                    Toast.makeText(getActivity(),"Error Loading Link",Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        };
+
+    View.OnClickListener emailListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String to="";
+            switch (v.getId()){
+                /*Email Ids*/
+                case R.id.emailId_tejas:
+                    to = getResources().getString(R.string.email_tejas);
+                    break;
+                case R.id.emailId_shubham:
+                    to = getResources().getString(R.string.email_shubham);
+                    break;
+                case R.id.emailId_adnan:
+                    to = getResources().getString(R.string.email_adnan);
+                    break;
+                case R.id.emailId_rohit:
+                    to = getResources().getString(R.string.email_rohit);
+                    break;
+                case R.id.emailId_mithil:
+                    to = getResources().getString(R.string.email_mithil);
+                    break;
+                case R.id.emailId_akshay:
+                    to = getResources().getString(R.string.email_akshay);
+                    break;
+            }
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_SENDTO);
+            intent.setType("text/plain");
+            intent.setData(Uri.parse("mailto:"+to));
+            intent.putExtra(Intent.EXTRA_EMAIL,to);
+            try{
+                startActivity(Intent.createChooser(intent,"Send Email"));
+            }
+            catch(Exception e){
+                Toast.makeText(getActivity(),e.getStackTrace().toString(), Toast.LENGTH_SHORT).show();
+            }
+            }
+        };
+        email1.setOnClickListener(emailListener);
+        email2.setOnClickListener(emailListener);
+        email3.setOnClickListener(emailListener);
+        email4.setOnClickListener(emailListener);
+        email5.setOnClickListener(emailListener);
+        email6.setOnClickListener(emailListener);
+        g1.setOnClickListener(linkListener);
+        g2.setOnClickListener(linkListener);
+        g3.setOnClickListener(linkListener);
+        g4.setOnClickListener(linkListener);
+        g5.setOnClickListener(linkListener);
+        g6.setOnClickListener(linkListener);
+        l1.setOnClickListener(linkListener);
+        l2.setOnClickListener(linkListener);
+        l3.setOnClickListener(linkListener);
+        l4.setOnClickListener(linkListener);
+        l5.setOnClickListener(linkListener);
+        l6.setOnClickListener(linkListener);
 
         return view;
     }
