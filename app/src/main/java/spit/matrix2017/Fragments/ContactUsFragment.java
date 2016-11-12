@@ -1,56 +1,54 @@
-package spit.matrix2017.Activities;
+package spit.matrix2017.Fragments;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
+import android.support.design.widget.AppBarLayout;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatImageButton;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import spit.matrix2017.Activities.MainActivity;
 import spit.matrix2017.R;
 
 /**
- * Created by Tejas on 10/11/2016.
+ * Created by DELL on 12/11/2016.
  */
 
-public class ContactUs extends AppCompatActivity {
+public class ContactUsFragment extends Fragment {
 
-    private Toolbar toolbar;
-    private DrawerLayout drawerLayout;
-    private NavigationView navigationView;
-    private ActionBarDrawerToggle actionBarDrawerToggle;
     AppCompatImageButton contact_one_Button,contact_two_Button,save_one_Button,save_two_Button;
     TextView emailId_matrix_TextView;
     Button findOnMap;
 
+    public ContactUsFragment(){}
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contactus);
+    }
 
-        toolbar = (Toolbar)findViewById(R.id.toolbar_committee);
-        setSupportActionBar(toolbar);
-        setTitle(R.string.contact_us);
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_contactus,container,false);
 
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView)findViewById(R.id.navigation_view);
-        findOnMap =(Button)findViewById(R.id.findOnMap);
-        contact_one_Button =(AppCompatImageButton)findViewById(R.id.contact_us_call_one);
-        contact_two_Button =(AppCompatImageButton)findViewById(R.id.contact_us_call_two);
-        save_one_Button =(AppCompatImageButton)findViewById(R.id.contact_us_save_one);
-        save_two_Button=(AppCompatImageButton)findViewById(R.id.contact_us_save_two);
-        emailId_matrix_TextView= (TextView)findViewById(R.id.emailId_matrix_TextView);
+        AppBarLayout appBarLayout = ((MainActivity)getActivity()).getAppBarLayout();
+        appBarLayout.setExpanded(false);
+
+        findOnMap =(Button)view.findViewById(R.id.findOnMap);
+        contact_one_Button =(AppCompatImageButton)view.findViewById(R.id.contact_us_call_one);
+        contact_two_Button =(AppCompatImageButton)view.findViewById(R.id.contact_us_call_two);
+        save_one_Button =(AppCompatImageButton)view.findViewById(R.id.contact_us_save_one);
+        save_two_Button=(AppCompatImageButton)view.findViewById(R.id.contact_us_save_two);
+        emailId_matrix_TextView= (TextView)view.findViewById(R.id.emailId_matrix_TextView);
 
         emailId_matrix_TextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +63,7 @@ public class ContactUs extends AppCompatActivity {
                     startActivity(Intent.createChooser(intent,"Send Email"));
                 }
                 catch(Exception e){
-                    Toast.makeText(getApplicationContext(),e.getStackTrace().toString(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),e.getStackTrace().toString(),Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -123,54 +121,6 @@ public class ContactUs extends AppCompatActivity {
         save_one_Button.setOnClickListener(saveOnClickListener);
         save_two_Button.setOnClickListener(saveOnClickListener);
 
-
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
-                R.string.drawer_open,R.string.drawer_close);
-
-
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem item) {
-
-                        /*Add Your Intents here*/
-                        Intent intent;
-                        switch (item.getItemId()){
-                            case R.id.homepage_menuItem:
-                                finish();
-                                break;
-                            case R.id.favorites_menuItem:
-                                intent = new Intent(getApplicationContext(),Favorites.class);
-                                startActivity(intent);
-                                finish();
-                                break;
-                            case R.id.contact_us_menuItem:
-                                //do Nothing
-                                break;
-                            case R.id.sponsors_menuItem:
-                                intent = new Intent(getApplicationContext(),Sponsors.class);
-                                startActivity(intent);
-                                finish();
-                                break;
-                            case R.id.commitee_menuItem:
-                                // Do Nothing
-                                break;
-                            case R.id.developers_menuItem:
-                                intent = new Intent(getApplicationContext(),Developers.class);
-                                startActivity(intent);
-                                finish();
-                                break;
-                        }
-                        //item.setChecked(true);
-                        drawerLayout.closeDrawers();
-                        return true;
-                    }
-                }
-        );
-
-
+        return view;
     }
 }

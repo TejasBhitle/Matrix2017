@@ -4,26 +4,34 @@
     <group android:id="@+id/group1">
         <item
             android:title="Home"
-            android:id="@+id/homepage_menuItem"/>
+            android:id="@+id/homepage_menuItem"
+            android:icon="@drawable/svg_whatshot_white_48px"/>
         <item
             android:title="Favorites"
-            android:id="@+id/favorites_menuItem"/>
+            android:id="@+id/favorites_menuItem"
+            android:icon="@drawable/svg_favorite_white_48px"/>
+
         <item android:title="@string/contact_us"
-            android:id="@+id/contact_us_menuItem"/>
+            android:id="@+id/contact_us_menuItem"
+            android:icon="@drawable/svg_chat_white_48px"/>
+
         <item
             android:title="@string/sponsors"
-            android:id="@+id/sponsors_menuItem"/>
+            android:id="@+id/sponsors_menuItem"
+            android:icon="@drawable/svg_new_releases_white_48px"/>
+
     </group>
 
     <group android:id="@+id/group2">
         <item
             android:title="@string/committee"
-            android:id="@+id/commitee_menuItem"/>
+            android:id="@+id/commitee_menuItem"
+            android:icon="@drawable/svg_group_work_white_48px"/>
 
         <item
             android:title="@string/developers"
-            android:id="@+id/developers_menuItem"/>
-
+            android:id="@+id/developers_menuItem"
+            android:icon="@drawable/svg_code_white_48px"/>
     </group>
 
 </menu>

@@ -133,14 +133,14 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginEnd="8dp"
-                    android:background="@android:color/holo_blue_bright"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless"
                     android:src="@drawable/svg_save_white_48px" />
 
                 <android.support.v7.widget.AppCompatImageButton
                     android:id="@+id/call_contact_person_one"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="@android:color/holo_green_light"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless"
                     android:src="@drawable/svg_phone_white_24px" />
 
 
@@ -169,14 +169,14 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginEnd="8dp"
-                    android:background="@android:color/holo_blue_bright"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless"
                     android:src="@drawable/svg_save_white_48px" />
 
                 <android.support.v7.widget.AppCompatImageButton
                     android:id="@+id/call_contact_person_two"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:background="@android:color/holo_green_light"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless"
                     android:src="@drawable/svg_phone_white_24px" />
 
 

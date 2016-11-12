@@ -53,7 +53,7 @@ public class EventDetails
         setRules();
         setPrizes();
         //setContacts("Contact Person 1", 9874563210L, "Contact Person 2", 3216549870L);
-        setContacts(getIntent().getStringExtra("contact1name"), getIntent().getLongExtra("contact1no", 9999999999l), getIntent().getStringExtra("contact2name"), getIntent().getLongExtra("contact2no", 9999999999l))
+        setContacts(getIntent().getStringExtra("contact1name"), getIntent().getLongExtra("contact1no", 9999999999l), getIntent().getStringExtra("contact2name"), getIntent().getLongExtra("contact2no", 9999999999l));
 
         //isFavouriteEvent = false; // TODO: 11/1/2016 according to event set this value (FIXED below)
         isFavouriteEvent = getIntent().getIntExtra("favorite", 0)==1 ? true : false;
@@ -264,13 +264,13 @@ public class EventDetails
         {
             cv.put("favorite", 1);
             contentResolver.update(uri, cv, selection, selectionArgs);
-            menuItem.setIcon(R.drawable.heart_red_filled);
+            menuItem.setIcon(R.drawable.svg_favorite_white_48px);
         }
         else
         {
             cv.put("favorite", 0);
             contentResolver.update(uri, cv, selection, selectionArgs);
-            menuItem.setIcon(R.drawable.heart_white_filled);
+            menuItem.setIcon(R.drawable.ic_favorite_border_white_48px);
         }
     }
 

@@ -2,6 +2,7 @@ package spit.matrix2017;
 
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,7 @@ public class EventListFragment extends Fragment{
 
     public static EventListFragment newInstance(String category){
         EventListFragment fragment = new EventListFragment();
+        Log.i("ViewPagerFragment ",category);
         Bundle bundle = new Bundle();
         bundle.putString("data",category);
         fragment.setArguments(bundle);
@@ -60,28 +63,36 @@ public class EventListFragment extends Fragment{
 
 
         /*String Category contains the options of sorting into mega,fun,tech*/
-        arrayList = new ArrayList<>();
-        for(int i =0;i< 50;i++){
-            arrayList.add(category+" "+(i+1));
-        }
+
 
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragmentlayout,container,false);
+        View view = inflater.inflate(R.layout.recyclerview_layout,container,false);
+
+        arrayList = new ArrayList<>();
+        for(int i =0;i< 50;i++){
+            arrayList.add(category+" "+(i+1));
+        }
 
         recyclerView =(RecyclerView)view.findViewById(R.id.fragmentRecyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
-
-
-
-
-
         recyclerView.setAdapter(new EventListAdapter(arrayList,getActivity()));
         recyclerView.scrollToPosition(0);
         return view;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.i("Fragment attached",category);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.i("Fragment detached",category);
+    }
 }
