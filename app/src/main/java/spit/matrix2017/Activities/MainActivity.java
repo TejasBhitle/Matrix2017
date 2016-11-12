@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         setupDrawerLayout();
-
+        navigationView.getMenu().getItem(0).setChecked(true);
     }
 
 
