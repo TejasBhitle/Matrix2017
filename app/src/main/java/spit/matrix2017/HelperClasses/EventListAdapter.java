@@ -40,7 +40,19 @@ public class EventListAdapter extends
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, EventDetails.class);
-                i.putExtra("EVENT_NAME", string);
+                
+                //TODO: Replace with data fetched from database of the selected event
+                i.putExtra("name", "Virtual Stock Market");
+                i.putExtra("description", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.");
+                i.putExtra("venue", "Quadrangle");
+                i.putExtra("time", "9am to 5pm");
+                i.putExtra("contact1name", "Riya Bakhtiani");
+                i.putExtra("contact1no", 8888006180l);
+                i.putExtra("contact2name", "Jainam Soni");
+                i.putExtra("contact2no", 9619100569l);
+                i.putExtra("favorite", 0);
+                i.putExtra("reminder", 0);
+                
                 context.startActivity(i);
             }
         });
