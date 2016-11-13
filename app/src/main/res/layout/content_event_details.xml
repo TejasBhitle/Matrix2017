@@ -43,6 +43,29 @@
                 android:layout_height="wrap_content"
                 android:paddingEnd="8dp"
                 android:paddingStart="8dp" />
+            
+            <!--VENUE AND TIME-->
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/venue_time"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/white" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/venue_time_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp" />
 
             <!--RULES-->
 
@@ -93,14 +116,14 @@
                 android:paddingEnd="8dp"
                 android:paddingStart="8dp" />
 
-            <!--CONTACT US-->
+            <!--ORGANIZERS-->
 
             <android.support.v7.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/contact_us"
+                android:text="@string/organizers"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <View
@@ -115,7 +138,6 @@
             <android.support.v7.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:clipChildren="false"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
