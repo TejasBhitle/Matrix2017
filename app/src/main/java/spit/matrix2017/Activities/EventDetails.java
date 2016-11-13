@@ -49,9 +49,12 @@ public class EventDetails
         // TODO: 11/1/2016 Add logic to get selected event from db (FIXED [get it from intent instead])
         //setDescription(getString(R.string.fake_description));
         setDescription(getIntent().getStringExtra("description"));
+        
+        setVenueAndTime(getIntent().getStringExtra("venue"), getIntent().getStringExtra("time"));
 
         setRules();
         setPrizes();
+        
         //setContacts("Contact Person 1", 9874563210L, "Contact Person 2", 3216549870L);
         setContacts(getIntent().getStringExtra("contact1name"), getIntent().getLongExtra("contact1no", 9999999999l), getIntent().getStringExtra("contact2name"), getIntent().getLongExtra("contact2no", 9999999999l));
 
@@ -145,6 +148,12 @@ public class EventDetails
         AppCompatTextView descriptionTextView = (AppCompatTextView) findViewById(R.id.description_textView);
         assert descriptionTextView != null;
         descriptionTextView.setText(description);
+    }
+    
+    private void setVenueAndTime(String venue, String time) {
+        AppCompatTextView venueTimeTextView = (AppCompatTextView) findViewById(R.id.venue_time_textView);
+        assert venueTimeTextView != null;
+        venueTimeTextView.setText(venue+" ("+time+")");
     }
 
     private void setRules() {
