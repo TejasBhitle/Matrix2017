@@ -3,12 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="spit.matrix2017.Activities.EventDetails">
     <item
-        android:id="@+id/action_add_to_favourites"
-        android:icon="@drawable/ic_favorite_border_white_48px"
-        android:orderInCategory="1"
-        android:title="@string/add_to_favourites"
-        app:showAsAction="always" />
-    <item
         android:id="@+id/action_set_reminder"
         android:icon="@drawable/alarm_plus"
         android:orderInCategory="2"
