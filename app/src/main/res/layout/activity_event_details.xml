@@ -55,6 +55,6 @@
         app:fabSize="normal"
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/ic_create_white_48dp" />
+        app:srcCompat="@drawable/ic_favorite_border_white_48px" />
 
 </android.support.design.widget.CoordinatorLayout>
