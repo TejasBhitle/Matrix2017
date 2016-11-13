@@ -9,7 +9,6 @@ import android.provider.ContactsContract;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
@@ -73,17 +72,32 @@ public class EventDetails
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
-        fab.setOnClickListener(new View.OnClickListener() {
+        if(isFavouriteEvent)
+                fab.setImageResource(R.drawable.svg_favorite_white_48px);
+        fab.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                final Snackbar snackbar = Snackbar.make(view, "Do you want to register?", Snackbar.LENGTH_LONG);
-                snackbar.setAction("Yes", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // TODO: 11/1/2016 Add intent to open google form in browser
-                    }
-                });
-                snackbar.show();
+            public void onClick(View view)
+            {
+                isFavouriteEvent = !isFavouriteEvent;
+                ContentResolver contentResolver = getContentResolver();
+                Uri uri = Uri.parse("content://spit.matrix2017.provider");
+                String selection = "name = ?";
+                String[] selectionArgs = {getIntent().getStringExtra("name")};
+                ContentValues cv = new ContentValues();
+                
+                if(isFavouriteEvent)
+                {
+                    cv.put("favorite", 1);
+                    contentResolver.update(uri, cv, selection, selectionArgs);
+                    Toast.makeText(EventDetails.this, "Added to favorites", Toast.LENGTH_SHORT).show();
+                    fab.setImageResource(R.drawable.svg_favorite_white_48px);
+                }
+                else
+                {
+                    cv.put("favorite", 0);
+                    contentResolver.update(uri, cv, selection, selectionArgs);
+                    fab.setImageResource(R.drawable.ic_favorite_border_white_48px);
+                }
             }
         });
     }
@@ -95,8 +109,8 @@ public class EventDetails
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        setFavourite(menu.findItem(R.id.action_add_to_favourites), isFavouriteEvent);
+    public boolean onPrepareOptionsMenu(Menu menu)
+    {
         setReminder(menu.findItem(R.id.action_set_reminder), isReminderSet);
         return super.onPrepareOptionsMenu(menu);
     }
@@ -104,9 +118,6 @@ public class EventDetails
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_add_to_favourites:
-                setFavourite(item, !isFavouriteEvent); //used as toggle
-                break;
             case R.id.action_set_reminder:
                 setReminder(item, !isReminderSet); //used as toggle
                 break;
@@ -257,30 +268,6 @@ public class EventDetails
         saveOne.setOnClickListener(saveOnClickListener);
         assert saveTwo != null;
         saveTwo.setOnClickListener(saveOnClickListener);
-    }
-
-    private void setFavourite(MenuItem menuItem, boolean isFavourite) {
-        isFavouriteEvent = isFavourite;
-
-        // TODO: 11/2/2016 logic to update db (FIXED below)
-        ContentResolver contentResolver = getContentResolver();
-        Uri uri = Uri.parse("content://spit.matrix2017.provider");
-        String selection = "name = ?";
-        String[] selectionArgs = {getIntent().getStringExtra("name")};
-        ContentValues cv = new ContentValues();
-
-        if (isFavourite)
-        {
-            cv.put("favorite", 1);
-            contentResolver.update(uri, cv, selection, selectionArgs);
-            menuItem.setIcon(R.drawable.svg_favorite_white_48px);
-        }
-        else
-        {
-            cv.put("favorite", 0);
-            contentResolver.update(uri, cv, selection, selectionArgs);
-            menuItem.setIcon(R.drawable.ic_favorite_border_white_48px);
-        }
     }
 
     private void setReminder(MenuItem menuItem, boolean isReminderSet) {
