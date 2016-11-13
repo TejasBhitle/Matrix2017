@@ -18,8 +18,8 @@
     <string name="developers">Developers</string>
 
     <!--Contact us Details -->
-    <string name="college_name">Sardar Patel Institute Of Technology</string>
-    <string name="college_address">Bharatiya Vidya Bhavans Sardar Patel Institute of Technology Munshi Nagar, Andheri (West), Mumbai 400 058</string>
+    <string name="college_name">Sardar Patel Institute of Technology</string>
+    <string name="college_address">Bharatiya Vidya Bhavan\'s Sardar Patel Institute of Technology, Munshi Nagar, Andheri (West), Mumbai 400 058</string>
     <string name="contact_us_contact1_name">Contact 1</string>
     <string name="contact_us_contact1_number">0000000017</string>
     <string name="contact_us_contact2_name">Contact 2</string>
@@ -62,10 +62,12 @@
     </string>
 
     <string name="action_settings">Settings</string>
+    
     <string name="description">Description</string>
+    <string name="venue_time">Venue and Time</string>
     <string name="rules">Rules</string>
     <string name="prizes">Prizes</string>
-    <string name="contact_us">Contact Us</string>
+    <string name="organizers">Organizers</string>
     <string name="contact_person_two">Contact Person Two (9874561230)</string>
     <string name="contact_person_one">Contact Person One (3120456987)</string>
     <string name="fake_rules">
