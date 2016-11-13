@@ -62,7 +62,7 @@ public class MatrixContentProvider extends ContentProvider{
     //////////Data of each event//////////
     private final Event[] events = new Event[]{
             new Event("Blind Car Racing", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.", R.drawable.blind_car_racing, "Fun", "Quadrangle", "9am to 5pm", "Vaishnavi Sidhamshettiwar", 9765696994l, "Shriya Khatri", 8806060736l),
-            new Event("Escape Plan", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.", R.drawable.escape_plan, "Fun" "Quadrangle", "9am to 5pm", "Rishi Vedula", 9967009530l, "Ameya Vatkar", 9920666361l),
+            new Event("Escape Plan", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.", R.drawable.escape_plan, "Fun", "Quadrangle", "9am to 5pm", "Rishi Vedula", 9967009530l, "Ameya Vatkar", 9920666361l),
             new Event("Human Foosball", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.", R.drawable.human_foosball, "Fun", "Quadrangle", "9am to 5pm", "Shlok Gujar", 9930556978l, "Rutvij Mehta", 9930018260l),
             new Event("LAN Gaming", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.", R.drawable.lan_gaming, "Fun", "Quadrangle", "9am to 5pm", "Sai Yerremreddy", 8652259207l, "Manas Shukla", 9987014677l),
             new Event("LAN Mafia", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.", R.drawable.lan_mafia, "Fun", "Quadrangle", "9am to 5pm", "Krinshna Kancharla", 9022057698l, "Nishchint Jagdale", 8425097544l),
@@ -142,6 +142,7 @@ public class MatrixContentProvider extends ContentProvider{
             for(Event event: events)
             {
                 cv.put(COL_EVENT_NAME, event.name);
+                cv.put(COL_EVENT_DESCRIPTION, event.description);
                 cv.put(COL_EVENT_IMAGE, event.image);
                 cv.put(COL_EVENT_CATEGORY, event.category);
                 cv.put(COL_EVENT_VENUE, event.venue);
