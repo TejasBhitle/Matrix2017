@@ -286,13 +286,13 @@ public class EventDetails
         {
             cv.put("reminder", 1);
             contentResolver.update(uri, cv, selection, selectionArgs);
-            menuItem.setIcon(R.drawable.bell_ring);
+            menuItem.setIcon(R.drawable.svg_alarm_on_white_48px);
         }
         else
         {
             cv.put("reminder", 0);
             contentResolver.update(uri, cv, selection, selectionArgs);
-            menuItem.setIcon(R.drawable.bell_ring_outline);
+            menuItem.setIcon(R.drawable.svg_alarm_add_white_48px);
         }
     }
 }

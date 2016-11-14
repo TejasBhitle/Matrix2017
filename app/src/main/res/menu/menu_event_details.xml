@@ -4,7 +4,7 @@
     tools:context="spit.matrix2017.Activities.EventDetails">
     <item
         android:id="@+id/action_set_reminder"
-        android:icon="@drawable/alarm_plus"
+        android:icon="@drawable/svg_alarm_add_white_48px"
         android:orderInCategory="2"
         android:title="@string/set_reminder"
         app:showAsAction="always" />
