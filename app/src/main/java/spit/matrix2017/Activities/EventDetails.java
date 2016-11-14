@@ -3,6 +3,9 @@ package spit.matrix2017.Activities;
 import android.content.Intent;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -19,6 +22,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.graphics.Palette;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -69,8 +75,29 @@ public class EventDetails
 
         ImageView mainImageView = (ImageView) findViewById(R.id.main_imageView);
         assert mainImageView != null;
-        //mainImageView.setImageResource(R.drawable.virtual_stock_market); // TODO: 11/2/2016 according to event set this value (FIXED below)
-        mainImageView.setImageResource(getIntent().getIntExtra("image", R.drawable.virtual_stock_market));
+
+        //Picasso.with(this).load(R.drawable.virtual_stock_market).into(mainImageView); // TODO: 11/14/2016 use Picasso to set background image
+        mainImageView.setImageResource(getIntent().getIntExtra("image", R.drawable.human_foosball));
+
+        /*Code To generate Colors according to imageview*/
+        Bitmap mainImage = BitmapFactory.decodeResource(this.getResources(), R.drawable.human_foosball);
+
+        Palette.from(mainImage).generate(new Palette.PaletteAsyncListener() {
+            @Override
+            public void onGenerated(Palette palette) {
+                // Get the "vibrant" color swatch based on the bitmap
+                Palette.Swatch vibrant = palette.getDarkVibrantSwatch();
+                if (vibrant != null) {
+                    // Set the background color of a layout based on the vibrant color
+                    //fab.setBackgroundColor(vibrant.getRgb());
+                    fab.setBackgroundTintList(ColorStateList.valueOf(vibrant.getRgb()));
+                    // Update the title TextView with the proper text color
+                    //titleView.setTextColor(vibrant.getTitleTextColor());
+                }
+            }
+        });
+
+
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
@@ -99,6 +126,7 @@ public class EventDetails
                     cv.put("favorite", 0);
                     contentResolver.update(uri, cv, selection, selectionArgs);
                     fab.setImageResource(R.drawable.ic_favorite_border_white_48px);
+                    Toast.makeText(EventDetails.this, "Removed from favorites", Toast.LENGTH_SHORT).show();
                 }
             }
         });
