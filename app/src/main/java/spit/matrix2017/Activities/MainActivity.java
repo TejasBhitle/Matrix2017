@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         //instantiation
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
-        setTitle(R.string.app_name);
 
         navigationView =(NavigationView)findViewById(R.id.navigation_view);
         drawerLayout =(DrawerLayout)findViewById(R.id.drawer_layout);
@@ -74,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         return appBarLayout;
     }
 
-    public Toolbar getToolbar(){return toolbar;}
 
     public void setupDrawerLayout(){
         navigationView.setNavigationItemSelectedListener(
@@ -111,6 +109,13 @@ public class MainActivity extends AppCompatActivity {
                                 fragmentTransaction.addToBackStack(null);
                                 fragmentTransaction.commit();
                                 break;
+                            case R.id.share_app_menuItem:
+                                Intent intent = new Intent();
+                                intent.setAction(Intent.ACTION_SEND);
+                                intent.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.playstore_link));
+                                intent.setType("text/plain");
+                                startActivity(Intent.createChooser(intent,getResources().getString(R.string.share_message)));
+                                break;
                             case R.id.commitee_menuItem:
                                 getSupportFragmentManager().popBackStackImmediate();
                                 fragmentTransaction.replace(R.id.fragment_container,new CommitteeFragment());
@@ -138,24 +143,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.mainactivity_menu,menu);
-        return true;
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
-                return true;
-            case R.id.share_menuItem:
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.playstore_link));
-                intent.setType("text/plain");
-                startActivity(Intent.createChooser(intent,getResources().getString(R.string.share_message)));
                 return true;
         }
 

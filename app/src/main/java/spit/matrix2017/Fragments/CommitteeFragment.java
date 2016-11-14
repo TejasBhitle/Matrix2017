@@ -26,7 +26,6 @@ public class CommitteeFragment extends Fragment {
         AppBarLayout appBarLayout = ((MainActivity)getActivity()).getAppBarLayout();
         appBarLayout.setExpanded(false);
 
-
         return view;
     }
 }
