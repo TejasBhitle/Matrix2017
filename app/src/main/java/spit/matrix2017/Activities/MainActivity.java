@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import spit.matrix2017.Fragments.CommitteeFragment;
 import spit.matrix2017.Fragments.ContactUsFragment;
 import spit.matrix2017.Fragments.DevelopersFragment;
 import spit.matrix2017.Fragments.FavoritesFragment;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         //instantiation
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
-        //setTitle("");
+        setTitle(R.string.app_name);
 
         navigationView =(NavigationView)findViewById(R.id.navigation_view);
         drawerLayout =(DrawerLayout)findViewById(R.id.drawer_layout);
@@ -72,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
     public AppBarLayout getAppBarLayout(){
         return appBarLayout;
     }
+
+    public Toolbar getToolbar(){return toolbar;}
 
     public void setupDrawerLayout(){
         navigationView.setNavigationItemSelectedListener(
@@ -109,7 +112,10 @@ public class MainActivity extends AppCompatActivity {
                                 fragmentTransaction.commit();
                                 break;
                             case R.id.commitee_menuItem:
-                                Toast.makeText(getApplicationContext(),"Yet To Code",Toast.LENGTH_SHORT).show();
+                                getSupportFragmentManager().popBackStackImmediate();
+                                fragmentTransaction.replace(R.id.fragment_container,new CommitteeFragment());
+                                fragmentTransaction.addToBackStack(null);
+                                fragmentTransaction.commit();
                                 break;
                             case R.id.developers_menuItem:
                                 getSupportFragmentManager().popBackStackImmediate();
@@ -162,6 +168,6 @@ public class MainActivity extends AppCompatActivity {
         if(drawerLayout.isDrawerOpen(GravityCompat.START))
             drawerLayout.closeDrawers();
         else
-            finish();
+            super.onBackPressed();
     }
 }

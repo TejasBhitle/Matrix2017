@@ -33,7 +33,6 @@ public class SponsorsFragment extends Fragment {
 
 
 
-
         return view;
     }
 }

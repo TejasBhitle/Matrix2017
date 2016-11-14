@@ -43,6 +43,7 @@ public class DevelopersFragment extends Fragment {
         AppBarLayout appBarLayout = ((MainActivity)getActivity()).getAppBarLayout();
         appBarLayout.setExpanded(false);
 
+
         email1 =(TextView)view.findViewById(R.id.emailId_tejas);
         email2 =(TextView)view.findViewById(R.id.emailId_shubham);
         email3 =(TextView)view.findViewById(R.id.emailId_adnan);

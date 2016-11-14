@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,7 @@ public class EventDetails
 {
     private boolean isFavouriteEvent;
     private boolean isReminderSet;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -70,7 +72,7 @@ public class EventDetails
         //mainImageView.setImageResource(R.drawable.virtual_stock_market); // TODO: 11/2/2016 according to event set this value (FIXED below)
         mainImageView.setImageResource(getIntent().getIntExtra("image", R.drawable.virtual_stock_market));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
         if(isFavouriteEvent)
                 fab.setImageResource(R.drawable.svg_favorite_white_48px);

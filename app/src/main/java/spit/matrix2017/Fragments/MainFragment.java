@@ -45,6 +45,7 @@ public class MainFragment extends Fragment {
         viewPager = (ViewPager)view.findViewById(R.id.fragment_viewPager_tabLayout);
         tabLayout =(TabLayout)view.findViewById(R.id.main_fragment_tabLayout);
 
+
         AppBarLayout main_appBarLayout = ((MainActivity)getActivity()).getAppBarLayout();
         main_appBarLayout.setExpanded(true);
 

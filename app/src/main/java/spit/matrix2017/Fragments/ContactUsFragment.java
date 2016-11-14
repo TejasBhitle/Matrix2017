@@ -43,6 +43,7 @@ public class ContactUsFragment extends Fragment {
         AppBarLayout appBarLayout = ((MainActivity)getActivity()).getAppBarLayout();
         appBarLayout.setExpanded(false);
 
+
         findOnMap =(Button)view.findViewById(R.id.findOnMap);
         contact_one_Button =(AppCompatImageButton)view.findViewById(R.id.contact_us_call_one);
         contact_two_Button =(AppCompatImageButton)view.findViewById(R.id.contact_us_call_two);
