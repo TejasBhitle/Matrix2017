@@ -77,22 +77,18 @@ public class EventDetails
         assert mainImageView != null;
 
         //Picasso.with(this).load(R.drawable.virtual_stock_market).into(mainImageView); // TODO: 11/14/2016 use Picasso to set background image
-        mainImageView.setImageResource(getIntent().getIntExtra("image", R.drawable.human_foosball));
+        mainImageView.setImageResource(getIntent().getIntExtra("image", R.drawable.virtual_stock_market));
 
         /*Code To generate Colors according to imageview*/
-        Bitmap mainImage = BitmapFactory.decodeResource(this.getResources(), R.drawable.human_foosball);
-
+        Bitmap mainImage = BitmapFactory.decodeResource(this.getResources(), R.drawable.virtual_stock_market);
         Palette.from(mainImage).generate(new Palette.PaletteAsyncListener() {
             @Override
             public void onGenerated(Palette palette) {
                 // Get the "vibrant" color swatch based on the bitmap
                 Palette.Swatch vibrant = palette.getDarkVibrantSwatch();
                 if (vibrant != null) {
-                    // Set the background color of a layout based on the vibrant color
-                    //fab.setBackgroundColor(vibrant.getRgb());
                     fab.setBackgroundTintList(ColorStateList.valueOf(vibrant.getRgb()));
-                    // Update the title TextView with the proper text color
-                    //titleView.setTextColor(vibrant.getTitleTextColor());
+                    fab.setRippleColor(vibrant.getTitleTextColor());
                 }
             }
         });
