@@ -181,6 +181,7 @@ public class EventDetails
         });
     }
 
+
     private void setDescription(String description) {
         AppCompatTextView descriptionTextView = (AppCompatTextView) findViewById(R.id.description_textView);
         assert descriptionTextView != null;
