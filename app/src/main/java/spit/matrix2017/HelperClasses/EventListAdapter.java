@@ -2,7 +2,10 @@ package spit.matrix2017.HelperClasses;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,11 +36,13 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
         TextView eventTitle;
         private static final int PALETTE_SIZE = 12; /* 24 is default size. You can decrease this value to speed up palette generation */
         ImageView thumbnail;
+        View background;
 
         MyViewHolder(View view) {
             super(view);
             eventTitle= (TextView) view.findViewById(R.id.event_title);
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
+            background =(View)view.findViewById(R.id.textView_background);
         }
 
 
@@ -91,8 +96,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
 
 
 
-
-
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
 
@@ -103,12 +106,13 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
         holder.thumbnail.setTag(eventName);
         holder.eventTitle.setText(eventName.getName());
 
-//        int lastPosition=-1;
-//        Animation animation = AnimationUtils.loadAnimation(mContext,
-//                (position > lastPosition) ? R.anim.up_from_bottom
-//                        : R.anim.down_from_top);
-//        holder.itemView.startAnimation(animation);
-//        lastPosition = position;
+
+        /*int lastPosition=-1;
+        Animation animation = AnimationUtils.loadAnimation(mContext,
+                (position > lastPosition) ? R.anim.up_from_bottom
+                        : R.anim.down_from_top);
+        holder.itemView.startAnimation(animation);
+        lastPosition = position;*/
 
     }
 

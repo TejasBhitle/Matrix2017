@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -82,7 +84,7 @@ public class EventListFragment extends Fragment{
         mRecyclerView = (RecyclerView) view.findViewById(R.id.fragmentRecyclerView);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        //mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 //        mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getAllCards()));
 
