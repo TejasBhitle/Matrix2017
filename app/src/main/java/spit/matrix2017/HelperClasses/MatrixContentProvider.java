@@ -15,7 +15,7 @@ import java.util.List;
 
 import spit.matrix2017.R;
 
-public class MatrixContentProvider extends ContentProvider{
+public class MatrixContentProvider extends ContentProvider {
     //////////Database strings//////////
     private static final String DB_NAME = "MatrixDB.sqlite";
     private static final int DB_VERSION = 2;
@@ -73,8 +73,7 @@ public class MatrixContentProvider extends ContentProvider{
     MatrixDBConnectionHelper helper;
 
     @Override
-    public boolean onCreate()
-    {
+    public boolean onCreate() {
         helper = new MatrixDBConnectionHelper(getContext());
         db = helper.getWritableDatabase();
 
@@ -83,53 +82,45 @@ public class MatrixContentProvider extends ContentProvider{
 
     @Nullable
     @Override
-    public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder)
-    {
+    public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         return db.query(TABLE_EVENTS, projection, selection, selectionArgs, null, null, sortOrder);
     }
 
     @Nullable
     @Override
-    public String getType(@NonNull Uri uri)
-    {
+    public String getType(@NonNull Uri uri) {
         return null;
     }
 
     @Nullable
     @Override
-    public Uri insert(@NonNull Uri uri, ContentValues values)
-    {
-        if(db.insert(TABLE_EVENTS, null, values) == -1)
+    public Uri insert(@NonNull Uri uri, ContentValues values) {
+        if (db.insert(TABLE_EVENTS, null, values) == -1)
             throw new RuntimeException("Error while adding event");
         return null;
     }
 
     @Override
-    public int delete(@NonNull Uri uri, String selection, String[] selectionArgs)
-    {
+    public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
         return db.delete(TABLE_EVENTS, selection, selectionArgs);
     }
 
     @Override
-    public int update(@NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs)
-    {
+    public int update(@NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         return db.update(TABLE_EVENTS, values, selection, selectionArgs);
     }
 
     //////////Connection helper//////////
     public class MatrixDBConnectionHelper
-            extends SQLiteOpenHelper
-    {
+            extends SQLiteOpenHelper {
         @Override
-        public void onCreate(SQLiteDatabase db)
-        {
+        public void onCreate(SQLiteDatabase db) {
             db.execSQL(CREATE_TABLE_EVENTS_QUERY);
 
             ContentValues cv = new ContentValues();
             cv.put(COL_EVENT_FAVORITE, 0);
             cv.put(COL_EVENT_REMINDER, 0);
-            for(Event event: events)
-            {
+            for (Event event : events) {
                 cv.put(COL_EVENT_NAME, event.getName());
                 cv.put(COL_EVENT_DESCRIPTION, event.getDescription());
                 cv.put(COL_EVENT_IMAGE, event.getImage());
@@ -146,20 +137,18 @@ public class MatrixContentProvider extends ContentProvider{
         }
 
         @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
-        {
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         }
 
-        public MatrixDBConnectionHelper(Context context)
-        {
+        public MatrixDBConnectionHelper(Context context) {
             super(context, DB_NAME, null, DB_VERSION);
         }
 
 
-        public List<Event> getData(String name, int db_position, int list_position)
+        public List<Event> getData(String name, int db_position)
         /*here position is the column no according to which we want to fetch data. For sorting according to category,
-         position is 4(coumn array position), name is Category name and list_position is -1. For fetching using name, we use position 1 and name is Event name and list_positon
-         as index of that particular list
+         position is 4(coumn array position), name is Category name. For fetching using name, we use position 1 and get(position) will get us
+         the respective value in the list
         */
 
         {
@@ -167,11 +156,7 @@ public class MatrixContentProvider extends ContentProvider{
 
             SQLiteDatabase db = getReadableDatabase();
             String[] columns = {COL_EVENT_ID, COL_EVENT_NAME, COL_EVENT_DESCRIPTION, COL_EVENT_IMAGE, COL_EVENT_CATEGORY, COL_EVENT_VENUE, COL_EVENT_TIME, COL_EVENT_CONTACT1_NAME, COL_EVENT_CONTACT1_NO, COL_EVENT_CONTACT2_NAME, COL_EVENT_CONTACT2_NO, COL_EVENT_FAVORITE, COL_EVENT_REMINDER};
-            Cursor cursor=null;
-            if(list_position==-1)
-                cursor = db.query(TABLE_EVENTS, columns, columns[db_position] + " = '" + name + "'", null, null, null, null);
-            else
-                cursor = db.query(TABLE_EVENTS, columns, columns[db_position] + " = '" + name + "'", null, null, null, null);
+            Cursor cursor= db.query(TABLE_EVENTS, columns, columns[db_position] + " = '" + name + "'", null, null, null, null);
 
             int index1 = cursor.getColumnIndex(COL_EVENT_NAME);
             int index2 = cursor.getColumnIndex(COL_EVENT_DESCRIPTION);
@@ -185,22 +170,24 @@ public class MatrixContentProvider extends ContentProvider{
             int index10 = cursor.getColumnIndex(COL_EVENT_CONTACT2_NO);
             int index11 = cursor.getColumnIndex(COL_EVENT_FAVORITE);
             int index12 = cursor.getColumnIndex(COL_EVENT_REMINDER);
+            String name_event, desc, category, venue, time, contact_name1, contact_name2, contact_no1, contact_no2;
+            int img, fav, reminder;
 
             while (cursor.moveToNext()) {
-                String name_event = cursor.getString(index1);
-                String desc = cursor.getString(index2);
-                int img = cursor.getInt(index3);
-                String categoty = cursor.getString(index4);
-                String venue = cursor.getString(index5);
-                String time = cursor.getString(index6);
-                String contact_name1 = cursor.getString(index7);
-                String contact_no1 = cursor.getString(index8);
-                String contact_name2 = cursor.getString(index9);
-                String contact_no2 = cursor.getString(index10);
-                int fav = cursor.getInt(index11);
-                int reminder = cursor.getInt(index12);
+                name_event = cursor.getString(index1);
+                desc = cursor.getString(index2);
+                img = cursor.getInt(index3);
+                category = cursor.getString(index4);
+                venue = cursor.getString(index5);
+                time = cursor.getString(index6);
+                contact_name1 = cursor.getString(index7);
+                contact_no1 = cursor.getString(index8);
+                contact_name2 = cursor.getString(index9);
+                contact_no2 = cursor.getString(index10);
+                fav = cursor.getInt(index11);
+                reminder = cursor.getInt(index12);
 
-                Event event = new Event(name_event,desc,img,categoty,venue,time,contact_name1,contact_no1,contact_name2,contact_no2,fav,reminder);
+                Event event = new Event(name_event, desc, img, category, venue, time, contact_name1, contact_no1, contact_name2, contact_no2, fav, reminder);
                 list.add(event);
             }
             cursor.close();
