@@ -99,32 +99,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
         eventName = eventNames.get(position);
         holder.eventTitle.setText(eventName.getName());
 
-//        holder.thumbnail.setImageDrawable(null);
-
-//        Picasso.with(context).load(android_versions.get(i).getAndroid_image_url()).resize(120, 60).into(viewHolder.img_android);
-
-
-        Picasso.with(holder.thumbnail.getContext())
-                .load(eventName.getImage())
-                .into(new Target() {
-                    @Override
-                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                        holder.thumbnail.setImageBitmap(bitmap);
-                        // holder.updatePalette();
-                        Log.d(TAG, "on success");
-                    }
-
-                    @Override
-                    public void onBitmapFailed(Drawable errorDrawable) {
-//                        holder.mLoadingImageView.setVisibility(View.GONE);
-                        Log.d(TAG, "on error");
-                    }
-
-                    @Override
-                    public void onPrepareLoad(Drawable placeHolderDrawable) {
-//                        holder.mLoadingImageView.setVisibility(View.VISIBLE);
-                    }
-                });
+        Picasso.with(mContext).load(eventName.getImage()).into(holder.thumbnail);
         holder.thumbnail.setTag(eventName);
         holder.eventTitle.setText(eventName.getName());
 
