@@ -27,6 +27,7 @@ public class ContactUsFragment extends Fragment {
     AppCompatImageButton contact_one_Button,contact_two_Button,save_one_Button,save_two_Button;
     TextView emailId_matrix_TextView;
     Button findOnMap;
+    Button visitWebsite;
 
     public ContactUsFragment(){}
 
@@ -45,6 +46,7 @@ public class ContactUsFragment extends Fragment {
 
 
         findOnMap =(Button)view.findViewById(R.id.findOnMap);
+        visitWebsite = (Button) view.findViewById(R.id.visitWebsite);
         contact_one_Button =(AppCompatImageButton)view.findViewById(R.id.contact_us_call_one);
         contact_two_Button =(AppCompatImageButton)view.findViewById(R.id.contact_us_call_two);
         save_one_Button =(AppCompatImageButton)view.findViewById(R.id.contact_us_save_one);
@@ -54,7 +56,7 @@ public class ContactUsFragment extends Fragment {
         emailId_matrix_TextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String to = getResources().getString(R.string.email_matrix);
+                String to = "principal@spit.ac.in";
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_SENDTO);
                 intent.setType("text/plain");
@@ -66,6 +68,13 @@ public class ContactUsFragment extends Fragment {
                 catch(Exception e){
                     Toast.makeText(getActivity(),e.getStackTrace().toString(),Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        visitWebsite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.spit.ac.in")));
             }
         });
 
@@ -83,13 +92,13 @@ public class ContactUsFragment extends Fragment {
         View.OnClickListener dialerOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
+                Intent intent = new Intent(Intent.ACTION_DIAL);
                 switch (v.getId()){
                     case R.id.contact_us_call_one:
-                        intent.setData(Uri.parse("tel:" + getResources().getString(R.string.contact_us_contact1_number)));
+                        intent.setData(Uri.parse("tel:" + "02226707440"));
                         break;
                     case R.id.contact_us_call_two:
-                        intent.setData(Uri.parse("tel:" + getResources().getString(R.string.contact_us_contact2_number)));
+                        intent.setData(Uri.parse("tel:" + "02226287250"));
                         break;
                 }
                 startActivity(intent);
@@ -104,16 +113,12 @@ public class ContactUsFragment extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_INSERT, ContactsContract.Contacts.CONTENT_URI);
                 switch (v.getId()){
                     case R.id.contact_us_save_one:
-                        intent.putExtra(ContactsContract.Intents.Insert.NAME,
-                                getResources().getString(R.string.contact_us_contact1_name));
-                        intent.putExtra(ContactsContract.Intents.Insert.PHONE,
-                                Long.valueOf(getResources().getString(R.string.contact_us_contact1_number)));
+                        intent.putExtra(ContactsContract.Intents.Insert.NAME, "S.P.I.T.");
+                        intent.putExtra(ContactsContract.Intents.Insert.PHONE, "02226707440");
                         break;
                     case R.id.contact_us_save_two:
-                        intent.putExtra(ContactsContract.Intents.Insert.NAME,
-                                getResources().getString(R.string.contact_us_contact2_name));
-                        intent.putExtra(ContactsContract.Intents.Insert.PHONE,
-                                Long.valueOf(getResources().getString(R.string.contact_us_contact2_number)));
+                        intent.putExtra(ContactsContract.Intents.Insert.NAME, "S.P.I.T.");
+                        intent.putExtra(ContactsContract.Intents.Insert.PHONE, "02226708520");
                         break;
                 }
                 startActivity(intent);
