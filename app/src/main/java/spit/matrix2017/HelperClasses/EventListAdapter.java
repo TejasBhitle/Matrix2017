@@ -99,7 +99,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
         eventName = eventNames.get(position);
         holder.eventTitle.setText(eventName.getName());
 
-        Picasso.with(mContext).load(eventName.getImage()).into(holder.thumbnail);
+        Picasso.with(mContext).load(eventName.getImage()).resize(400, 400).centerCrop().into(holder.thumbnail);
         holder.thumbnail.setTag(eventName);
         holder.eventTitle.setText(eventName.getName());
 
