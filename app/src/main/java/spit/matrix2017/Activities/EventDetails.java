@@ -290,8 +290,8 @@ public class EventDetails
             else {
                 final Calendar beginTime = Calendar.getInstance();
                 final Calendar endTime = Calendar.getInstance();
-                beginTime.set(2017, 0, 20, 9, 0);
-                endTime.set(2017, 0, 20, 17, 0);
+                beginTime.set(2017, 1, 16, 9, 0);
+                endTime.set(2017, 1, 16, 17, 0);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Remind on?");
@@ -299,8 +299,8 @@ public class EventDetails
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (i == 1) {
-                            beginTime.set(2017, 0, 21, 9, 0);
-                            endTime.set(2017, 0, 21, 17, 0);
+                            beginTime.set(2017, 1, 17, 9, 0);
+                            endTime.set(2017, 1, 17, 17, 0);
 
                             goToCalendar(beginTime, endTime);
                         } else
