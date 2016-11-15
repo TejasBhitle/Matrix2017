@@ -7,9 +7,9 @@ package spit.matrix2017.HelperClasses;
 public class Event {
 
     //////////Custom data type for events//////////
-    private String name, description, category, venue, time, contact1_name, contact2_name;
+    private String name, description, category, venue, time, contact1_name, contact1_no, contact2_name, contact2_no;
         private int image;
-        private long contact1_no, contact2_no, favourite, reminder;
+        private long favourite, reminder;
 
         public String getVenue() {
             return venue;
@@ -31,11 +31,11 @@ public class Event {
             return image;
         }
 
-        public long getContact1_no() {
+        public String getContact1_no() {
             return contact1_no;
         }
 
-        public long getContact2_no() {
+        public String getContact2_no() {
             return contact2_no;
         }
 
@@ -59,7 +59,7 @@ public class Event {
             return description;
         }
 
-        public Event(String name, String description, int image, String category, String venue, String time, String contact1_name, long contact1_no, String contact2_name, long contact2_no)
+        public Event(String name, String description, int image, String category, String venue, String time, String contact1_name, String contact1_no, String contact2_name, String contact2_no)
         {
             this.name = name;
             this.description = description;
@@ -75,7 +75,7 @@ public class Event {
             this.reminder=0;
         }
 
-    public Event(String name, String description, int image, String category, String venue, String time, String contact1_name, long contact1_no, String contact2_name, long contact2_no, int favourite, int reminder)
+    public Event(String name, String description, int image, String category, String venue, String time, String contact1_name, String contact1_no, String contact2_name, String contact2_no, int favourite, int reminder)
     {
         //used while fetching data
         this.name = name;
