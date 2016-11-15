@@ -68,7 +68,7 @@ public class EventDetails
         setVenueAndTime(getIntent().getStringExtra("venue"), getIntent().getStringExtra("time"));
         setRules();
         setPrizes();
-        setContacts(getIntent().getStringExtra("contact1name"), getIntent().getLongExtra("contact1no", 9999999999l), getIntent().getStringExtra("contact2name"), getIntent().getLongExtra("contact2no", 9999999999l));
+        setContacts(getIntent().getStringExtra("contact1name"), getIntent().getStringExtra("contact1no"), getIntent().getStringExtra("contact2name"), getIntent().getStringExtra("contact2no"));
 
         isFavouriteEvent = getIntent().getIntExtra("favorite", 0) == 1;
         isReminderSet = getIntent().getIntExtra("reminder", 0) == 1;
@@ -221,7 +221,7 @@ public class EventDetails
         prizesTextView.setText(textViewString);
     }
 
-    private void setContacts(final String name1, final long number1, final String name2, final long number2) {
+    private void setContacts(final String name1, final String number1, final String name2, final String number2) {
         TextView contactTextViewOne = (TextView) findViewById(R.id.contact_name_one);
         TextView contactTextViewTwo = (TextView) findViewById(R.id.contact_name_two);
 
