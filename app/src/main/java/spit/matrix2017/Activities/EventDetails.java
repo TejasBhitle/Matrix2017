@@ -70,8 +70,8 @@ public class EventDetails
         setPrizes();
         setContacts(getIntent().getStringExtra("contact1name"), getIntent().getStringExtra("contact1no"), getIntent().getStringExtra("contact2name"), getIntent().getStringExtra("contact2no"));
 
-        isFavouriteEvent = getIntent().getIntExtra("favorite", 0) == 1;
-        isReminderSet = getIntent().getIntExtra("reminder", 0) == 1;
+        isFavouriteEvent = getIntent().getLongExtra("favorite", 0) == 1;
+        isReminderSet = getIntent().getLongExtra("reminder", 0) == 1;
 
         ImageView mainImageView = (ImageView) findViewById(R.id.main_imageView);
         assert mainImageView != null;
