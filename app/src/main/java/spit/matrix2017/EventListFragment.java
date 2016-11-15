@@ -86,7 +86,7 @@ public class EventListFragment extends Fragment{
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 //        mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getAllCards()));
 
-        mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getData("Fun",4,-1)));//Fun to be replaced with the fragment name
+        mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getData(category,4,-1)));//Fun to be replaced with the fragment name
         mRecyclerView.scrollToPosition(0);
 
 
@@ -94,7 +94,7 @@ public class EventListFragment extends Fragment{
                 new RecyclerItemClickListener(getContext(), mRecyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
                         // do whatever
-                        Event event=(dbConnectionHelper.getData("Fun",4,position)).get(position);
+                        Event event=(dbConnectionHelper.getData(category,4,position)).get(position);
                         Intent i = new Intent(getContext(), EventDetails.class);
 
                         //TODO: Replace with data fetched from database of the selected event [Done]
