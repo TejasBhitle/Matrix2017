@@ -38,7 +38,7 @@
     <string name="googleplus_tejas">https://plus.google.com/116889615357123798600</string>
     <string name="googleplus_shubham">https://plus.google.com/105339466507922161056</string>
     <string name="googleplus_adnan">https://plus.google.com/+AdnanAnsari26</string>
-    <string name="googleplus_rohit"></string>
+    <string name="googleplus_rohit">https://plus.google.com/u/0/102509309260551395915</string>
     <string name="googleplus_mithil">https://plus.google.com/+MitzzGotarne</string>
     <string name="googleplus_akshay">https://plus.google.com/+AkshayShahakshah1997</string>
 
@@ -46,7 +46,7 @@
     <string name="linkedin_tejas">https://www.linkedin.com/in/tejas-bhitle-ab6597126</string>
     <string name="linkedin_shubham">https://www.linkedin.com/profile/view?id=116787827</string>
     <string name="linkedin_adnan">https://www.linkedin.com/in/adnan-ansari-819898131</string>
-    <string name="linkedin_rohit"></string>
+    <string name="linkedin_rohit">https://www.linkedin.com/in/rohit-nahata-513aa912a</string>
     <string name="linkedin_mithil">https://www.linkedin.com/in/mithil-gotarne-470786131</string>
     <string name="linkedin_akshay">https://in.linkedin.com/in/akshah1997</string>
 
@@ -62,7 +62,7 @@
     </string>
 
     <string name="action_settings">Settings</string>
-    
+
     <string name="description">Description</string>
     <string name="venue_time">Venue and Time</string>
     <string name="rules">Rules</string>
@@ -78,5 +78,9 @@
     <string name="set_reminder">Set Reminder</string>
     <string name="share_event">Share</string>
     <string name="contact_us">Contact us</string>
+    <string name="imgthumbnail">imgThumbnail</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

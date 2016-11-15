@@ -72,11 +72,24 @@ public class MainFragment extends Fragment {
             EventListFragment megaEventPage = EventListFragment.newInstance(getResources().getString(R.string.mega));
             EventListFragment techEventPage =  EventListFragment.newInstance(getResources().getString(R.string.tech));
             EventListFragment funEventPage =  EventListFragment.newInstance(getResources().getString(R.string.fun));
-            switch (position){
-                case 0:return megaEventPage;
-                case 1 :return techEventPage;
-                case 2: return funEventPage;
+            switch (position) {
+                case 0:
+                    return megaEventPage;
+                case 1:
+                    return techEventPage;
+                case 2:
+                    return funEventPage;
             }
+
+
+//            switch(position) {
+//
+//                case 0: return MegaFragment.newInstance("FirstFragment, Instance 1");
+//                case 1: return TechFragment.newInstance("SecondFragment, Instance 1");
+//                case 2: return FunFragment.newInstance("ThirdFragment, Instance 1");
+//
+//            }
+
             return null;
         }
 

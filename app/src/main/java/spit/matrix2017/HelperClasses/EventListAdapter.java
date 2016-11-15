@@ -1,75 +1,148 @@
 package spit.matrix2017.HelperClasses;
 
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
-import spit.matrix2017.Activities.EventDetails;
+import java.util.List;
+
 import spit.matrix2017.R;
 
+import static android.content.ContentValues.TAG;
 
-public class EventListAdapter extends
-        RecyclerView.Adapter<EventListAdapter.ViewHolder> {
+/**
+ * Created by Rohit on 13/11/16.
+ */
 
-    private Context context;
-    private ArrayList<String> arrayList;
+public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyViewHolder> {
+    private Context mContext;
+    private List<Event> eventNames;
+    private Event eventName;
 
-    public EventListAdapter(ArrayList<String> list, Context c) {
-        arrayList = list;
-        context = c;
+    class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView eventTitle;
+        private static final int PALETTE_SIZE = 12; /* 24 is default size. You can decrease this value to speed up palette generation */
+        ImageView thumbnail;
+
+        MyViewHolder(View view) {
+            super(view);
+            eventTitle= (TextView) view.findViewById(R.id.event_title);
+            thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
+        }
+
+
+
+
+//        void updatePalette() {
+//
+//            Bitmap bitmap = ((BitmapDrawable)thumbnail.getDrawable()).getBitmap();
+//
+//            Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+//                @Override
+//                public void onGenerated(Palette palette) {
+//                    //work with the palette here
+//                    int defaultValue = 0x000000;
+//                    int vibrant = palette.getVibrantColor(defaultValue);
+////                    int vibrantLight = palette.getLightVibrantColor(defaultValue);
+////                    int vibrantDark = palette.getDarkVibrantColor(defaultValue);
+////                    int muted = palette.getMutedColor(defaultValue);
+////                    int mutedLight = palette.getLightMutedColor(defaultValue);
+////                    int mutedDark = palette.getDarkMutedColor(defaultValue);
+//
+//                    eventTitle.setBackgroundColor(2);
+//
+//                }
+//            });
+//
+//        }
+
+
+    }
+
+
+    public EventListAdapter(Context mContext, List<Event> eventNames) {
+        this.mContext = mContext;
+        this.eventNames = eventNames;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View customView = layoutInflater.inflate(R.layout.temp_event_layout, parent, false);
-        return new ViewHolder(customView);
+    public void onViewDetachedFromWindow(MyViewHolder holder) {
+        super.onViewDetachedFromWindow(holder);
+        holder.itemView.clearAnimation();
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        final String string = arrayList.get(position);
-        holder.name.setText(string);
-        holder.name.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(context, EventDetails.class);
-                
-                //TODO: Replace with data fetched from database of the selected event
-                i.putExtra("name", "Virtual Stock Market");
-                i.putExtra("description", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.");
-                i.putExtra("venue", "Quadrangle");
-                i.putExtra("time", "9am to 5pm");
-                i.putExtra("contact1name", "Riya Bakhtiani");
-                i.putExtra("contact1no", 8888006180l);
-                i.putExtra("contact2name", "Jainam Soni");
-                i.putExtra("contact2no", 9619100569l);
-                i.putExtra("favorite", 0);
-                i.putExtra("reminder", 0);
-                
-                context.startActivity(i);
-            }
-        });
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.event_thumbnail, parent, false);
+
+        return new MyViewHolder(itemView);
     }
+
+
+
+
+
+    @Override
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
+
+        eventName = eventNames.get(position);
+        holder.eventTitle.setText(eventName.getName());
+
+//        holder.thumbnail.setImageDrawable(null);
+
+//        Picasso.with(context).load(android_versions.get(i).getAndroid_image_url()).resize(120, 60).into(viewHolder.img_android);
+
+
+        Picasso.with(holder.thumbnail.getContext())
+                .load(eventName.getImage())
+                .into(new Target() {
+                    @Override
+                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                        holder.thumbnail.setImageBitmap(bitmap);
+                        // holder.updatePalette();
+                        Log.d(TAG, "on success");
+                    }
+
+                    @Override
+                    public void onBitmapFailed(Drawable errorDrawable) {
+//                        holder.mLoadingImageView.setVisibility(View.GONE);
+                        Log.d(TAG, "on error");
+                    }
+
+                    @Override
+                    public void onPrepareLoad(Drawable placeHolderDrawable) {
+//                        holder.mLoadingImageView.setVisibility(View.VISIBLE);
+                    }
+                });
+        holder.thumbnail.setTag(eventName);
+        holder.eventTitle.setText(eventName.getName());
+
+//        int lastPosition=-1;
+//        Animation animation = AnimationUtils.loadAnimation(mContext,
+//                (position > lastPosition) ? R.anim.up_from_bottom
+//                        : R.anim.down_from_top);
+//        holder.itemView.startAnimation(animation);
+//        lastPosition = position;
+
+    }
+
 
     @Override
     public int getItemCount() {
-        return arrayList.size();
+        return eventNames.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView name;
-
-        ViewHolder(View itemView) {
-            super(itemView);
-            name = (TextView) itemView.findViewById(R.id.textView);
-        }
-    }
 }
+

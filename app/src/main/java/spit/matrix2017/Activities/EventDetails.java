@@ -1,10 +1,10 @@
 package spit.matrix2017.Activities;
 
 import android.Manifest;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -33,9 +33,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import spit.matrix2017.R;
-
-import static android.R.attr.data;
-import static android.R.attr.end;
 
 public class EventDetails
         extends AppCompatActivity
@@ -73,8 +70,8 @@ public class EventDetails
         setPrizes();
         setContacts(getIntent().getStringExtra("contact1name"), getIntent().getLongExtra("contact1no", 9999999999l), getIntent().getStringExtra("contact2name"), getIntent().getLongExtra("contact2no", 9999999999l));
 
-        isFavouriteEvent = getIntent().getIntExtra("favorite", 0) == 1 ? true : false;
-        isReminderSet = getIntent().getIntExtra("reminder", 0) == 1 ? true : false;
+        isFavouriteEvent = getIntent().getIntExtra("favorite", 0) == 1;
+        isReminderSet = getIntent().getIntExtra("reminder", 0) == 1;
 
         ImageView mainImageView = (ImageView) findViewById(R.id.main_imageView);
         assert mainImageView != null;
@@ -337,8 +334,10 @@ public class EventDetails
     {
         if(ContextCompat.checkSelfPermission(EventDetails.this, Manifest.permission.READ_CALENDAR) == PackageManager.PERMISSION_GRANTED) {
             Cursor cursor = cr.query(CalendarContract.Events.CONTENT_URI, new String[]{"MAX(_id) as max_id"}, null, null, "_id");
+            assert cursor != null;
             cursor.moveToFirst();
             long max_val = cursor.getLong(cursor.getColumnIndex("max_id"));
+            cursor.close();
             return max_val;
         }
         return 0;
