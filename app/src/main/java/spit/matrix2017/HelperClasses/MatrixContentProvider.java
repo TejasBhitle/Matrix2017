@@ -18,7 +18,7 @@ import spit.matrix2017.R;
 public class MatrixContentProvider extends ContentProvider {
     //////////Database strings//////////
     private static final String DB_NAME = "MatrixDB.sqlite";
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 1;
 
     //////////Strings to help create the events table//////////
     private static final String TABLE_EVENTS = "events";
@@ -36,14 +36,11 @@ public class MatrixContentProvider extends ContentProvider {
     private static final String COL_EVENT_CONTACT2_NO = "contact2_no";
     private static final String COL_EVENT_FAVORITE = "favorite";
     private static final String COL_EVENT_REMINDER = "reminder";
-    private static final String COL_PALETTE_COLOR = "color";
 
     private static final String CREATE_TABLE_EVENTS_QUERY = String.format
             ("CREATE TABLE %s(%s INTEGER PRIMARY KEY, %s TEXT NOT NULL, %s TEXT NOT NULL, %s INTEGER NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s INTEGER NOT NULL, %s INTEGER NOT NULL);",
                     TABLE_EVENTS, COL_EVENT_ID, COL_EVENT_NAME, COL_EVENT_DESCRIPTION, COL_EVENT_IMAGE, COL_EVENT_CATEGORY, COL_EVENT_VENUE, COL_EVENT_TIME, COL_EVENT_CONTACT1_NAME, COL_EVENT_CONTACT1_NO, COL_EVENT_CONTACT2_NAME, COL_EVENT_CONTACT2_NO, COL_EVENT_FAVORITE, COL_EVENT_REMINDER);
 
-
-    //ToDo: Add palette column in db. the column value should be found out and stored rather than finding it out everytime.
     //////////Data of each event//////////
     private final Event[] events = new Event[]{
             new Event("Battle of Brains", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.", R.drawable.battle_of_brains, "Fun", "Quadrangle", "9am to 5pm", "Shreya Ail", "9665817304", "Utkarsha Pawar", "7507416309"),
