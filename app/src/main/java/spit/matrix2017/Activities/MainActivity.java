@@ -43,6 +43,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_activity_main);
 
+        int[] images = {R.drawable.codatron,
+        R.drawable.laser_maze,
+        R.drawable.laser_tag,
+        R.drawable.virtual_stock_market,
+        R.drawable.battle_frontier,
+        R.drawable.escape_plan,
+        R.drawable.tech_charades,
+        R.drawable.tech_xplosion,
+        R.drawable.no_escape,
+        R.drawable.techeshis_castle,
+        R.drawable.technovanza,
+        R.drawable.tesseract,
+        R.drawable.battle_of_brains,
+        R.drawable.blind_car_racing,
+        R.drawable.human_foosball,
+        R.drawable.lan_gaming,
+        R.drawable.lan_mafia,
+        R.drawable.mind_that_word,
+        R.drawable.pokemon_showdown};
+
+        for(int i=0; i<images.length; i++)
+            Picasso.with(getApplicationContext()).load(images[i]).resize(400, 400).centerCrop().fetch();
+        
         //instantiation
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
@@ -68,29 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
         setupDrawerLayout();
         navigationView.getMenu().getItem(0).setChecked(true);
-
-        int[] images = {R.drawable.codatron,
-        R.drawable.laser_maze,
-        R.drawable.laser_tag,
-        R.drawable.virtual_stock_market,
-        R.drawable.battle_frontier,
-        R.drawable.escape_plan,
-        R.drawable.tech_charades,
-        R.drawable.tech_xplosion,
-        R.drawable.no_escape,
-        R.drawable.techeshis_castle,
-        R.drawable.technovanza,
-        R.drawable.tesseract,
-        R.drawable.battle_of_brains,
-        R.drawable.blind_car_racing,
-        R.drawable.human_foosball,
-        R.drawable.lan_gaming,
-        R.drawable.lan_mafia,
-        R.drawable.mind_that_word,
-        R.drawable.pokemon_showdown};
-
-        for(int i=0; i<images.length; i++)
-            Picasso.with(getApplicationContext()).load(images[i]).resize(400, 400).centerCrop().fetch();
     }
 
 
