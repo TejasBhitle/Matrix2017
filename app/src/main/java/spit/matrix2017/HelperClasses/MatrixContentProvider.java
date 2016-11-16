@@ -170,6 +170,8 @@ public class MatrixContentProvider extends ContentProvider {
             int index10 = cursor.getColumnIndex(COL_EVENT_CONTACT2_NO);
             int index11 = cursor.getColumnIndex(COL_EVENT_FAVORITE);
             int index12 = cursor.getColumnIndex(COL_EVENT_REMINDER);
+
+
             String name_event, desc, category, venue, time, contact_name1, contact_name2, contact_no1, contact_no2;
             int img, fav, reminder;
 
@@ -194,8 +196,5 @@ public class MatrixContentProvider extends ContentProvider {
             return list;
         }
 
-//        public List<Event> getAllCards(){
-//            return Arrays.asList(events);
-//        }
     }
 }

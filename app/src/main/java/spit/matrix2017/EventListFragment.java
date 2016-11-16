@@ -82,11 +82,9 @@ public class EventListFragment extends Fragment{
         mRecyclerView = (RecyclerView) view.findViewById(R.id.fragmentRecyclerView);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-//        mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getAllCards()));
 
-        mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getData(category,4)));//Fun to be replaced with the fragment name
+        mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getData(category,4)));
         mRecyclerView.scrollToPosition(0);
 
 
@@ -119,15 +117,6 @@ public class EventListFragment extends Fragment{
         );
 
 
-//        arrayList = new ArrayList<>();
-//        for(int i =0;i< 50;i++){
-//            arrayList.add(category+" "+(i+1));
-//        }
-
-//        recyclerView =(RecyclerView)view.findViewById(R.id.fragmentRecyclerView);
-//        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
-//        recyclerView.setAdapter(new EventListAdapter(arrayList,getActivity()));
-//        recyclerView.scrollToPosition(0);
         return view;
     }
 
