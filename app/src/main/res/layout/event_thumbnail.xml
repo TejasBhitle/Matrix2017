@@ -17,7 +17,7 @@
             android:layout_height="160dp"
             android:id="@+id/thumbnail"
             android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             android:src="@drawable/virtual_stock_market" />
 
         <LinearLayout

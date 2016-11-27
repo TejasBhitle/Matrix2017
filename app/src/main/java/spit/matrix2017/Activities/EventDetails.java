@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.provider.ContactsContract;
@@ -49,6 +50,8 @@ public class EventDetails
     private MenuItem mi_reminder;
     private long mEventID;
     private boolean visitedCalendar;
+    View background;
+    CollapsingToolbarLayout collapsingToolbarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,9 @@ public class EventDetails
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
+
+        background =(View)findViewById(R.id.event_details_background);
+        collapsingToolbarLayout=(CollapsingToolbarLayout)findViewById(R.id.collapsingToolbar_event);
 
         visitedCalendar = false;
 
@@ -95,10 +101,22 @@ public class EventDetails
             public void onGenerated(Palette palette)
             {
                 Palette.Swatch swatch = palette.getDarkVibrantSwatch();
+                Palette.Swatch swatch1 = palette.getDarkMutedSwatch();
                 if(swatch != null)
                 {
                     fab.setBackgroundTintList(ColorStateList.valueOf(swatch.getRgb()));
                     fab.setRippleColor(swatch.getTitleTextColor());
+                    collapsingToolbarLayout.setContentScrimColor(swatch.getRgb());
+                    collapsingToolbarLayout.setBackgroundColor(swatch.getRgb());
+                    collapsingToolbarLayout.setStatusBarScrimColor(swatch.getRgb());
+
+                    if(Build.VERSION.SDK_INT >= 21){
+                        getWindow().setStatusBarColor(swatch.getRgb());
+                    }
+                }
+
+                if(swatch1 != null){
+                    background.setBackgroundColor(swatch1.getRgb());
                 }
             }
         });

@@ -45,7 +45,8 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_event_details" />
+    <include layout="@layout/new_content_event_details"
+        android:id="@+id/event_details_background"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
