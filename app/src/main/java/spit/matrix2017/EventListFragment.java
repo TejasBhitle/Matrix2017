@@ -5,10 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -84,11 +82,9 @@ public class EventListFragment extends Fragment{
         mRecyclerView = (RecyclerView) view.findViewById(R.id.fragmentRecyclerView);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-//        mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getAllCards()));
 
-        mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getData(category,4,-1)));//Fun to be replaced with the fragment name
+        mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getData(category,4)));
         mRecyclerView.scrollToPosition(0);
 
 
@@ -96,10 +92,9 @@ public class EventListFragment extends Fragment{
                 new RecyclerItemClickListener(getContext(), mRecyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
                         // do whatever
-                        Event event=(dbConnectionHelper.getData(category,4,position)).get(position);
+                        Event event=(dbConnectionHelper.getData(category,4)).get(position);
                         Intent i = new Intent(getContext(), EventDetails.class);
 
-                        //TODO: Replace with data fetched from database of the selected event [Done]
                         i.putExtra("image",event.getImage());
                         i.putExtra("name", event.getName());
                         i.putExtra("description", event.getDescription());
@@ -122,15 +117,6 @@ public class EventListFragment extends Fragment{
         );
 
 
-//        arrayList = new ArrayList<>();
-//        for(int i =0;i< 50;i++){
-//            arrayList.add(category+" "+(i+1));
-//        }
-
-//        recyclerView =(RecyclerView)view.findViewById(R.id.fragmentRecyclerView);
-//        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
-//        recyclerView.setAdapter(new EventListAdapter(arrayList,getActivity()));
-//        recyclerView.scrollToPosition(0);
         return view;
     }
 

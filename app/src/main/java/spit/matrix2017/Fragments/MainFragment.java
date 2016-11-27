@@ -82,14 +82,6 @@ public class MainFragment extends Fragment {
             }
 
 
-//            switch(position) {
-//
-//                case 0: return MegaFragment.newInstance("FirstFragment, Instance 1");
-//                case 1: return TechFragment.newInstance("SecondFragment, Instance 1");
-//                case 2: return FunFragment.newInstance("ThirdFragment, Instance 1");
-//
-//            }
-
             return null;
         }
 

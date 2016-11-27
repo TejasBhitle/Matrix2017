@@ -6,7 +6,11 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
@@ -19,6 +23,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -81,6 +86,23 @@ public class EventDetails
         assert fab != null;
         if (isFavouriteEvent)
             fab.setImageResource(R.drawable.svg_favorite_white_48px);
+
+        Bitmap bitmap = ((BitmapDrawable)mainImageView.getDrawable()).getBitmap();
+
+        Palette.from(bitmap).generate(new Palette.PaletteAsyncListener()
+        {
+            @Override
+            public void onGenerated(Palette palette)
+            {
+                Palette.Swatch swatch = palette.getDarkVibrantSwatch();
+                if(swatch != null)
+                {
+                    fab.setBackgroundTintList(ColorStateList.valueOf(swatch.getRgb()));
+                    fab.setRippleColor(swatch.getTitleTextColor());
+                }
+            }
+        });
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
