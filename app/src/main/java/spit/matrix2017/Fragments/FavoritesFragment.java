@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,20 +42,24 @@ public class FavoritesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.recyclerview_layout,container,false);
+
+
+        AppBarLayout appBarLayout = ((MainActivity)getActivity()).getAppBarLayout();
+        appBarLayout.setExpanded(false);
+
         final MatrixContentProvider.MatrixDBConnectionHelper dbConnectionHelper;
         matrixContentProvider=new MatrixContentProvider();
         dbConnectionHelper = new MatrixContentProvider().new MatrixDBConnectionHelper(getContext());
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.fragmentRecyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getData(String.valueOf(1),11)));
         //11 is the index of favourites in the column array of DB. If value is 1, it has been set as a favourite event
         mRecyclerView.scrollToPosition(0);
-        AppBarLayout appBarLayout = ((MainActivity)getActivity()).getAppBarLayout();
-        appBarLayout.setExpanded(false);
 
 
         mRecyclerView.addOnItemTouchListener(
