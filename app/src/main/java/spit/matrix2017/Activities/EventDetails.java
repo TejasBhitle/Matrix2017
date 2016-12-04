@@ -100,8 +100,9 @@ public class EventDetails
             @Override
             public void onGenerated(Palette palette)
             {
-                Palette.Swatch swatch = palette.getDarkVibrantSwatch();
-                Palette.Swatch swatch1 = palette.getDarkMutedSwatch();
+                Palette.Swatch swatch = palette.getVibrantSwatch();
+                if(swatch == null)
+                    swatch = palette.getMutedSwatch();
                 if(swatch != null)
                 {
                     fab.setBackgroundTintList(ColorStateList.valueOf(swatch.getRgb()));
@@ -115,9 +116,9 @@ public class EventDetails
                     }
                 }
 
-                if(swatch1 != null){
+                /*if(swatch1 != null){
                     background.setBackgroundColor(swatch1.getRgb());
-                }
+                }*/
             }
         });
 
