@@ -10,6 +10,7 @@ import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
@@ -105,14 +106,18 @@ public class EventDetails
                     swatch = palette.getMutedSwatch();
                 if(swatch != null)
                 {
-                    fab.setBackgroundTintList(ColorStateList.valueOf(swatch.getRgb()));
+                    int color = swatch.getRgb();
+                    if(Color.red(color)+Color.green(color)+Color.green(color) > 420)
+                        color = Color.rgb((int)(Color.red(color)*0.8), (int)(Color.green(color)*0.8), (int)(Color.blue(color)*0.8));
+
+                    fab.setBackgroundTintList(ColorStateList.valueOf(color));
                     fab.setRippleColor(swatch.getTitleTextColor());
-                    collapsingToolbarLayout.setContentScrimColor(swatch.getRgb());
-                    collapsingToolbarLayout.setBackgroundColor(swatch.getRgb());
-                    collapsingToolbarLayout.setStatusBarScrimColor(swatch.getRgb());
+                    collapsingToolbarLayout.setContentScrimColor(color);
+                    collapsingToolbarLayout.setBackgroundColor(color);
+                    collapsingToolbarLayout.setStatusBarScrimColor(color);
 
                     if(Build.VERSION.SDK_INT >= 21){
-                        getWindow().setStatusBarColor(swatch.getRgb());
+                        getWindow().setStatusBarColor(color);
                     }
                 }
 
