@@ -48,14 +48,18 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
                 public void onGenerated(Palette palette)
                 {
                     Palette.Swatch swatch = palette.getVibrantSwatch();
+                    if(swatch == null)
+                        swatch = palette.getMutedSwatch();
                     if(swatch != null)
                     {
                         int color = swatch.getRgb();
                         background.setBackgroundColor(color);
-                        float[] hsv = new float[3];
+                        if((Color.red(color)+Color.green(color)+Color.blue(color)) > 420)
+                            eventTitle.setTextColor(Color.BLACK);
+                        /*float[] hsv = new float[3];
                         Color.colorToHSV(color, hsv);
                         if(hsv[2] >= .9)
-                            eventTitle.setTextColor(Color.BLACK);
+                            eventTitle.setTextColor(Color.BLACK);*/
                     }
                 }
             });
