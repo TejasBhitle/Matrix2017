@@ -63,6 +63,14 @@ public class EventDetails
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
 
+        final AppCompatTextView textViews[] = {
+                (AppCompatTextView) findViewById(R.id.tv_event_description),
+                (AppCompatTextView) findViewById(R.id.tv_event_venue_time),
+                (AppCompatTextView) findViewById(R.id.tv_event_rules),
+                (AppCompatTextView) findViewById(R.id.tv_event_prizes),
+                (AppCompatTextView) findViewById(R.id.tv_event_organizers)
+        };
+
         background =(View)findViewById(R.id.event_details_background);
         collapsingToolbarLayout=(CollapsingToolbarLayout)findViewById(R.id.collapsingToolbar_event);
 
@@ -119,6 +127,9 @@ public class EventDetails
                     if(Build.VERSION.SDK_INT >= 21){
                         getWindow().setStatusBarColor(color);
                     }
+
+                    for(int i=0; i<textViews.length; i++)
+                        textViews[i].setTextColor(color);
                 }
 
                 /*if(swatch1 != null){
