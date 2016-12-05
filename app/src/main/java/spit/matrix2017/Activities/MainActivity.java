@@ -13,9 +13,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -160,8 +158,6 @@ public class MainActivity extends AppCompatActivity {
                             navigationView.getMenu().getItem(i).setChecked(false);
                         }
                         item.setChecked(true);
-                        //toolbar.setTitle(item.getTitle());
-                        //Toast.makeText(getApplicationContext(),item.getTitle().toString(),Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawers();
                         return true;
                     }
