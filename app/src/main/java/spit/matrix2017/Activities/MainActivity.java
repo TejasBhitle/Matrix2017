@@ -1,6 +1,7 @@
 package spit.matrix2017.Activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView =(NavigationView)findViewById(R.id.navigation_view);
         drawerLayout =(DrawerLayout)findViewById(R.id.drawer_layout);
         collapsingToolbarLayout= (CollapsingToolbarLayout)findViewById(R.id.collapsingToolbar_main);
+        collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);
         appBarLayout = (AppBarLayout)findViewById(R.id.app_bar_layout);
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,

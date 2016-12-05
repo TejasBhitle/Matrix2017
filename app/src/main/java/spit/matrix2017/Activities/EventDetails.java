@@ -196,29 +196,10 @@ public class EventDetails
 
     private void setTitle(final String title) {
         /*Code to make title visible only in collapsed state*/
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbar_event);
+        collapsingToolbarLayout.setTitle(title);
+        collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);
 
-        assert collapsingToolbarLayout != null;
-        assert appBarLayout != null;
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbarLayout.setTitle(title); // setting title of page
-                    isShow = true;
-                } else if (isShow) {
-                    collapsingToolbarLayout.setTitle("");
-                    isShow = false;
-                }
-            }
-        });
     }
 
     private void setDescription(String description) {
