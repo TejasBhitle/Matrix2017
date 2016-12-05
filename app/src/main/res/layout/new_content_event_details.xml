@@ -30,14 +30,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="5dp">
+                    android:padding="4dp">
 
                     <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_event_description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="8dp"
                         android:text="@string/description"
+                        android:textColor="@color/colorAccent"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                     <android.support.v7.widget.AppCompatTextView
@@ -62,13 +64,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="5dp">
+                    android:padding="4dp">
 
                     <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_event_venue_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="8dp"
                         android:text="@string/venue_time"
+                        android:textColor="@color/colorAccent"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 
@@ -76,6 +81,7 @@
                         android:id="@+id/venue_time_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
                         android:paddingEnd="8dp"
                         android:paddingStart="8dp" />
 
@@ -91,21 +97,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="5dp">
+                    android:padding="4dp">
 
 
                     <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_event_rules"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
                         android:text="@string/rules"
+                        android:textColor="@color/colorAccent"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/rules_textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
                         android:paddingEnd="8dp"
                         android:paddingStart="8dp" />
 
@@ -121,15 +130,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="5dp">
+                    android:padding="4dp">
 
 
                     <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_event_prizes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
                         android:text="@string/prizes"
+                        android:textColor="@color/colorAccent"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 
@@ -137,6 +148,7 @@
                         android:id="@+id/prizes_textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
                         android:paddingEnd="8dp"
                         android:paddingStart="8dp" />
 
@@ -152,14 +164,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="5dp">
+                    android:padding="4dp">
 
                     <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_event_organizers"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
                         android:text="@string/organizers"
+                        android:textColor="@color/colorAccent"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                     <!--CONTACT ONE-->
