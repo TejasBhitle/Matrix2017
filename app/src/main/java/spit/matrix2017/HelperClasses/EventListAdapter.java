@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.graphics.Palette;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,28 +42,32 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
 
         void updatePalette() {
 
-            Bitmap bitmap = ((BitmapDrawable)thumbnail.getDrawable()).getBitmap();
+            try{
+                Bitmap bitmap = ((BitmapDrawable)thumbnail.getDrawable()).getBitmap();
 
-            Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
-                @Override
-                public void onGenerated(Palette palette)
-                {
-                    Palette.Swatch swatch = palette.getVibrantSwatch();
-                    if(swatch == null)
-                        swatch = palette.getMutedSwatch();
-                    if(swatch != null)
+                Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+                    @Override
+                    public void onGenerated(Palette palette)
                     {
-                        int color = swatch.getRgb();
-                        background.setBackgroundColor(color);
-                        if((Color.red(color)+Color.green(color)+Color.blue(color)) > 420)
-                            eventTitle.setTextColor(Color.BLACK);
+                        Palette.Swatch swatch = palette.getVibrantSwatch();
+                        if(swatch == null)
+                            swatch = palette.getMutedSwatch();
+                        if(swatch != null)
+                        {
+                            int color = swatch.getRgb();
+                            background.setBackgroundColor(color);
+                            if((Color.red(color)+Color.green(color)+Color.blue(color)) > 420)
+                                eventTitle.setTextColor(Color.BLACK);
                         /*float[] hsv = new float[3];
                         Color.colorToHSV(color, hsv);
                         if(hsv[2] >= .9)
                             eventTitle.setTextColor(Color.BLACK);*/
+                        }
                     }
-                }
-            });
+                });
+            }catch(Exception e){
+                Log.e("EventListAdapter",e.getMessage());}
+
         }
     }
 
