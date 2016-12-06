@@ -51,7 +51,7 @@
                             android:fitsSystemWindows="true"
                             android:minHeight="?attr/actionBarSize"
                             app:layout_collapseMode="pin"
-                            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                            app:theme="@style/MyToolBarStyle"
                             android:background="@color/colorPrimary" />
 
 

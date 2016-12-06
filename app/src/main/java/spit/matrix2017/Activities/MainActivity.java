@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
+        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
+
         if(savedInstanceState == null){
             fm = getSupportFragmentManager();
             FragmentTransaction transaction = fm.beginTransaction();
