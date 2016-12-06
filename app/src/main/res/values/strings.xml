@@ -79,6 +79,7 @@
     <string name="share_event">Share</string>
     <string name="contact_us">Contact us</string>
     <string name="imgthumbnail">imgThumbnail</string>
+    <string name="no_favorites_text">No Favorites</string>
 
 
 </resources>

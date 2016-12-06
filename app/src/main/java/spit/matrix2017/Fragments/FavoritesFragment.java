@@ -11,6 +11,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import spit.matrix2017.Activities.EventDetails;
 import spit.matrix2017.Activities.MainActivity;
@@ -21,7 +22,7 @@ import spit.matrix2017.HelperClasses.RecyclerItemClickListener;
 import spit.matrix2017.R;
 
 /**
- * Created by DELL on 12/11/2016.
+ * Created by Tejas on 12/11/2016.
  */
 
 public class FavoritesFragment extends Fragment {
@@ -29,6 +30,8 @@ public class FavoritesFragment extends Fragment {
     RecyclerView mRecyclerView;
     MatrixContentProvider matrixContentProvider;
     MatrixContentProvider.MatrixDBConnectionHelper dbConnectionHelper;
+    EventListAdapter eventListAdapter;
+    TextView blankTextview;
 
 
     public FavoritesFragment(){}
@@ -49,7 +52,7 @@ public class FavoritesFragment extends Fragment {
 
         matrixContentProvider=new MatrixContentProvider();
         dbConnectionHelper = new MatrixContentProvider().new MatrixDBConnectionHelper(getContext());
-
+        blankTextview =(TextView)view.findViewById(R.id.blank_textview);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.fragmentRecyclerView);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
@@ -63,9 +66,17 @@ public class FavoritesFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getData(String.valueOf(1),11)));
+        eventListAdapter =new EventListAdapter(getContext(),dbConnectionHelper.getData(String.valueOf(1),11));
+        mRecyclerView.setAdapter(eventListAdapter);
         //11 is the index of favourites in the column array of DB. If value is 1, it has been set as a favourite event
         mRecyclerView.scrollToPosition(0);
+
+        if(eventListAdapter.getItemCount() ==0){
+            blankTextview.setVisibility(View.VISIBLE);
+        }
+        else{
+            blankTextview.setVisibility(View.GONE);
+        }
 
 
         mRecyclerView.addOnItemTouchListener(
