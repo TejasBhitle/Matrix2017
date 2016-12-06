@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -29,6 +28,7 @@ public class FavoritesFragment extends Fragment {
 
     RecyclerView mRecyclerView;
     MatrixContentProvider matrixContentProvider;
+    MatrixContentProvider.MatrixDBConnectionHelper dbConnectionHelper;
 
 
     public FavoritesFragment(){}
@@ -47,15 +47,21 @@ public class FavoritesFragment extends Fragment {
         AppBarLayout appBarLayout = ((MainActivity)getActivity()).getAppBarLayout();
         appBarLayout.setExpanded(false);
 
-        final MatrixContentProvider.MatrixDBConnectionHelper dbConnectionHelper;
         matrixContentProvider=new MatrixContentProvider();
         dbConnectionHelper = new MatrixContentProvider().new MatrixDBConnectionHelper(getContext());
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.fragmentRecyclerView);
         mRecyclerView.setHasFixedSize(true);
-        //mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
 
         mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getData(String.valueOf(1),11)));
         //11 is the index of favourites in the column array of DB. If value is 1, it has been set as a favourite event
@@ -90,6 +96,5 @@ public class FavoritesFragment extends Fragment {
                 })
         );
 
-        return view;
     }
 }
