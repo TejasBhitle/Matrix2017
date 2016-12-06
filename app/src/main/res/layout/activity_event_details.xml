@@ -37,7 +37,7 @@
                 android:fitsSystemWindows="true"
                 android:minHeight="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 />
 
 
@@ -53,9 +53,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/activity_vertical_margin"
+        android:src="@drawable/ic_favorite_border_white_48px"
         app:fabSize="normal"
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/ic_favorite_border_white_48px" />
+        />
 
 </android.support.design.widget.CoordinatorLayout>
