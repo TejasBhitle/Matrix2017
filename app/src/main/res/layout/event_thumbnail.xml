@@ -33,7 +33,7 @@
                 android:layout_marginBottom="12dp"
                 android:id="@+id/event_title"
                 android:textSize="16sp"
-                android:textColor="@android:color/white"
+                android:textColor="@color/primary_text"
                 android:text="Name" />
         </LinearLayout>
 

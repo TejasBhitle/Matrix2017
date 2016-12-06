@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.graphics.Palette;
 import android.util.Log;
@@ -56,12 +57,8 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
                         {
                             int color = swatch.getRgb();
                             background.setBackgroundColor(color);
-                            if((Color.red(color)+Color.green(color)+Color.blue(color)) > 420)
-                                eventTitle.setTextColor(Color.BLACK);
-                        /*float[] hsv = new float[3];
-                        Color.colorToHSV(color, hsv);
-                        if(hsv[2] >= .9)
-                            eventTitle.setTextColor(Color.BLACK);*/
+                            if((Color.red(color)+Color.green(color)+Color.blue(color)) < 420)
+                                eventTitle.setTextColor(Color.WHITE);
                         }
                     }
                 });
