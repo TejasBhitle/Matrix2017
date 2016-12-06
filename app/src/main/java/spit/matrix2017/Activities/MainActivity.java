@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
         R.drawable.mind_that_word,
         R.drawable.pokemon_showdown};
 
-        for(int i=0; i<images.length; i++)
-            Picasso.with(getApplicationContext()).load(images[i]).resize(400, 400).centerCrop().fetch();
+        for(int i: images)
+            Picasso.with(getApplicationContext()).load(i).resize(400, 400).centerCrop().fetch();
         
         //instantiation
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
@@ -156,10 +156,13 @@ public class MainActivity extends AppCompatActivity {
                                 fragmentTransaction.commit();
                                 break;
                         }
-                        for(int i =0 ;i< navigationView.getMenu().size();i++){
-                            navigationView.getMenu().getItem(i).setChecked(false);
+                        if(item.getItemId() != R.id.share_app_menuItem)
+                        {
+                            for (int i = 0; i < navigationView.getMenu().size(); i++) {
+                                navigationView.getMenu().getItem(i).setChecked(false);
+                            }
+                            item.setChecked(true);
                         }
-                        item.setChecked(true);
                         drawerLayout.closeDrawers();
                         return true;
                     }
