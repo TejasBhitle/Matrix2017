@@ -2,8 +2,10 @@ package spit.matrix2017.Activities;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -75,6 +77,16 @@ public class MainActivity extends AppCompatActivity {
         collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);
         appBarLayout = (AppBarLayout)findViewById(R.id.app_bar_layout);
 
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) appBarLayout.getLayoutParams();
+        AppBarLayout.Behavior appBarLayoutBehaviour = new AppBarLayout.Behavior();
+        appBarLayoutBehaviour.setDragCallback(new AppBarLayout.Behavior.DragCallback() {
+            @Override
+            public boolean canDrag(@NonNull AppBarLayout appBarLayout) {
+                return false;
+            }
+        });
+        layoutParams.setBehavior(appBarLayoutBehaviour);
+
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
                 R.string.drawer_open,R.string.drawer_close);
 
@@ -90,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
             transaction.replace(R.id.fragment_container,mainFragment).commit();
         }
 
-
         setupDrawerLayout();
+
         navigationView.getMenu().getItem(0).setChecked(true);
     }
 
@@ -106,64 +118,70 @@ public class MainActivity extends AppCompatActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem item) {
-
-                        FragmentTransaction fragmentTransaction= fm.beginTransaction();
-                        boolean isFragmentInStack;
-                        switch (item.getItemId()){
-                            case R.id.homepage_menuItem:
-                                isFragmentInStack = fm.popBackStackImmediate(backStageName,0);
-                                if(!isFragmentInStack){
-                                    MainFragment fragment = MainFragment.newInstance();
-                                    fragmentTransaction.replace(R.id.fragment_container,fragment);
-                                    backStageName =fragment.getClass().getName();
-                                    fragmentTransaction.addToBackStack(backStageName).commit();
-                                }
-                                break;
-                            case R.id.favorites_menuItem:
-                                getSupportFragmentManager().popBackStackImmediate();
-                                fragmentTransaction.replace(R.id.fragment_container,new FavoritesFragment());
-                                fragmentTransaction.addToBackStack(null).commit();
-                                break;
-                            case R.id.contact_us_menuItem:
-                                getSupportFragmentManager().popBackStackImmediate();
-                                fragmentTransaction.replace(R.id.fragment_container,new ContactUsFragment());
-                                fragmentTransaction.addToBackStack(null);
-                                fragmentTransaction.commit();
-                                break;
-                            case R.id.sponsors_menuItem:
-                                getSupportFragmentManager().popBackStackImmediate();
-                                fragmentTransaction.replace(R.id.fragment_container,new SponsorsFragment());
-                                fragmentTransaction.addToBackStack(null);
-                                fragmentTransaction.commit();
-                                break;
-                            case R.id.share_app_menuItem:
-                                Intent intent = new Intent();
-                                intent.setAction(Intent.ACTION_SEND);
-                                intent.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.playstore_link));
-                                intent.setType("text/plain");
-                                startActivity(Intent.createChooser(intent,getResources().getString(R.string.share_message)));
-                                break;
-                            case R.id.commitee_menuItem:
-                                getSupportFragmentManager().popBackStackImmediate();
-                                fragmentTransaction.replace(R.id.fragment_container,new CommitteeFragment());
-                                fragmentTransaction.addToBackStack(null);
-                                fragmentTransaction.commit();
-                                break;
-                            case R.id.developers_menuItem:
-                                getSupportFragmentManager().popBackStackImmediate();
-                                fragmentTransaction.replace(R.id.fragment_container,new DevelopersFragment());
-                                fragmentTransaction.addToBackStack(null);
-                                fragmentTransaction.commit();
-                                break;
-                        }
-                        if(item.getItemId() != R.id.share_app_menuItem)
-                        {
-                            for (int i = 0; i < navigationView.getMenu().size(); i++) {
-                                navigationView.getMenu().getItem(i).setChecked(false);
-                            }
-                            item.setChecked(true);
-                        }
                         drawerLayout.closeDrawers();
+                        if(!item.isChecked()) {
+                            FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                            boolean isFragmentInStack;
+                            switch (item.getItemId()) {
+                                case R.id.homepage_menuItem:
+                                    isFragmentInStack = fm.popBackStackImmediate(backStageName, 0);
+                                    if (!isFragmentInStack) {
+                                        MainFragment fragment = MainFragment.newInstance();
+                                        fragmentTransaction.replace(R.id.fragment_container, fragment);
+                                        backStageName = fragment.getClass().getName();
+                                        fragmentTransaction.addToBackStack(backStageName).commit();
+                                    }
+                                    collapsingToolbarLayout.setTitle("Matrix 17");
+                                    break;
+                                case R.id.favorites_menuItem:
+                                    getSupportFragmentManager().popBackStackImmediate();
+                                    fragmentTransaction.replace(R.id.fragment_container, new FavoritesFragment());
+                                    fragmentTransaction.addToBackStack(null).commit();
+                                    collapsingToolbarLayout.setTitle("Favorites");
+                                    break;
+                                case R.id.contact_us_menuItem:
+                                    getSupportFragmentManager().popBackStackImmediate();
+                                    fragmentTransaction.replace(R.id.fragment_container, new ContactUsFragment());
+                                    fragmentTransaction.addToBackStack(null);
+                                    fragmentTransaction.commit();
+                                    collapsingToolbarLayout.setTitle("Contact us");
+                                    break;
+                                case R.id.sponsors_menuItem:
+                                    getSupportFragmentManager().popBackStackImmediate();
+                                    fragmentTransaction.replace(R.id.fragment_container, new SponsorsFragment());
+                                    fragmentTransaction.addToBackStack(null);
+                                    fragmentTransaction.commit();
+                                    collapsingToolbarLayout.setTitle("Sponsors");
+                                    break;
+                                case R.id.share_app_menuItem:
+                                    Intent intent = new Intent();
+                                    intent.setAction(Intent.ACTION_SEND);
+                                    intent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.playstore_link));
+                                    intent.setType("text/plain");
+                                    startActivity(Intent.createChooser(intent, getResources().getString(R.string.share_message)));
+                                    break;
+                                case R.id.commitee_menuItem:
+                                    getSupportFragmentManager().popBackStackImmediate();
+                                    fragmentTransaction.replace(R.id.fragment_container, new CommitteeFragment());
+                                    fragmentTransaction.addToBackStack(null);
+                                    fragmentTransaction.commit();
+                                    collapsingToolbarLayout.setTitle("Committee");
+                                    break;
+                                case R.id.developers_menuItem:
+                                    getSupportFragmentManager().popBackStackImmediate();
+                                    fragmentTransaction.replace(R.id.fragment_container, new DevelopersFragment());
+                                    fragmentTransaction.addToBackStack(null);
+                                    fragmentTransaction.commit();
+                                    collapsingToolbarLayout.setTitle("Developers");
+                                    break;
+                            }
+                            if (item.getItemId() != R.id.share_app_menuItem) {
+                                for (int i = 0; i < navigationView.getMenu().size(); i++) {
+                                    navigationView.getMenu().getItem(i).setChecked(false);
+                                }
+                                item.setChecked(true);
+                            }
+                        }
                         return true;
                     }
                 }
@@ -187,7 +205,12 @@ public class MainActivity extends AppCompatActivity {
     {
         if(drawerLayout.isDrawerOpen(GravityCompat.START))
             drawerLayout.closeDrawers();
-        else
+        else {
+            for (int i = 0; i < navigationView.getMenu().size(); i++) {
+                navigationView.getMenu().getItem(i).setChecked(false);
+            }
+            navigationView.getMenu().getItem(0).setChecked(true);
             super.onBackPressed();
+        }
     }
 }

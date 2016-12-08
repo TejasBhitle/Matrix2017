@@ -8,4 +8,15 @@
     <color name="card_background">#FAFAFA</color>
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#757575</color>
+
+    <color name="cp">#E91E63</color>
+    <color name="vcp">#009688</color>
+    <color name="exec">#FFA000</color>
+    <color name="tech">#3F51B5</color>
+    <color name="pr">#FF5722</color>
+    <color name="marketing">#673AB7</color>
+    <color name="events">#F44336</color>
+    <color name="decor">#388E3C</color>
+    <color name="admin">#9C27B0</color>
+    <color name="security">#AFB42B</color>
 </resources>

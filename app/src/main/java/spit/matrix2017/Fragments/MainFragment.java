@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import spit.matrix2017.Activities.MainActivity;
-import spit.matrix2017.EventListFragment;
 import spit.matrix2017.R;
 
 /**
