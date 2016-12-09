@@ -19,6 +19,7 @@ import android.view.MenuItem;
 
 import com.squareup.picasso.Picasso;
 
+import spit.matrix2017.Fragments.AboutAppFragment;
 import spit.matrix2017.Fragments.CommitteeFragment;
 import spit.matrix2017.Fragments.ContactUsFragment;
 import spit.matrix2017.Fragments.DevelopersFragment;
@@ -174,6 +175,12 @@ public class MainActivity extends AppCompatActivity {
                                     fragmentTransaction.commit();
                                     collapsingToolbarLayout.setTitle("Developers");
                                     break;
+                                case R.id.about_menuItem:
+                                    getSupportFragmentManager().popBackStackImmediate();
+                                    fragmentTransaction.replace(R.id.fragment_container, new AboutAppFragment());
+                                    fragmentTransaction.addToBackStack(null);
+                                    fragmentTransaction.commit();
+                                    collapsingToolbarLayout.setTitle(getResources().getString(R.string.aboutapp));
                             }
                             for (int i = 0; i < navigationView.getMenu().size(); i++) {
                                 navigationView.getMenu().getItem(i).setChecked(false);

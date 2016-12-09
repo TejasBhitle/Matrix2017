@@ -19,4 +19,7 @@
     <color name="decor">#388E3C</color>
     <color name="admin">#9C27B0</color>
     <color name="security">#AFB42B</color>
+
+    <color name="yellow_amber">#FFCA28</color>
+    <color name="mild_green">#009688</color>
 </resources>

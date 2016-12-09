@@ -36,6 +36,12 @@
             android:title="@string/developers"
             android:id="@+id/developers_menuItem"
             android:icon="@drawable/svg_code_white_48px"/>
+
+
     </group>
+
+    <item
+        android:title="@string/aboutapp"
+        android:id="@+id/about_menuItem"/>
 
 </menu>

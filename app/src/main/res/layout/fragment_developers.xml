@@ -36,6 +36,7 @@
                                     android:layout_marginTop="25dp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:textColor="@color/colorPrimary"
                                     android:text="Tejas Bhitle"
                                     android:textSize="22dp"
                                     android:textAlignment="center"/>
@@ -54,7 +55,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textAlignment="center"
-                                    android:textColor="@android:color/holo_red_light"
+                                    android:textColor="@color/yellow_amber"
                                     android:text="@string/email_tejas"/>
                             </LinearLayout>
 
@@ -92,6 +93,7 @@
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                                android:textColor="@color/mild_green"
                                 android:text="LinkedIn"/>
                         </LinearLayout>
 
@@ -124,6 +126,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="Shubham Mahajan"
                                     android:textSize="22dp"
+                                    android:textColor="@color/colorPrimary"
                                     android:textAlignment="center"/>
                                 <TextView
                                     android:layout_marginTop="5dp"
@@ -140,7 +143,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textAlignment="center"
-                                    android:textColor="@android:color/holo_red_light"
+                                    android:textColor="@color/yellow_amber"
                                     android:text="@string/email_shubham"/>
                             </LinearLayout>
 
@@ -177,6 +180,7 @@
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/mild_green"
                                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                                 android:text="LinkedIn"/>
                         </LinearLayout>
@@ -210,6 +214,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="Adnan Ansari"
                                     android:textSize="22dp"
+                                    android:textColor="@color/colorPrimary"
                                     android:textAlignment="center"/>
                                 <TextView
                                     android:layout_marginTop="5dp"
@@ -226,7 +231,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textAlignment="center"
-                                    android:textColor="@android:color/holo_red_light"
+                                    android:textColor="@color/yellow_amber"
                                     android:text="@string/email_adnan"/>
                             </LinearLayout>
 
@@ -263,6 +268,7 @@
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/mild_green"
                                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                                 android:text="LinkedIn"/>
                         </LinearLayout>
@@ -296,6 +302,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="Rohit Nahata"
                                     android:textSize="22dp"
+                                    android:textColor="@color/colorPrimary"
                                     android:textAlignment="center"/>
                                 <TextView
                                     android:layout_marginTop="5dp"
@@ -312,7 +319,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textAlignment="center"
-                                    android:textColor="@android:color/holo_red_light"
+                                    android:textColor="@color/yellow_amber"
                                     android:text="@string/email_rohit"/>
                             </LinearLayout>
 
@@ -349,6 +356,7 @@
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/mild_green"
                                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                                 android:text="LinkedIn"/>
                         </LinearLayout>
@@ -382,6 +390,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="Mithil Gotarne"
                                     android:textSize="22dp"
+                                    android:textColor="@color/colorPrimary"
                                     android:textAlignment="center"/>
                                 <TextView
                                     android:layout_marginTop="5dp"
@@ -398,7 +407,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textAlignment="center"
-                                    android:textColor="@android:color/holo_red_light"
+                                    android:textColor="@color/yellow_amber"
                                     android:text="@string/email_mithil"/>
                             </LinearLayout>
 
@@ -435,6 +444,7 @@
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/mild_green"
                                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                                 android:text="LinkedIn"/>
                         </LinearLayout>
@@ -468,6 +478,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="Akshay Shah"
                                     android:textSize="22dp"
+                                    android:textColor="@color/colorPrimary"
                                     android:textAlignment="center"/>
                                 <TextView
                                     android:layout_marginTop="5dp"
@@ -484,7 +495,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textAlignment="center"
-                                    android:textColor="@android:color/holo_red_light"
+                                    android:textColor="@color/yellow_amber"
                                     android:text="@string/email_akshay"/>
                             </LinearLayout>
 
@@ -521,6 +532,7 @@
                                 android:layout_width="0dp"
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/mild_green"
                                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                                 android:text="LinkedIn"/>
                         </LinearLayout>
