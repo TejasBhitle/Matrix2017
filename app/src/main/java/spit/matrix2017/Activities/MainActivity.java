@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                                     intent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.playstore_link));
                                     intent.setType("text/plain");
                                     startActivity(Intent.createChooser(intent, getResources().getString(R.string.share_message)));
-                                    break;
+                                    return true;
                                 case R.id.commitee_menuItem:
                                     getSupportFragmentManager().popBackStackImmediate();
                                     fragmentTransaction.replace(R.id.fragment_container, new CommitteeFragment());
@@ -175,12 +175,10 @@ public class MainActivity extends AppCompatActivity {
                                     collapsingToolbarLayout.setTitle("Developers");
                                     break;
                             }
-                            if (item.getItemId() != R.id.share_app_menuItem) {
-                                for (int i = 0; i < navigationView.getMenu().size(); i++) {
-                                    navigationView.getMenu().getItem(i).setChecked(false);
-                                }
-                                item.setChecked(true);
+                            for (int i = 0; i < navigationView.getMenu().size(); i++) {
+                                navigationView.getMenu().getItem(i).setChecked(false);
                             }
+                            item.setChecked(true);
                         }
                         return true;
                     }
@@ -210,6 +208,8 @@ public class MainActivity extends AppCompatActivity {
                 navigationView.getMenu().getItem(i).setChecked(false);
             }
             navigationView.getMenu().getItem(0).setChecked(true);
+            collapsingToolbarLayout.setTitle("Matrix 17");
+
             super.onBackPressed();
         }
     }
