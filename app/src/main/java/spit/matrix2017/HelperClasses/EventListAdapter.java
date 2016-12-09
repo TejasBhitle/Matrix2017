@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,6 +30,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
     private Context mContext;
     private List<Event> eventNames;
     private Event eventName;
+    int lastPosition = -1;
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView eventTitle;
@@ -98,6 +101,11 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
         holder.thumbnail.setTag(eventName);
         holder.eventTitle.setText(eventName.getName());
 
+        if(position > lastPosition){
+            Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.up_from_bottom);
+            holder.itemView.startAnimation(animation);
+            lastPosition= position;
+        }
     }
 
     @Override
