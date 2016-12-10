@@ -2,9 +2,14 @@ package spit.matrix2017.Fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.util.Pair;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -81,8 +86,15 @@ public class EventListFragment extends Fragment{
                         i.putExtra("contact2no", event.getContact2_no());
                         i.putExtra("favorite",event.getFavourite());
                         i.putExtra("reminder", event.getReminder());
+                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                            view.setTransitionName("poster");
+                            Pair pair = new Pair<>(view, ViewCompat.getTransitionName(view));
 
-                        getContext().startActivity(i);
+                            ActivityOptionsCompat optionsCompat= ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),pair);
+                            ActivityCompat.startActivity(getActivity(),i,optionsCompat.toBundle());
+                        }
+                        else
+                            getContext().startActivity(i);
                     }
 
                     @Override public void onLongItemClick(View view, int position) {

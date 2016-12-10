@@ -18,6 +18,7 @@
                 android:id="@+id/thumbnail"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
+                android:transitionName="poster"
                 android:src="@drawable/virtual_stock_market" />
 
             <LinearLayout

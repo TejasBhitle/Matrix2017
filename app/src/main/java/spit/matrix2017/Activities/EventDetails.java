@@ -1,6 +1,7 @@
 package spit.matrix2017.Activities;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -21,11 +22,16 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
+import android.transition.Slide;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -161,6 +167,26 @@ public class EventDetails
     }
 
     @Override
+    protected void onStart() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Slide slide = new Slide(Gravity.BOTTOM);
+            slide.addTarget(R.id.description_card);
+            slide.addTarget(R.id.venue_time_card);
+            slide.addTarget(R.id.rules_card);
+            slide.addTarget(R.id.prizes_card);
+            slide.addTarget(R.id.organizers_card);
+            slide.addTarget(R.id.fab);
+            slide.setInterpolator(new LinearOutSlowInInterpolator());
+            getWindow().setEnterTransition(slide);
+            getWindow().setExitTransition(slide);
+            getWindow().setReenterTransition(slide);
+
+            setupEnterAnimation();
+        }
+        super.onStart();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_event_details, menu);
         return super.onCreateOptionsMenu(menu);
@@ -173,6 +199,30 @@ public class EventDetails
         if(isReminderSet)
             mi_reminder.setIcon(R.drawable.svg_alarm_on_white_48px);
         return super.onPrepareOptionsMenu(menu);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void setupEnterAnimation() {
+        Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.transition);
+        transition.setDuration(300);
+        getWindow().setSharedElementEnterTransition(transition);
+        transition.addListener(new Transition.TransitionListener() {
+            @Override
+            public void onTransitionStart(Transition transition) {
+            }
+            @Override
+            public void onTransitionEnd(Transition transition) {
+            }
+            @Override
+            public void onTransitionCancel(Transition transition) {
+            }
+            @Override
+            public void onTransitionPause(Transition transition) {
+            }
+            @Override
+            public void onTransitionResume(Transition transition) {
+            }
+        });
     }
 
     @Override
