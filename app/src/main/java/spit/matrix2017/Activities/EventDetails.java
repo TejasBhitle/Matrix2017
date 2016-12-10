@@ -238,6 +238,9 @@ public class EventDetails
                 intent.setType("text/plain");
                 startActivity(Intent.createChooser(intent, "Share event via"));
                 break;
+            case android.R.id.home:
+                onBackPressed();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -462,5 +465,10 @@ public class EventDetails
             else
                 Toast.makeText(this, "Reminder not added", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
