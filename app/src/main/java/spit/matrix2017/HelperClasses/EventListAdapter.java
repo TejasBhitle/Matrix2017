@@ -101,11 +101,11 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
         holder.thumbnail.setTag(eventName);
         holder.eventTitle.setText(eventName.getName());
 
-        if(position > lastPosition){
+        /*if(position > lastPosition){
             Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.up_from_bottom);
             holder.itemView.startAnimation(animation);
             lastPosition= position;
-        }
+        }*/
     }
 
     @Override
