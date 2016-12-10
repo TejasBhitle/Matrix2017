@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/cv"
     android:layout_margin="4dp"
-    style="@style/RippleEffectCardView">
+    style="@style/RippleEffectCardView" >
 
     <LinearLayout
             android:layout_width="match_parent"
