@@ -3,7 +3,6 @@ package spit.matrix2017.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
@@ -14,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import spit.matrix2017.Activities.EventDetails;
-import spit.matrix2017.Activities.MainActivity;
 import spit.matrix2017.HelperClasses.Event;
 import spit.matrix2017.HelperClasses.EventListAdapter;
 import spit.matrix2017.HelperClasses.MatrixContentProvider;
@@ -33,7 +31,6 @@ public class FavoritesFragment extends Fragment {
     EventListAdapter eventListAdapter;
     TextView blankTextview;
 
-
     public FavoritesFragment(){}
 
     @Override
@@ -46,10 +43,6 @@ public class FavoritesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.recyclerview_layout,container,false);
 
-
-        AppBarLayout appBarLayout = ((MainActivity)getActivity()).getAppBarLayout();
-        appBarLayout.setExpanded(false);
-
         matrixContentProvider=new MatrixContentProvider();
         dbConnectionHelper = new MatrixContentProvider().new MatrixDBConnectionHelper(getContext());
         blankTextview =(TextView)view.findViewById(R.id.blank_textview);
@@ -57,7 +50,7 @@ public class FavoritesFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
+        mRecyclerView.setNestedScrollingEnabled(false);
 
         return view;
     }
@@ -77,7 +70,6 @@ public class FavoritesFragment extends Fragment {
         else{
             blankTextview.setVisibility(View.GONE);
         }
-
 
         mRecyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getContext(), mRecyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
@@ -106,6 +98,5 @@ public class FavoritesFragment extends Fragment {
                     }
                 })
         );
-
     }
 }

@@ -106,6 +106,6 @@
 
     <string name="app_licence">Licensed under MIT License.</string>
     <string name="app_copyright">Copyright &#169; 2016 Sardar Patel Institute of Technology.</string>
-    <string name="aboutapp">About The App</string>
+    <string name="aboutapp">About</string>
 
 </resources>

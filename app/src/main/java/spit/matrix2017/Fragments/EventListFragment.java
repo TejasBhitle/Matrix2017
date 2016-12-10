@@ -1,6 +1,5 @@
 package spit.matrix2017.Fragments;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +19,6 @@ import spit.matrix2017.HelperClasses.EventListAdapter;
 import spit.matrix2017.HelperClasses.MatrixContentProvider;
 import spit.matrix2017.HelperClasses.RecyclerItemClickListener;
 import spit.matrix2017.R;
-
 
 public class EventListFragment extends Fragment{
     RecyclerView mRecyclerView;
