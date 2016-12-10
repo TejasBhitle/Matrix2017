@@ -19,27 +19,26 @@
         <item name="actionMenuTextColor">@android:color/white</item>
     </style>
 
-    <style name="About_Card" parent="CardView">
+    <style name="About_Card" parent="RippleEffectCardView">
         <item name="cardCornerRadius">5dp</item>
         <item name="cardBackgroundColor">@color/card_background</item>
         <item name="cardElevation">2dp</item>
         <item name="android:layout_margin">5dp</item>
-        <item name="android:focusable">true</item>
-        <item name="android:clickable">true</item>
-        <item name="android:foreground">?android:attr/selectableItemBackground</item>
     </style>
 
-    <style name="Description_Card" parent="CardView">
+    <style name="Description_Card" parent="RippleEffectCardView">
         <item name="cardBackgroundColor">@color/card_background</item>
         <item name="cardElevation">2dp</item>
         <item name="android:padding">5dp</item>
         <item name="android:layout_marginTop">5dp</item>
-        <item name="android:focusable">true</item>
-        <item name="android:clickable">true</item>
-        <item name="android:foreground">?android:attr/selectableItemBackground</item>
         <item name="android:layout_marginBottom">5dp</item>
     </style>
 
+    <style name="RippleEffectCardView" parent="CardView">
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
