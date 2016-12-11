@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import spit.matrix2017.Activities.EventDetails;
 import spit.matrix2017.HelperClasses.Event;
@@ -87,8 +88,9 @@ public class EventListFragment extends Fragment{
                         i.putExtra("favorite",event.getFavourite());
                         i.putExtra("reminder", event.getReminder());
                         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                            view.setTransitionName("poster");
-                            Pair pair = new Pair<>(view, ViewCompat.getTransitionName(view));
+                            ImageView poster = (ImageView)view.findViewById(R.id.thumbnail);
+                            poster.setTransitionName("poster");
+                            Pair pair = new Pair<>(poster, ViewCompat.getTransitionName(poster));
 
                             ActivityOptionsCompat optionsCompat= ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),pair);
                             ActivityCompat.startActivity(getActivity(),i,optionsCompat.toBundle());
