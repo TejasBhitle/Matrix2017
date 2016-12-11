@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         R.drawable.technovanza,
         R.drawable.tesseract,
         R.drawable.battle_of_brains,
-        R.drawable.blind_car_racing,
         R.drawable.human_foosball,
         R.drawable.lan_gaming,
         R.drawable.lan_mafia,

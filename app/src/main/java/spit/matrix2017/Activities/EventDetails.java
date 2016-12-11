@@ -263,7 +263,7 @@ public class EventDetails
     private void setVenueAndTime(String venue, String time) {
         AppCompatTextView venueTimeTextView = (AppCompatTextView) findViewById(R.id.venue_time_textView);
         assert venueTimeTextView != null;
-        venueTimeTextView.setText(venue + " (" + time + ")");
+        venueTimeTextView.setText(venue + "\n" + time);
     }
 
     private void setRules() {
@@ -380,20 +380,39 @@ public class EventDetails
             else {
                 final Calendar beginTime = Calendar.getInstance();
                 final Calendar endTime = Calendar.getInstance();
-                beginTime.set(2017, 1, 16, 9, 0);
-                endTime.set(2017, 1, 16, 17, 0);
+
+                if(event_name != null && event_name.equals("VSM"))
+                {
+                    beginTime.set(2017, 1, 16, 13, 0);
+                    endTime.set(2017, 1, 16, 14, 0);
+                }
+                else
+                {
+                    beginTime.set(2017, 1, 16, 9, 0);
+                    endTime.set(2017, 1, 16, 18, 0);
+                }
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Remind on?");
                 builder.setItems(new String[]{"Day 1", "Day 2"}, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        if (i == 1) {
-                            beginTime.set(2017, 1, 17, 9, 0);
-                            endTime.set(2017, 1, 17, 17, 0);
+                        if (i == 1)
+                        {
+                            if(event_name != null && event_name.equals("VSM"))
+                            {
+                                beginTime.set(2017, 1, 17, 13, 0);
+                                endTime.set(2017, 1, 17, 14, 0);
+                            }
+                            else
+                            {
+                                beginTime.set(2017, 1, 17, 9, 0);
+                                endTime.set(2017, 1, 17, 18, 0);
+                            }
 
                             goToCalendar(beginTime, endTime);
-                        } else
+                        }
+                        else
                             goToCalendar(beginTime, endTime);
                     }
                 });
@@ -413,7 +432,7 @@ public class EventDetails
                 .putExtra(CalendarContract.Events._ID, mEventID)
                 .putExtra(CalendarContract.Events.TITLE, event_name)
                 .putExtra(CalendarContract.Events.DESCRIPTION, "Event at Matrix 17")
-                .putExtra(CalendarContract.Events.EVENT_LOCATION, getIntent().getStringExtra("venue")+", S.P.I.T.")
+                .putExtra(CalendarContract.Events.EVENT_LOCATION, getIntent().getStringExtra("venue"))
                 .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
 
         visitedCalendar = true;
@@ -453,7 +472,7 @@ public class EventDetails
                 ContentResolver contentResolver = getContentResolver();
                 Uri uri = Uri.parse("content://spit.matrix2017.provider");
                 String selection = "name = ?";
-                String[] selectionArgs = {getIntent().getStringExtra("name")};
+                String[] selectionArgs = {getIntent().getStringExtra("name")+", S.P.I.T."};
                 ContentValues cv = new ContentValues();
                 cv.put("reminder", 1);
                 contentResolver.update(uri, cv, selection, selectionArgs);
