@@ -1,3 +1,4 @@
+
 package spit.matrix2017.HelperClasses;
 
 import android.content.ContentProvider;
@@ -36,34 +37,35 @@ public class MatrixContentProvider extends ContentProvider {
     private static final String COL_EVENT_CONTACT2_NO = "contact2_no";
     private static final String COL_EVENT_FAVORITE = "favorite";
     private static final String COL_EVENT_REMINDER = "reminder";
-
+    private static final String COL_COLOR="color";
     private static final String CREATE_TABLE_EVENTS_QUERY = String.format
-            ("CREATE TABLE %s(%s INTEGER PRIMARY KEY, %s TEXT NOT NULL, %s TEXT NOT NULL, %s INTEGER NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s INTEGER NOT NULL, %s INTEGER NOT NULL);",
-                    TABLE_EVENTS, COL_EVENT_ID, COL_EVENT_NAME, COL_EVENT_DESCRIPTION, COL_EVENT_IMAGE, COL_EVENT_CATEGORY, COL_EVENT_VENUE, COL_EVENT_TIME, COL_EVENT_CONTACT1_NAME, COL_EVENT_CONTACT1_NO, COL_EVENT_CONTACT2_NAME, COL_EVENT_CONTACT2_NO, COL_EVENT_FAVORITE, COL_EVENT_REMINDER);
+            ("CREATE TABLE %s(%s INTEGER PRIMARY KEY, %s TEXT NOT NULL, %s TEXT NOT NULL, %s INTEGER NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s INTEGER NOT NULL, %s INTEGER NOT NULL, %s INTEGER NOT NULL);",
+                    TABLE_EVENTS, COL_EVENT_ID, COL_EVENT_NAME, COL_EVENT_DESCRIPTION, COL_EVENT_IMAGE, COL_EVENT_CATEGORY, COL_EVENT_VENUE, COL_EVENT_TIME, COL_EVENT_CONTACT1_NAME, COL_EVENT_CONTACT1_NO, COL_EVENT_CONTACT2_NAME, COL_EVENT_CONTACT2_NO, COL_EVENT_FAVORITE, COL_EVENT_REMINDER,COL_COLOR);
 
     //////////Data of each event//////////
     private final Event[] events = new Event[]{
-            new Event("Human Foosball", "Table football, commonly called foosball, is a table-top game. So what’s this Human Foosball thing?\nYou might have guessed it: The players themselves are foos men!", R.drawable.human_foosball, "Fun", "Gymkhana", "9am to 1pm\n2pm to 6pm", "Shlok Gujar", "9930556978", "Rutvij Mehta", "9930018260"),
-            new Event("Battle of Brains", "Take your brain on an exciting roller coaster ride!\nSmash two rounds to win exciting prizes", R.drawable.battle_of_brains, "Fun", "SY MCA, 4th floor", "9am to 1pm\n2pm to 6pm", "Shreya Ail", "9665817304", "Utkarsha Pawar", "7507416309"),
-            new Event("LAN Gaming", "Compete for glory in 4 different games: FIFA, Counter-Strike, Need for Speed and Mini Militia, and take home exciting prizes!", R.drawable.lan_gaming, "Fun", "Room 007", "9am to 1pm\n2pm to 6pm", "Sai Yerremreddy", "8652259207", "Manas Shukla", "9987014677"),
-            new Event("LAN Mafia", "Never let anyone know what you are thinking.\n\n\u2022 Each of the students will be assigned specific roles in the game by 'God'\n\u2022 3 of the best players who outplay others in the GDs will be selected from the slot\n\u2022 There will be a finale of all the people shortlisted from previous games", R.drawable.lan_mafia, "Fun", "Room 404", "9am to 1pm\n2pm to 6pm", "Krishna Kancharla", "9022057698", "Nishchint Jagdale", "8425097544"),
-            new Event("Mind That Word", "A word-based game between two teams of four members each.\nA team selects a gamemaster, who is provided with 10 codenames which the team has to guess.", R.drawable.mind_that_word, "Fun", "Room 310", "9am to 1pm\n2pm to 6pm", "Anirvin Vishwanatan", "9167957770", "Ankit Sawant", "9869549744"),
-            new Event("Pokemon Showdown", "The mages and warlocks of Westeros have opened up a portal and Pokémon have landed here from nowhere!\nDefeat anyone who comes in your way to the Iron Throne, and fight your way against the other false claimants.\nFor there can be only one champion, there will be two great wars.", R.drawable.pokemon_showdown, "Fun", "MCA Lab, 4th floor", "9am to 1pm\n2pm to 6pm", "Rajorshi Chaudhuri", "7738413449", "Sarvesh Patil", "8898698546"),
+            new Event("Human Foosball", "Table football, commonly called foosball, is a table-top game. So what’s this Human Foosball thing?\nYou might have guessed it: The players themselves are foos men!", R.drawable.human_foosball, "Fun", "Gymkhana", "9am to 1pm\n2pm to 6pm", "Shlok Gujar", "9930556978", "Rutvij Mehta", "9930018260",3822494),
+            new Event("Battle of Brains", "Take your brain on an exciting roller coaster ride!\nSmash two rounds to win exciting prizes", R.drawable.battle_of_brains, "Fun", "SY MCA, 4th floor", "9am to 1pm\n2pm to 6pm", "Shreya Ail", "9665817304", "Utkarsha Pawar", "7507416309",16726579),
+            new Event("LAN Gaming", "Compete for glory in 4 different games: FIFA, Counter-Strike, Need for Speed and Mini Militia, and take home exciting prizes!", R.drawable.lan_gaming, "Fun", "Room 007", "9am to 1pm\n2pm to 6pm", "Sai Yerremreddy", "8652259207", "Manas Shukla", "9987014677",2755064),
+            new Event("LAN Mafia", "Never let anyone know what you are thinking.\n\n\u2022 Each of the students will be assigned specific roles in the game by 'God'\n\u2022 3 of the best players who outplay others in the GDs will be selected from the slot\n\u2022 There will be a finale of all the people shortlisted from previous games", R.drawable.lan_mafia, "Fun", "Room 404", "9am to 1pm\n2pm to 6pm", "Krishna Kancharla", "9022057698", "Nishchint Jagdale", "8425097544",5496800),
+            new Event("Mind That Word", "A word-based game between two teams of four members each.\nA team selects a gamemaster, who is provided with 10 codenames which the team has to guess.", R.drawable.mind_that_word, "Fun", "Room 310", "9am to 1pm\n2pm to 6pm", "Anirvin Vishwanatan", "9167957770", "Ankit Sawant", "9869549744",2171384),
+            new Event("Pokemon Showdown", "The mages and warlocks of Westeros have opened up a portal and Pokémon have landed here from nowhere!\nDefeat anyone who comes in your way to the Iron Throne, and fight your way against the other false claimants.\nFor there can be only one champion, there will be two great wars.", R.drawable.pokemon_showdown, "Fun", "MCA Lab, 4th floor", "9am to 1pm\n2pm to 6pm", "Rajorshi Chaudhuri", "7738413449", "Sarvesh Patil", "8898698546",1703936),
 
-            new Event("VSM", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.", R.drawable.virtual_stock_market, "Mega", "College entrance", "1pm to 2pm", "Riya Bakhtiani", "8888006180", "Jainam Soni", "9619100569"),
-            new Event("Codatron", "Can you code your way to the top?\nParticipate in 3 coding or 3 non-coding rounds to find out!", R.drawable.codatron, "Mega", "Rooms 406 and 408", "9am to 1pm\n2pm to 6pm", "Kaustubh Toraskar", "9930468296", "Saral Uttamani", "9930510003"),
-            new Event("Laser Maze", "Sharpen your ninja skills as you twist, duck and crawl your way through an intricate web of lasers.", R.drawable.laser_maze, "Mega", "Room 202", "9am to 1pm\n2pm to 5pm", "Ameya Nambisan", "9892510777", "Subhiksha Mukuntharaj", "9833667741"),
-            new Event("Laser Tag", "An action-packed game where participants wear electronic vests and tag each other with phasors to score points.", R.drawable.laser_tag, "Mega", "Room 203", "9am to 1pm\n2pm to 6pm", "Gurpreet Kaur Saimy", "9029553799", "Madhura Gore", "7208450172"),
+            new Event("VSM", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.", R.drawable.virtual_stock_market, "Mega", "College entrance", "1pm to 2pm", "Riya Bakhtiani", "8888006180", "Jainam Soni", "9619100569",1120744),
+            new Event("Codatron", "Can you code your way to the top?\nParticipate in 3 coding or 3 non-coding rounds to find out!", R.drawable.codatron, "Mega", "Rooms 406 and 408", "9am to 1pm\n2pm to 6pm", "Kaustubh Toraskar", "9930468296", "Saral Uttamani", "9930510003",14048043),
+            new Event("Laser Maze", "Sharpen your ninja skills as you twist, duck and crawl your way through an intricate web of lasers.", R.drawable.laser_maze, "Mega", "Room 202", "9am to 1pm\n2pm to 5pm", "Ameya Nambisan", "9892510777", "Subhiksha Mukuntharaj", "9833667741",16733110),
+            new Event("Laser Tag", "An action-packed game where participants wear electronic vests and tag each other with phasors to score points.", R.drawable.laser_tag, "Mega", "Room 203", "9am to 1pm\n2pm to 6pm", "Gurpreet Kaur Saimy", "9029553799", "Madhura Gore", "7208450172",590064),
 
-            new Event("Tech Charades", "Let your actions speak louder than your words!\n\nList of games:\n\u2022 Pictionary\n\u2022 Blind racing\n\u2022 Tech dumb charades\n\u2022 Tech quiz", R.drawable.tech_charades, "Tech", "FE ETRX", "9am to 1pm\n2pm to 6pm", "Meet Gopani", "9969763551", "Harsh Jain", "9004885565"),
-            new Event("Battle Frontier", "\u2022 The Ultimate Race:\nRace your bots through hurdles\n\n\u2022 Stryker:\nShow off your robo soccoer skills", R.drawable.battle_frontier, "Tech", "Quadrangle", "9am to 1pm\n2pm to 6pm", "Anirudh Sharma", "7038844719", "Alan Jacob", "9167347037"),
-            new Event("Escape Plan", "Cut loose or lose.\n\n\u2022 Level 1: Picture clues\n\u2022 Level 2: Technical quiz\n\u2022 Level 3: Online treasure hunt\n\u2022 Level 4: Lazer Maze", R.drawable.escape_plan, "Tech", "Room 301", "9am to 1pm\n2pm to 6pm", "Rishi Vedula", "9967009530", "Ameya Vatkar", "9920666361"),
-            new Event("Technovanza", "Beat the clock!", R.drawable.technovanza, "Tech", "FE EXTC / Room 407", "9am to 1pm\n2pm to 6pm", "Ashish Kulkarni", "9920874465", "Shoaib Mansoori", "7715087254"),
-            new Event("TechXplosion", "\u2022 Stage 1: Brainstorm\n\u2022 Stage 2: Amphi hovercraft / Laser barricades / Robo-swachta abhiyaan\n\u2022 Stage 3: Steady hands\n\u2022 Stage 4: Bomb defusion", R.drawable.tech_xplosion, "Tech", "Quadrangle", "9am to 5pm", "Yash Gaba", "9167014679", "Aastha Shah", "8767488885"),
-            new Event("No Escape", "Team up to break out!", R.drawable.no_escape, "Tech", "FE IT", "9am to 1pm\n2pm to 6pm", "Sushmen Chaudhari", "9022536467", "Kundan Patel", "9923416796"),
-            new Event("Techeshi's Castle", "Vengeance hits home!\n\n\u2022 Line following bot: Make your own line following robot\n\u2022 Techeshi's Castle: Play 3 levels of robogames", R.drawable.techeshis_castle, "Tech", "Quadrangle", "9am to 1pm\n2pm to 6pm", "Ananya Navelkar", "9221702015", "Ananya Ojha", "9766120020"),
-            new Event("Tesseract", "Collect as much virtual money as you can.\n\n\u2022 Stage 1: Dart game\n\u2022 Stage 2: Twister\n\u2022 Stage 3: Seek and ye shall do\n\u2022 Stage 4: Maze runner", R.drawable.tesseract, "Tech", "FE Comps", "9am to 1pm\n2pm to 6pm", "Hrohaan Malhotra", "9987037511", "Divit Karmiani", "9892302788")
+            new Event("Tech Charades", "Let your actions speak louder than your words!\n\nList of games:\n\u2022 Pictionary\n\u2022 Blind racing\n\u2022 Tech dumb charades\n\u2022 Tech quiz", R.drawable.tech_charades, "Tech", "FE ETRX", "9am to 1pm\n2pm to 6pm", "Meet Gopani", "9969763551", "Harsh Jain", "9004885565",16206684),
+            new Event("Battle Frontier", "\u2022 The Ultimate Race:\nRace your bots through hurdles\n\n\u2022 Stryker:\nShow off your robo soccoer skills", R.drawable.battle_frontier, "Tech", "Quadrangle", "9am to 1pm\n2pm to 6pm", "Anirudh Sharma", "7038844719", "Alan Jacob", "9167347037",7031751),
+            new Event("Escape Plan", "Cut loose or lose.\n\n\u2022 Level 1: Picture clues\n\u2022 Level 2: Technical quiz\n\u2022 Level 3: Online treasure hunt\n\u2022 Level 4: Lazer Maze", R.drawable.escape_plan, "Tech", "Room 301", "9am to 1pm\n2pm to 6pm", "Rishi Vedula", "9967009530", "Ameya Vatkar", "9920666361",2226168),
+            new Event("Technovanza", "Beat the clock!", R.drawable.technovanza, "Tech", "FE EXTC / Room 407", "9am to 1pm\n2pm to 6pm", "Ashish Kulkarni", "9920874465", "Shoaib Mansoori", "7715087254",16735126),
+            new Event("TechXplosion", "\u2022 Stage 1: Brainstorm\n\u2022 Stage 2: Amphi hovercraft / Laser barricades / Robo-swachta abhiyaan\n\u2022 Stage 3: Steady hands\n\u2022 Stage 4: Bomb defusion", R.drawable.tech_xplosion, "Tech", "Quadrangle", "9am to 5pm", "Yash Gaba", "9167014679", "Aastha Shah", "8767488885",46592),
+            new Event("No Escape", "Team up to break out!", R.drawable.no_escape, "Tech", "FE IT", "9am to 1pm\n2pm to 6pm", "Sushmen Chaudhari", "9022536467", "Kundan Patel", "9923416796",15692908),
+            new Event("Techeshi's Castle", "Vengeance hits home!\n\n\u2022 Line following bot: Make your own line following robot\n\u2022 Techeshi's Castle: Play 3 levels of robogames", R.drawable.techeshis_castle, "Tech", "Quadrangle", "9am to 1pm\n2pm to 6pm", "Ananya Navelkar", "9221702015", "Ananya Ojha", "9766120020",8682621),
+            new Event("Tesseract", "Collect as much virtual money as you can.\n\n\u2022 Stage 1: Dart game\n\u2022 Stage 2: Twister\n\u2022 Stage 3: Seek and ye shall do\n\u2022 Stage 4: Maze runner", R.drawable.tesseract, "Tech", "FE Comps", "9am to 1pm\n2pm to 6pm", "Hrohaan Malhotra", "9987037511", "Divit Karmiani", "9892302788",12987112)
     };
+
 
     SQLiteDatabase db;
     MatrixDBConnectionHelper helper;
@@ -127,7 +129,7 @@ public class MatrixContentProvider extends ContentProvider {
                 cv.put(COL_EVENT_CONTACT1_NO, event.getContact1_no());
                 cv.put(COL_EVENT_CONTACT2_NAME, event.getContact2_name());
                 cv.put(COL_EVENT_CONTACT2_NO, event.getContact2_no());
-
+                cv.put(COL_COLOR,event.getColor());
                 db.insert(TABLE_EVENTS, null, cv);
             }
         }
@@ -151,7 +153,7 @@ public class MatrixContentProvider extends ContentProvider {
             List<Event> list = new ArrayList<>();
 
             SQLiteDatabase db = getReadableDatabase();
-            String[] columns = {COL_EVENT_ID, COL_EVENT_NAME, COL_EVENT_DESCRIPTION, COL_EVENT_IMAGE, COL_EVENT_CATEGORY, COL_EVENT_VENUE, COL_EVENT_TIME, COL_EVENT_CONTACT1_NAME, COL_EVENT_CONTACT1_NO, COL_EVENT_CONTACT2_NAME, COL_EVENT_CONTACT2_NO, COL_EVENT_FAVORITE, COL_EVENT_REMINDER};
+            String[] columns = {COL_EVENT_ID, COL_EVENT_NAME, COL_EVENT_DESCRIPTION, COL_EVENT_IMAGE, COL_EVENT_CATEGORY, COL_EVENT_VENUE, COL_EVENT_TIME, COL_EVENT_CONTACT1_NAME, COL_EVENT_CONTACT1_NO, COL_EVENT_CONTACT2_NAME, COL_EVENT_CONTACT2_NO, COL_EVENT_FAVORITE, COL_EVENT_REMINDER,COL_COLOR};
             Cursor cursor= db.query(TABLE_EVENTS, columns, columns[db_position] + " = '" + name + "'", null, null, null, null);
 
             int index1 = cursor.getColumnIndex(COL_EVENT_NAME);
@@ -166,10 +168,10 @@ public class MatrixContentProvider extends ContentProvider {
             int index10 = cursor.getColumnIndex(COL_EVENT_CONTACT2_NO);
             int index11 = cursor.getColumnIndex(COL_EVENT_FAVORITE);
             int index12 = cursor.getColumnIndex(COL_EVENT_REMINDER);
-
+            int index13= cursor.getColumnIndex(COL_COLOR);
 
             String name_event, desc, category, venue, time, contact_name1, contact_name2, contact_no1, contact_no2;
-            int img, fav, reminder;
+            int img, fav, reminder,color;
 
             while (cursor.moveToNext()) {
                 name_event = cursor.getString(index1);
@@ -184,8 +186,8 @@ public class MatrixContentProvider extends ContentProvider {
                 contact_no2 = cursor.getString(index10);
                 fav = cursor.getInt(index11);
                 reminder = cursor.getInt(index12);
-
-                Event event = new Event(name_event, desc, img, category, venue, time, contact_name1, contact_no1, contact_name2, contact_no2, fav, reminder);
+                color=cursor.getInt(index13);
+                Event event = new Event(name_event, desc, img, category, venue, time, contact_name1, contact_no1, contact_name2, contact_no2, fav, reminder,color);
                 list.add(event);
             }
             cursor.close();
@@ -194,3 +196,4 @@ public class MatrixContentProvider extends ContentProvider {
 
     }
 }
+

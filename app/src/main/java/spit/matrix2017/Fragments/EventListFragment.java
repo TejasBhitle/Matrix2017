@@ -87,6 +87,7 @@ public class EventListFragment extends Fragment{
                         i.putExtra("contact2no", event.getContact2_no());
                         i.putExtra("favorite",event.getFavourite());
                         i.putExtra("reminder", event.getReminder());
+                        i.putExtra("color",event.getColor());
                         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
                             ImageView poster = (ImageView)view.findViewById(R.id.thumbnail);
                             poster.setTransitionName("poster");

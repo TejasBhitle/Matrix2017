@@ -15,6 +15,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -29,8 +30,6 @@ import spit.matrix2017.R;
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyViewHolder> {
     private Context mContext;
     private List<Event> eventNames;
-    private Event eventName;
-    int lastPosition = -1;
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView eventTitle;
@@ -39,37 +38,21 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
 
         MyViewHolder(View view) {
             super(view);
-            eventTitle= (TextView) view.findViewById(R.id.event_title);
+            eventTitle = (TextView) view.findViewById(R.id.event_title);
             thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
             background = view.findViewById(R.id.textView_background);
         }
 
-        void updatePalette() {
+        void updatePalette(int color) {
 
-            try{
-                Bitmap bitmap = ((BitmapDrawable)thumbnail.getDrawable()).getBitmap();
+            background.setBackgroundColor(color);
 
-                Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
-                    @Override
-                    public void onGenerated(Palette palette)
-                    {
-                        Palette.Swatch swatch = palette.getVibrantSwatch();
-                        if(swatch == null)
-                            swatch = palette.getMutedSwatch();
-                        if(swatch != null)
-                        {
-                            int color = swatch.getRgb();
-                            background.setBackgroundColor(color);
-                            if((Color.red(color)+Color.green(color)+Color.blue(color)) < 420)
-                                eventTitle.setTextColor(Color.WHITE);
-                        }
-                    }
-                });
-            }catch(Exception e){
-                Log.e("EventListAdapter",e.getMessage());}
-
+            if ((Color.red(color) + Color.green(color) + Color.blue(color)) < 420) {
+                eventTitle.setTextColor(Color.WHITE);
+            }
         }
     }
+
 
     public EventListAdapter(Context mContext, List<Event> eventNames) {
         this.mContext = mContext;
@@ -93,13 +76,25 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
 
-        eventName = eventNames.get(position);
+        Event eventName = eventNames.get(position);
+        holder.eventTitle.setText(eventName.getName());
+        Picasso.with(mContext).load(eventName.getImage()).resize(400, 400).centerCrop().into(holder.thumbnail);
+        holder.thumbnail.setTag(eventName);
+        holder.eventTitle.setText(eventName.getName());
+        holder.updatePalette(eventName.getColor());
+
+        /*
+        Event eventName = eventNames.get(position);
         holder.eventTitle.setText(eventName.getName());
 
         Picasso.with(mContext).load(eventName.getImage()).resize(400, 400).centerCrop().into(holder.thumbnail);
         holder.updatePalette();
         holder.thumbnail.setTag(eventName);
         holder.eventTitle.setText(eventName.getName());
+
+         */
+
+
 
         /*if(position > lastPosition){
             Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.up_from_bottom);
