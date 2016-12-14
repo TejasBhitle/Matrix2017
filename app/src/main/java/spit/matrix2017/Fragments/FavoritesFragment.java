@@ -65,9 +65,9 @@ public class FavoritesFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        eventListAdapter =new EventListAdapter(getContext(),dbConnectionHelper.getData(String.valueOf(1),11));
+        eventListAdapter =new EventListAdapter(getContext(),dbConnectionHelper.getData(String.valueOf(1),13));
         mRecyclerView.setAdapter(eventListAdapter);
-        //11 is the index of favourites in the column array of DB. If value is 1, it has been set as a favourite event
+        //13 is the index of favourites in the column array of DB. If value is 1, it has been set as a favourite event
         mRecyclerView.scrollToPosition(0);
 
         if(eventListAdapter.getItemCount() ==0){
@@ -81,7 +81,7 @@ public class FavoritesFragment extends Fragment {
                 new RecyclerItemClickListener(getContext(), mRecyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
                         // do whatever
-                        Event event=(dbConnectionHelper.getData(String.valueOf(1),11)).get(position);
+                        Event event=(dbConnectionHelper.getData(String.valueOf(1),13)).get(position);
                         Intent i = new Intent(getContext(), EventDetails.class);
 
                         i.putExtra("image",event.getImage());
@@ -89,6 +89,8 @@ public class FavoritesFragment extends Fragment {
                         i.putExtra("description", event.getDescription());
                         i.putExtra("venue", event.getVenue());
                         i.putExtra("time", event.getTime());
+                        i.putExtra("registration", event.getRegistration());
+                        i.putExtra("prizes", event.getPrizes());
                         i.putExtra("contact1name", event.getContact1_name());
                         i.putExtra("contact1no", event.getContact1_no());
                         i.putExtra("contact2name", event.getContact2_name());

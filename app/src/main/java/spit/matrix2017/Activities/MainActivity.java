@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -164,22 +165,26 @@ public class MainActivity extends AppCompatActivity {
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
+                                            Toast.makeText(MainActivity.this, "Coming soon!", Toast.LENGTH_SHORT).show();
+                                            /* Delete later
                                             getSupportFragmentManager().popBackStackImmediate();
                                             fragmentTransaction.replace(R.id.fragment_container, new SponsorsFragment());
                                             appBarLayout.setExpanded(false, true);
                                             fragmentTransaction.addToBackStack(null);
                                             fragmentTransaction.commit();
                                             collapsingToolbarLayout.setTitle("Sponsors");
+                                            */
                                         }
                                     }, DRAWER_DELAY);
-                                    break;
+                                    //break;
+                                    return true; //Delete later
                                 case R.id.share_app_menuItem:
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
                                             Intent intent = new Intent();
                                             intent.setAction(Intent.ACTION_SEND);
-                                            intent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.playstore_link));
+                                            intent.putExtra(Intent.EXTRA_TEXT, "Check out the official app for Matrix 17!\n\n" + getResources().getString(R.string.playstore_link));
                                             intent.setType("text/plain");
                                             startActivity(Intent.createChooser(intent, getResources().getString(R.string.share_message)));
                                         }

@@ -55,6 +55,7 @@ public class EventDetails
     private MenuItem mi_reminder;
     private long mEventID;
     private boolean visitedCalendar;
+    ImageView mainImageView;
     View background;
     CollapsingToolbarLayout collapsingToolbarLayout;
 
@@ -70,7 +71,7 @@ public class EventDetails
         final AppCompatTextView textViews[] = {
                 (AppCompatTextView) findViewById(R.id.tv_event_description),
                 (AppCompatTextView) findViewById(R.id.tv_event_venue_time),
-                (AppCompatTextView) findViewById(R.id.tv_event_rules),
+                (AppCompatTextView) findViewById(R.id.tv_event_registration),
                 (AppCompatTextView) findViewById(R.id.tv_event_prizes),
                 (AppCompatTextView) findViewById(R.id.tv_event_organizers)
         };
@@ -90,14 +91,14 @@ public class EventDetails
 
         setDescription(getIntent().getStringExtra("description"));
         setVenueAndTime(getIntent().getStringExtra("venue"), getIntent().getStringExtra("time"));
-        setRules();
-        setPrizes();
+        setRegistration(getIntent().getStringExtra("registration"));
+        setPrizes(getIntent().getStringExtra("prizes"));
         setContacts(getIntent().getStringExtra("contact1name"), getIntent().getStringExtra("contact1no"), getIntent().getStringExtra("contact2name"), getIntent().getStringExtra("contact2no"));
 
         isFavouriteEvent = getIntent().getLongExtra("favorite", 0) == 1;
         isReminderSet = getIntent().getLongExtra("reminder", 0) == 1;
 
-        ImageView mainImageView = (ImageView) findViewById(R.id.main_imageView);
+        mainImageView = (ImageView) findViewById(R.id.main_imageView);
         assert mainImageView != null;
         mainImageView.setImageResource(getIntent().getIntExtra("image", R.drawable.virtual_stock_market));
 
@@ -134,10 +135,6 @@ public class EventDetails
 
                     for (AppCompatTextView textView : textViews) textView.setTextColor(color);
                 }
-
-                /*if(swatch1 != null){
-                    background.setBackgroundColor(swatch1.getRgb());
-                }*/
             }
         });
 
@@ -171,10 +168,10 @@ public class EventDetails
             Slide slide = new Slide(Gravity.BOTTOM);
             slide.addTarget(R.id.description_card);
             slide.addTarget(R.id.venue_time_card);
-            slide.addTarget(R.id.rules_card);
+            slide.addTarget(R.id.registration_card);
             slide.addTarget(R.id.prizes_card);
             slide.addTarget(R.id.organizers_card);
-            slide.addTarget(R.id.fab);
+            fab.hide();
             slide.setInterpolator(new LinearOutSlowInInterpolator());
             getWindow().setEnterTransition(slide);
             getWindow().setExitTransition(slide);
@@ -211,6 +208,7 @@ public class EventDetails
             }
             @Override
             public void onTransitionEnd(Transition transition) {
+                fab.show();
             }
             @Override
             public void onTransitionCancel(Transition transition) {
@@ -233,7 +231,7 @@ public class EventDetails
             case R.id.action_share:
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT, "Check out the event '"+event_name+"' at Matrix 17! For more details, download the official app from here:\n"+getResources().getString(R.string.playstore_link));
+                intent.putExtra(Intent.EXTRA_TEXT, "Check out the event '"+event_name+"' at Matrix 17! For more details, download the official app here:\n"+getResources().getString(R.string.playstore_link));
                 intent.setType("text/plain");
                 startActivity(Intent.createChooser(intent, "Share event via"));
                 break;
@@ -265,49 +263,18 @@ public class EventDetails
         venueTimeTextView.setText(venue + "\n" + time);
     }
 
-    private void setRules() {
-
-        ArrayList<String> rulesList = new ArrayList<>();
-        // TODO: 11/1/2016 add logic to get rules into above arraylist
-        rulesList.add("Some Rule");
-        rulesList.add("Much Rule");
-        rulesList.add("Wow Rule");
-
-        StringBuilder textViewString = new StringBuilder();
-
-        for (String rule : rulesList) {
-            textViewString.append("\u2022"); //bullet
-            textViewString.append(" ");
-            textViewString.append(rule);
-            textViewString.append("\n");
-        }
-        textViewString.deleteCharAt(textViewString.length() - 1);
-
-        TextView rulesTextView = (TextView) findViewById(R.id.rules_textView);
-        assert rulesTextView != null;
-        rulesTextView.setText(textViewString);
+    private void setRegistration(String registration) {
+        AppCompatTextView registrationTextView = (AppCompatTextView) findViewById(R.id.registration_textView);
+        assert registrationTextView != null;
+        registrationTextView.setText(registration);
     }
 
-    private void setPrizes() {
-        ArrayList<String> prizesList = new ArrayList<>();
-        // TODO: 11/1/2016 Add logic to get prizes into above arraylist
-        prizesList.add("Some Prize");
-        prizesList.add("Much Gift");
-        prizesList.add("Wow Cash Prize");
+    private void setPrizes(String prizes) {
+        // "\u25BA" //right arrow
 
-        StringBuilder textViewString = new StringBuilder();
-
-        for (String rule : prizesList) {
-            textViewString.append("\u25BA"); //right arrow
-            textViewString.append(" ");
-            textViewString.append(rule);
-            textViewString.append("\n");
-        }
-        textViewString.deleteCharAt(textViewString.length() - 1);
-
-        TextView prizesTextView = (TextView) findViewById(R.id.prizes_textView);
+        AppCompatTextView prizesTextView = (AppCompatTextView) findViewById(R.id.prizes_textView);
         assert prizesTextView != null;
-        prizesTextView.setText(textViewString);
+        prizesTextView.setText(prizes);
     }
 
     private void setContacts(final String name1, final String number1, final String name2, final String number2) {

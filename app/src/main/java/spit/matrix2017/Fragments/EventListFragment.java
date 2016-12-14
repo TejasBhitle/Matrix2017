@@ -81,6 +81,8 @@ public class EventListFragment extends Fragment{
                         i.putExtra("description", event.getDescription());
                         i.putExtra("venue", event.getVenue());
                         i.putExtra("time", event.getTime());
+                        i.putExtra("registration", event.getRegistration());
+                        i.putExtra("prizes", event.getPrizes());
                         i.putExtra("contact1name", event.getContact1_name());
                         i.putExtra("contact1no", event.getContact1_no());
                         i.putExtra("contact2name", event.getContact2_name());
