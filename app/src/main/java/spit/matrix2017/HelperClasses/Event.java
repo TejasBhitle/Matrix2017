@@ -7,8 +7,8 @@ package spit.matrix2017.HelperClasses;
 public class Event {
 
     //////////Custom data type for events//////////
-    private String name, description, category, venue, time, contact1_name, contact1_no, contact2_name, contact2_no;
-        private int image,color;
+    private String name, description, category, venue, time, contact1_name, contact1_no, contact2_name, contact2_no, color;
+        private int image;
         private long favourite, reminder;
 
         public String getVenue() {
@@ -59,12 +59,12 @@ public class Event {
             return description;
         }
 
-    public int getColor() {
+    public String getColor() {
         return color;
     }
 
 
-    public Event(String name, String description, int image, String category, String venue, String time, String contact1_name, String contact1_no, String contact2_name, String contact2_no, int color) {
+    public Event(String name, String description, int image, String category, String venue, String time, String contact1_name, String contact1_no, String contact2_name, String contact2_no, String color) {
             this.name = name;
             this.description = description;
             this.image = image;
@@ -80,7 +80,7 @@ public class Event {
             this.color=color;
         }
 
-        public Event(String name, String description, int image, String category, String venue, String time, String contact1_name, String contact1_no, String contact2_name, String contact2_no, int favourite, int reminder,int color)
+        public Event(String name, String description, int image, String category, String venue, String time, String contact1_name, String contact1_no, String contact2_name, String contact2_no, int favourite, int reminder,String color)
         {
             //used while fetching data
             this.name = name;
