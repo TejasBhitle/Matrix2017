@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import spit.matrix2017.Activities.EventDetails;
 import spit.matrix2017.HelperClasses.Event;
 import spit.matrix2017.HelperClasses.EventListAdapter;
@@ -53,6 +55,7 @@ public class FavoritesFragment extends Fragment {
         dbConnectionHelper = new MatrixContentProvider().new MatrixDBConnectionHelper(getContext());
         blankTextview =(TextView)view.findViewById(R.id.blank_textview);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.fragmentRecyclerView);
+
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -65,8 +68,9 @@ public class FavoritesFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        eventListAdapter =new EventListAdapter(getContext(),dbConnectionHelper.getData(String.valueOf(1),13));
-        mRecyclerView.setAdapter(eventListAdapter);
+        final List<Event> favoriteEvents = dbConnectionHelper.getData(String.valueOf(1),13);
+        eventListAdapter =new EventListAdapter(getContext(), favoriteEvents);
+        mRecyclerView.swapAdapter(eventListAdapter, false);
         //13 is the index of favourites in the column array of DB. If value is 1, it has been set as a favourite event
         mRecyclerView.scrollToPosition(0);
 
@@ -81,9 +85,9 @@ public class FavoritesFragment extends Fragment {
                 new RecyclerItemClickListener(getContext(), mRecyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
                         // do whatever
-                        Event event=(dbConnectionHelper.getData(String.valueOf(1),13)).get(position);
-                        Intent i = new Intent(getContext(), EventDetails.class);
+                        Event event = favoriteEvents.get(position);
 
+                        Intent i = new Intent(getContext(), EventDetails.class);
                         i.putExtra("image",event.getImage());
                         i.putExtra("name", event.getName());
                         i.putExtra("description", event.getDescription());
@@ -97,6 +101,7 @@ public class FavoritesFragment extends Fragment {
                         i.putExtra("contact2no", event.getContact2_no());
                         i.putExtra("favorite",event.getFavourite());
                         i.putExtra("reminder", event.getReminder());
+
                         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
                             ImageView poster = (ImageView)view.findViewById(R.id.thumbnail);
                             poster.setTransitionName("poster");

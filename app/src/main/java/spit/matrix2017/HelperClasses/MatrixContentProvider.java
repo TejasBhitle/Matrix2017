@@ -56,7 +56,7 @@ public class MatrixContentProvider extends ContentProvider {
             new Event("VSM", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.", R.drawable.virtual_stock_market, "Mega", "College entrance", "1pm to 2pm", "Contact for registration details", "Prizes worth \u20B910000!", "Riya Bakhtiani", "8888006180", "Jainam Soni", "9619100569", "#EEE618"),
             new Event("Codatron", "Can you code your way to the top?\nParticipate in 3 coding or 3 non-coding rounds to find out!", R.drawable.codatron, "Mega", "Rooms 406 and 408", "9am to 1pm\n2pm to 6pm", "Contact for registration details", "Contact for prize details", "Kaustubh Toraskar", "9930468296", "Saral Uttamani", "9930510003", "#29A4D5"),
             new Event("Laser Maze", "Sharpen your ninja skills as you twist, duck and crawl your way through an intricate web of lasers.", R.drawable.laser_maze, "Mega", "Room 203 (ED Lab)", "9am to 1pm\n2pm to 5pm", "\u20B930 per person\n\u20B940 for a team of 2", "Team:\n\u2022 1st Place: \u20B9500\n\u2022 2nd Place: \u20B9300\n\nIndividual:\n\u2022 1st Place: \u20B9300\n\u2022 2nd Place: \u20B9100", "Ameya Nambisan", "9892510777", "Subhiksha Mukuntharaj", "9833667741", "#08C55A"),
-            new Event("Laser Tag", "An action-packed game where participants wear electronic vests and tag each other with phasors to score points.", R.drawable.laser_tag, "Mega", "Room 202 (ED Lab)", "9am to 1pm\n2pm to 6pm", "\u20B9100 per person(pre-registration)\n\u20B9120 per person(on the spot registration)", "\u2022 1st Place: \u20B91000\n\u2022 2nd Place: \u20B9500", "Gurpreet Kaur Saimy", "9029553799", "Madhura Gore", "7208450172", "#F6FF00"),
+            new Event("Laser Tag", "An action-packed game where participants wear electronic vests and tag each other with phasors to score points.", R.drawable.laser_tag, "Mega", "Room 202 (ED Lab)", "9am to 1pm\n2pm to 6pm", "\u20B9100 per person (pre-registration)\n\u20B9120 per person (on the spot registration)", "\u2022 1st Place: \u20B91000\n\u2022 2nd Place: \u20B9500", "Gurpreet Kaur Saimy", "9029553799", "Madhura Gore", "7208450172", "#F6FF00"),
 
             new Event("Tech Charades", "Let your actions speak louder than your words!\n\nList of games:\n\u2022 Pictionary\n\u2022 Blind racing\n\u2022 Tech dumb charades\n\u2022 Tech quiz", R.drawable.tech_charades, "Tech", "FE Comps", "9am to 1pm\n2pm to 6pm", "\u20B960 for a team of 3", "\u2022 1st Place: \u20B91500\n\u2022 2nd Place: \u20B9900\n\u2022 3rd Place: \u20B9600", "Meet Gopani", "9969763551", "Harsh Jain", "9004885565", "#089C8B"),
             new Event("Battle Frontier", "The Ultimate Race:\nRace your bots through hurdles\n\nStryker:\nShow off your robo soccoer skills", R.drawable.battle_frontier, "Tech", "Quadrangle", "9am to 1pm\n2pm to 6pm", "The Ultimate Race:\n\u20B950 per team of 2\n\nStryker:\n\u20B950 per person", "Prizes worth \u20B91500!", "Anirudh Sharma", "7038844719", "Alan Jacob", "9167347037", "#CDBD6A"),
@@ -149,7 +149,7 @@ public class MatrixContentProvider extends ContentProvider {
 
         public List<Event> getData(String name, int db_position)
         /*here position is the column no according to which we want to fetch data. For sorting according to category,
-         position is 4(coumn array position), name is Category name. For fetching using name, we use position 1 and get(position) will get us
+         position is 4(column array position), name is Category name. For fetching using name, we use position 1 and get(position) will get us
          the respective value in the list
         */
 
@@ -201,7 +201,5 @@ public class MatrixContentProvider extends ContentProvider {
             cursor.close();
             return list;
         }
-
     }
 }
-

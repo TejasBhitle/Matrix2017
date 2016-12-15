@@ -35,6 +35,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -54,7 +55,7 @@ public class EventDetails
     private String event_name;
     private MenuItem mi_reminder;
     private long mEventID;
-    private boolean visitedCalendar;
+    private boolean visitedCalendar, isFirstLaunch;
     ImageView mainImageView;
     View background;
     CollapsingToolbarLayout collapsingToolbarLayout;
@@ -80,6 +81,7 @@ public class EventDetails
         collapsingToolbarLayout=(CollapsingToolbarLayout)findViewById(R.id.collapsingToolbar_event);
 
         visitedCalendar = false;
+        isFirstLaunch = true;
 
         //get intent from eventlist adapter
         if (getIntent().getStringExtra("name") != null && getSupportActionBar() != null) {
@@ -166,12 +168,17 @@ public class EventDetails
     protected void onStart() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             Slide slide = new Slide(Gravity.BOTTOM);
+
+            if(isFirstLaunch) {
+                fab.hide();
+                isFirstLaunch = false;
+            }
+
             slide.addTarget(R.id.description_card);
             slide.addTarget(R.id.venue_time_card);
             slide.addTarget(R.id.registration_card);
-            slide.addTarget(R.id.prizes_card);
-            slide.addTarget(R.id.organizers_card);
-            fab.hide();
+//            slide.addTarget(R.id.prizes_card);
+//            slide.addTarget(R.id.organizers_card);
             slide.setInterpolator(new LinearOutSlowInInterpolator());
             getWindow().setEnterTransition(slide);
             getWindow().setExitTransition(slide);
@@ -270,8 +277,6 @@ public class EventDetails
     }
 
     private void setPrizes(String prizes) {
-        // "\u25BA" //right arrow
-
         AppCompatTextView prizesTextView = (AppCompatTextView) findViewById(R.id.prizes_textView);
         assert prizesTextView != null;
         prizesTextView.setText(prizes);
@@ -312,6 +317,9 @@ public class EventDetails
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_INSERT, ContactsContract.Contacts.CONTENT_URI);
                 switch (v.getId()) {
+                    case android.R.id.home:
+                        EventDetails.super.onBackPressed();
+                        break;
                     case R.id.save_contact_person_one:
                         intent.putExtra(ContactsContract.Intents.Insert.NAME, name1);
                         intent.putExtra(ContactsContract.Intents.Insert.PHONE, "" + number1);
@@ -431,6 +439,7 @@ public class EventDetails
     public void onResume()
     {
         super.onResume();
+
         if (visitedCalendar)
         {
             if (getLastEventId(getContentResolver()) == mEventID)
@@ -448,12 +457,15 @@ public class EventDetails
                 Toast.makeText(EventDetails.this, "Successfully added reminder", Toast.LENGTH_SHORT).show();
             }
             else
-                Toast.makeText(this, "Reminder not added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EventDetails.this, "Reminder not added", Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     public void onBackPressed() {
+        if(fab.isShown())
+            mainImageView.bringToFront();
+        fab.setVisibility(View.GONE);
         super.onBackPressed();
     }
 }
