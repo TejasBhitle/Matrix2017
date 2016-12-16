@@ -159,6 +159,8 @@ public class MainActivity extends AppCompatActivity {
                                         @Override
                                         public void run() {
                                             Toast.makeText(MainActivity.this, "Coming soon!", Toast.LENGTH_SHORT).show();
+                                            // IMPORTANT: Remove checkable=false from the 'Sponsors' menu item in res/menu/navdrawer_menu.xml when Sponsors fragment is complete
+
                                             /* Delete later
                                             getSupportFragmentManager().popBackStackImmediate();
                                             fragmentTransaction.replace(R.id.fragment_container, new SponsorsFragment());
