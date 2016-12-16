@@ -2,8 +2,10 @@ package spit.matrix2017.Activities;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -108,6 +110,10 @@ public class MainActivity extends AppCompatActivity {
 
         setupDrawerLayout();
 
+        NavigationMenuView navigationMenuView = (NavigationMenuView) navigationView.getChildAt(0);
+        if (navigationMenuView != null) {
+            navigationMenuView.setVerticalScrollBarEnabled(false);
+        }
         navigationView.getMenu().getItem(0).setChecked(true);
     }
 
@@ -148,19 +154,6 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }, DRAWER_DELAY);
                                     break;
-                                case R.id.contact_us_menuItem:
-                                    new Handler().postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            getSupportFragmentManager().popBackStackImmediate();
-                                            fragmentTransaction.replace(R.id.fragment_container, new ContactUsFragment());
-                                            appBarLayout.setExpanded(false, true);
-                                            fragmentTransaction.addToBackStack(null);
-                                            fragmentTransaction.commit();
-                                            collapsingToolbarLayout.setTitle("Contact us");
-                                        }
-                                    }, DRAWER_DELAY);
-                                    break;
                                 case R.id.sponsors_menuItem:
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
@@ -178,18 +171,7 @@ public class MainActivity extends AppCompatActivity {
                                     }, DRAWER_DELAY);
                                     //break;
                                     return true; //Delete later
-                                case R.id.share_app_menuItem:
-                                    new Handler().postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            Intent intent = new Intent();
-                                            intent.setAction(Intent.ACTION_SEND);
-                                            intent.putExtra(Intent.EXTRA_TEXT, "Check out the official app for Matrix 17!\n\n" + getResources().getString(R.string.playstore_link));
-                                            intent.setType("text/plain");
-                                            startActivity(Intent.createChooser(intent, getResources().getString(R.string.share_message)));
-                                        }
-                                    }, DRAWER_DELAY);
-                                    return true;
+
                                 case R.id.commitee_menuItem:
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
@@ -216,6 +198,42 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }, DRAWER_DELAY);
                                     break;
+                                case R.id.contact_us_menuItem:
+                                    new Handler().postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            getSupportFragmentManager().popBackStackImmediate();
+                                            fragmentTransaction.replace(R.id.fragment_container, new ContactUsFragment());
+                                            appBarLayout.setExpanded(false, true);
+                                            fragmentTransaction.addToBackStack(null);
+                                            fragmentTransaction.commit();
+                                            collapsingToolbarLayout.setTitle("Contact us");
+                                        }
+                                    }, DRAWER_DELAY);
+                                    break;
+
+                                case R.id.share_app_menuItem:
+                                    new Handler().postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Intent intent = new Intent();
+                                            intent.setAction(Intent.ACTION_SEND);
+                                            intent.putExtra(Intent.EXTRA_TEXT, "Check out the official app for Matrix 17!\n\n" + getResources().getString(R.string.playstore_link));
+                                            intent.setType("text/plain");
+                                            startActivity(Intent.createChooser(intent, getResources().getString(R.string.share_message)));
+                                        }
+                                    }, DRAWER_DELAY);
+                                    return true;
+                                case R.id.rate_app_menuItem:
+                                    new Handler().postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Intent intent = new Intent(android.content.Intent.ACTION_VIEW);
+                                            intent.setData(Uri.parse(getResources().getString(R.string.playstore_link)));
+                                            startActivity(intent);
+                                        }
+                                    }, DRAWER_DELAY);
+                                    return true;
                                 case R.id.about_menuItem:
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
@@ -229,10 +247,6 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     }, DRAWER_DELAY);
                             }
-                            for (int i = 0; i < navigationView.getMenu().size(); i++) {
-                                navigationView.getMenu().getItem(i).setChecked(false);
-                            }
-                            item.setChecked(true);
                         }
                         return true;
                     }
@@ -258,9 +272,6 @@ public class MainActivity extends AppCompatActivity {
         if(drawerLayout.isDrawerOpen(GravityCompat.START))
             drawerLayout.closeDrawers();
         else {
-            for (int i = 0; i < navigationView.getMenu().size(); i++) {
-                navigationView.getMenu().getItem(i).setChecked(false);
-            }
             navigationView.getMenu().getItem(0).setChecked(true);
             collapsingToolbarLayout.setTitle("Matrix 17");
             appBarLayout.setExpanded(true, true);

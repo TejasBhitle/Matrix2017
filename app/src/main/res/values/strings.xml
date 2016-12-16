@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Matrix 17</string>
-    <string name="playstore_link">Put Playstore Link Here</string>
-
+    <string name="playstore_link">https://play.google.com/store/apps/details?id=spit.matrix2017</string>
 
     <string name="sponsors">Sponsors</string>
-    <string name="share">Share App</string>
+    <string name="share">Share app</string>
+    <string name="rate">Rate app</string>
     <string name="share_message">Share link via</string>
 
     <!-- Navigation Drawer-->
@@ -24,7 +24,6 @@
     <string name="contact_us_contact1_number">0000000017</string>
     <string name="contact_us_contact2_name">Contact 2</string>
     <string name="contact_us_contact2_number">0000000045</string>
-    <string name="email_matrix"><u>Enter Matrix Email ID here</u></string>
 
     <!-- Email Ids-->
     <string name="email_tejas"><u>bhitletejas@gmail.com</u></string>

@@ -35,13 +35,11 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 import spit.matrix2017.R;
@@ -158,7 +156,7 @@ public class EventDetails
                 } else {
                     cv.put("favorite", 0);
                     contentResolver.update(uri, cv, selection, selectionArgs);
-                    fab.setImageResource(R.drawable.ic_favorite_border_white_48px);
+                    fab.setImageResource(R.drawable.svg_favorite_border_white_48px);
                 }
             }
         });
