@@ -106,5 +106,9 @@
     <string name="app_licence">Licensed under MIT License.</string>
     <string name="app_copyright">Copyright &#169; 2016 Sardar Patel Institute of Technology.</string>
     <string name="aboutapp">About</string>
+    <string name="matrix_fb_link">Add  Matrix FB Link Here</string>
+    <string name="matrix_insta_link">Add Insta Link here</string>
+    <string name="matrix_snap_link">Matrix SnapChat Link</string>
+    <string name="matrix_twit_link">Matrix Twitter Link</string>
 
 </resources>
