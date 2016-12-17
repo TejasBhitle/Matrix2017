@@ -25,6 +25,10 @@
         android:id="@+id/group2"
         android:checkableBehavior="single">
 
+        <item android:title="@string/contact_us"
+            android:id="@+id/contact_us_menuItem"
+            android:icon="@drawable/svg_chat_white_48px"/>
+
         <item
             android:title="@string/committee"
             android:id="@+id/commitee_menuItem"
@@ -34,10 +38,6 @@
             android:title="@string/developers"
             android:id="@+id/developers_menuItem"
             android:icon="@drawable/svg_code_white_48px"/>
-
-        <item android:title="@string/contact_us"
-            android:id="@+id/contact_us_menuItem"
-            android:icon="@drawable/svg_chat_white_48px"/>
 
     </group>
 

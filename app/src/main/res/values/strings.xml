@@ -87,6 +87,13 @@
     <string name="picasso_license">Licensed under Apache License 2.0</string>
     <string name="picasso_copyright">Copyright &#169; 2013 Square, Inc.</string>
 
+    <string name="moonshine_name">Moonshine Icons</string>
+    <string name="moonshine_author">Pedro Peguero</string>
+    <string name="moonshine_description"></string>
+    <string name="moonshine_license">Creative Commons Attribution 4.0 International (CC BY 4.0)</string>
+    <string name="moonshine_copyright">Copyright &#169; 2013 Square, Inc.</string>
+
+
     <string name="circular_image_view_name">Circular ImageView</string>
     <string name="circular_image_view_author">Henning Dodenhof</string>
     <string name="circular_image_view_description">A circular ImageView for Android.</string>
