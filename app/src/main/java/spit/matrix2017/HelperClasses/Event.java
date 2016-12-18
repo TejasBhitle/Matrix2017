@@ -1,5 +1,7 @@
 package spit.matrix2017.HelperClasses;
 
+import spit.matrix2017.R;
+
 /**
  * Created by Rohit on 13/11/16.
  */
@@ -35,10 +37,6 @@ public class Event {
             return contact2_name;
         }
 
-    public int getImage() {
-            return image;
-        }
-
     public String getContact1_no() {
             return contact1_no;
         }
@@ -67,16 +65,20 @@ public class Event {
             return description;
         }
 
+    public int getImage(){
+        return image;
+    }
+
     public String getColor() {
         return color;
     }
 
 
-    public Event(String name, String description, int image, String category, String venue, String time, String registration, String prizes, String contact1_name, String contact1_no, String contact2_name, String contact2_no, String color) {
+    public Event(String name, String description, String category, String venue, String time, String registration, String prizes, String contact1_name, String contact1_no, String contact2_name, String contact2_no, String color) {
             this.name = name;
             this.description = description;
-            this.image = image;
             this.category = category;
+            this.image = extractImage(name);
             this.venue = venue;
             this.time = time;
             this.registration = registration;
@@ -90,13 +92,13 @@ public class Event {
             this.color=color;
         }
 
-        public Event(String name, String description, int image, String category, String venue, String time, String registration, String prizes, String contact1_name, String contact1_no, String contact2_name, String contact2_no, int favourite, int reminder, String color)
+        public Event(String name, String description, String category, String venue, String time, String registration, String prizes, String contact1_name, String contact1_no, String contact2_name, String contact2_no, int favourite, int reminder, String color)
         {
             //used while fetching data
             this.name = name;
             this.description = description;
-            this.image = image;
             this.category = category;
+            this.image = extractImage(name);
             this.venue = venue;
             this.time = time;
             this.registration = registration;
@@ -109,6 +111,30 @@ public class Event {
             this.reminder=reminder;
             this.color=color;
         }
+
+    public int extractImage(String name) {
+        switch(name){
+            case "VSM": return R.drawable.virtual_stock_market;
+            case "Codatron": return R.drawable.codatron;
+            case "Laser Maze": return R.drawable.laser_maze;
+            case "Laser Tag": return R.drawable.laser_tag;
+
+            case "Tech Charades": return R.drawable.tech_charades;
+            case "Battle Frontier": return R.drawable.battle_frontier;
+            case "Escape Plan": return R.drawable.escape_plan;
+            case "Technovanza": return R.drawable.technovanza;
+            case "TechXplosion": return R.drawable.tech_xplosion;
+            case "No Escape": return R.drawable.no_escape;
+            case "Techeshi's Castle": return R.drawable.techeshis_castle;
+            case "Tesseract": return R.drawable.tesseract;
+
+            case "Human Foosball": return R.drawable.human_foosball;
+            case "Battle of Brains": return R.drawable.battle_of_brains;
+            case "LAN Gaming": return R.drawable.lan_gaming;
+            case "Pokemon Showdown": return R.drawable.pokemon_showdown;
+            case "LAN Mafia": return R.drawable.lan_mafia;
+            case "Mind That Word": return R.drawable.mind_that_word;
+        }
+        return 0;
     }
-
-
+    }

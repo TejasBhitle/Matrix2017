@@ -65,7 +65,7 @@ public class EventListFragment extends Fragment{
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getData(category,4)));
+        mRecyclerView.setAdapter(new EventListAdapter(getContext(),dbConnectionHelper.getData(category, 3)));
         mRecyclerView.scrollToPosition(0);
 
 
@@ -73,7 +73,7 @@ public class EventListFragment extends Fragment{
                 new RecyclerItemClickListener(getContext(), mRecyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
                         // do whatever
-                        Event event=(dbConnectionHelper.getData(category,4)).get(position);
+                        Event event=(dbConnectionHelper.getData(category,3)).get(position);
                         Intent i = new Intent(getContext(), EventDetails.class);
 
                         i.putExtra("image",event.getImage());

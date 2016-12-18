@@ -68,10 +68,10 @@ public class FavoritesFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        final List<Event> favoriteEvents = dbConnectionHelper.getData(String.valueOf(1),13);
+        final List<Event> favoriteEvents = dbConnectionHelper.getData(String.valueOf(1),12);
         eventListAdapter =new EventListAdapter(getContext(), favoriteEvents);
         mRecyclerView.swapAdapter(eventListAdapter, false);
-        //13 is the index of favourites in the column array of DB. If value is 1, it has been set as a favourite event
+        //12 is the index of favourites in the column array of DB. If value is 1, it has been set as a favourite event
         mRecyclerView.scrollToPosition(0);
 
         if(eventListAdapter.getItemCount() ==0){
