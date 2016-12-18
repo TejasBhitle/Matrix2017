@@ -112,7 +112,7 @@ public class Event {
             this.color=color;
         }
 
-    public int extractImage(String name) {
+    private int extractImage(String name) {
         switch(name){
             case "VSM": return R.drawable.virtual_stock_market;
             case "Codatron": return R.drawable.codatron;

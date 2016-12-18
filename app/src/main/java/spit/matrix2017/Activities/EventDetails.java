@@ -175,8 +175,8 @@ public class EventDetails
             slide.addTarget(R.id.description_card);
             slide.addTarget(R.id.venue_time_card);
             slide.addTarget(R.id.registration_card);
-//            slide.addTarget(R.id.prizes_card);
-//            slide.addTarget(R.id.organizers_card);
+            slide.addTarget(R.id.prizes_card);
+            slide.addTarget(R.id.organizers_card);
             slide.setInterpolator(new LinearOutSlowInInterpolator());
             getWindow().setEnterTransition(slide);
             getWindow().setExitTransition(slide);
