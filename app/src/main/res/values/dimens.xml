@@ -6,4 +6,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
     <dimen name="profile_height">64dp</dimen>
+    <dimen name="developer_profile_height">80dp</dimen>
 </resources>

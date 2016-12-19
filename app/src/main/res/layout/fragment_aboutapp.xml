@@ -13,70 +13,116 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
+            android:padding="32dp"
             android:elevation="5dp"
             style="@style/RippleEffectCardView"
             app:cardCornerRadius="4dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp">
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_vertical"
                         android:src="@mipmap/ic_launcher"/>
-
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="26sp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/dark_gray"
+                        android:text="@string/app_name" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_description_24px"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="25dp"
-                        android:textAllCaps="true"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorPrimary"
-                        android:text="@string/app_name"
-                        android:typeface="monospace"/>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/app_description"  />
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="8dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_license_24px" />
                     <TextView
-                        android:layout_marginTop="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:textAlignment="center"
-                        android:text="@string/app_licence"
-                        android:typeface="monospace"/>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/app_licence" />
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="8dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_copyright_24px" />
                     <TextView
-                        android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="@string/app_copyright"
-                        android:typeface="monospace"
-                        android:textAlignment="center"/>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/app_copyright"/>
 
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/rateAppButton"
+                <LinearLayout
+                    android:id="@+id/fork_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
-                    android:text="Rate This App"
-                    android:textStyle="bold"
-                    android:typeface="monospace"/>
+                    android:orientation="horizontal"
+                    android:layout_margin="8dp"
+                    android:foregroundTint="@color/secondary_text"
+                    android:clickable="true">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_logo_github" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:text="Fork on GitHub" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -85,72 +131,117 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Open Sources Implemented :"
-            android:textSize="20dp"
-            android:typeface="monospace"
+            android:text="External libraries used:"
+            android:textSize="16sp"
             android:layout_margin="10dp"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:textColor="@color/mild_green"/>
+            android:textColor="@color/colorAccent"/>
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
+            android:padding="32dp"
             android:elevation="5dp"
             style="@style/RippleEffectCardView"
             app:cardCornerRadius="4dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_margin="5dp"
-                android:padding="5dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="21sp"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/dark_gray"
+                    android:text="@string/picasso_name" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.5dp"
+                    android:background="@color/colorAccent"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_description_24px"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/picasso_description"  />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_author_24px"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/picasso_author"  />
+                </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="15dp">
+                    android:layout_margin="8dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_license_24px" />
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorPrimary"
-                        android:text="@string/picasso_name"
-                        android:textSize="20dp"
-                        android:typeface="monospace"/>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/picasso_license" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="8dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_copyright_24px" />
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/picasso_author"
-                        android:textSize="17dp"
-                        android:textColor="@color/yellow_amber"
-                        android:textAlignment="viewEnd"
-                        android:typeface="monospace"/>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/picasso_copyright"/>
 
                 </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/picasso_description"
-                    android:textSize="19dp"
-                    android:typeface="monospace"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/picasso_copyright"
-                    android:textSize="15dp"
-                    android:typeface="monospace"/>
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/picasso_license"
-                    android:textSize="15dp"
-                    android:typeface="monospace"/>
+
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
@@ -158,61 +249,109 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
+            android:padding="32dp"
             android:elevation="5dp"
             style="@style/RippleEffectCardView"
             app:cardCornerRadius="4dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_margin="5dp"
-                android:padding="5dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="21sp"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/dark_gray"
+                    android:text="@string/circular_image_view_name" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.5dp"
+                    android:background="@color/colorAccent"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_description_24px"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/circular_image_view_description"  />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_author_24px"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/circular_image_view_author" />
+                </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="15dp">
+                    android:layout_margin="8dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_license_24px" />
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorPrimary"
-                        android:text="@string/circular_image_view_name"
-                        android:textSize="20dp"
-                        android:typeface="monospace"/>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/circular_image_view_license" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="8dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_copyright_24px" />
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="@string/circular_image_view_author"
-                        android:textSize="17dp"
-                        android:textColor="@color/yellow_amber"
-                        android:textAlignment="viewEnd"
-                        android:typeface="monospace"/>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/circular_image_view_copyright"/>
 
                 </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/circular_image_view_description"
-                    android:textSize="19dp"
-                    android:typeface="monospace"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/circular_image_view_copyright"
-                    android:textSize="15dp"
-                    android:typeface="monospace"/>
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/circular_image_view_license"
-                    android:textSize="15dp"
-                    android:typeface="monospace"/>
+
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
@@ -220,55 +359,90 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
+            android:padding="32dp"
             android:elevation="5dp"
             style="@style/RippleEffectCardView"
             app:cardCornerRadius="4dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_margin="5dp"
-                android:padding="5dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="21sp"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/dark_gray"
+                    android:text="@string/android_design" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.5dp"
+                    android:background="@color/colorAccent"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_author_24px"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/android_design_author" />
+                </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="15dp">
+                    android:layout_margin="8dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_license_24px" />
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorPrimary"
-                        android:text="@string/android_design"
-                        android:textSize="20dp"
-                        android:typeface="monospace"/>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/android_design_license" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="8dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_copyright_24px" />
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/android_design_author"
-                        android:textSize="17dp"
-                        android:textColor="@color/yellow_amber"
-                        android:textAlignment="viewEnd"
-                        android:typeface="monospace"/>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/android_design_copyright"/>
 
                 </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/android_design_copyright"
-                    android:textSize="15dp"
-                    android:typeface="monospace"/>
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/android_design_license"
-                    android:textSize="15dp"
-                    android:typeface="monospace"/>
+
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
@@ -276,55 +450,90 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
+            android:padding="32dp"
             android:elevation="5dp"
             style="@style/RippleEffectCardView"
             app:cardCornerRadius="4dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_margin="5dp"
-                android:padding="5dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="21sp"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/dark_gray"
+                    android:text="@string/android_support" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.5dp"
+                    android:background="@color/colorAccent"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_author_24px"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/android_support_author" />
+                </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="15dp">
+                    android:layout_margin="8dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_license_24px" />
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorPrimary"
-                        android:text="@string/android_support"
-                        android:textSize="20dp"
-                        android:typeface="monospace"/>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/android_support_license" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="8dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_copyright_24px" />
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/android_support_author"
-                        android:textSize="17dp"
-                        android:textColor="@color/yellow_amber"
-                        android:textAlignment="viewEnd"
-                        android:typeface="monospace"/>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/android_support_copyright"/>
 
                 </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/android_support_copyright"
-                    android:textSize="15dp"
-                    android:typeface="monospace"/>
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/android_support_license"
-                    android:textSize="15dp"
-                    android:typeface="monospace"/>
+
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
@@ -332,53 +541,74 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
+            android:padding="32dp"
             android:elevation="5dp"
             style="@style/RippleEffectCardView"
             app:cardCornerRadius="4dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_margin="5dp"
-                android:padding="5dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="21sp"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/dark_gray"
+                    android:text="@string/moonshine_name" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1.5dp"
+                    android:background="@color/colorAccent"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_author_24px"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/moonshine_author" />
+                </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="15dp">
+                    android:layout_margin="8dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/svg_app_license_24px" />
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorPrimary"
-                        android:text="@string/moonshine_name"
-                        android:textSize="20dp"
-                        android:typeface="monospace"/>
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/moonshine_author"
-                        android:textSize="17dp"
-                        android:textColor="@color/yellow_amber"
-                        android:textAlignment="viewEnd"
-                        android:typeface="monospace"/>
-
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="40dp"
+                        android:textSize="14sp"
+                        android:text="@string/moonshine_license" />
                 </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/moonshine_license"
-                    android:textSize="15dp"
-                    android:typeface="monospace"/>
+
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
 
     </LinearLayout>
-
 
 </ScrollView>
