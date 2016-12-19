@@ -10,8 +10,7 @@ public class Event {
 
     //////////Custom data type for events//////////
     private String name, description, category, venue, time, registration, prizes, contact1_name, contact1_no, contact2_name, contact2_no, color;
-    private int image;
-    private long favourite, reminder;
+    private int image, favourite, reminder;
 
     public String getVenue() {
             return venue;
@@ -53,11 +52,11 @@ public class Event {
             return name;
         }
 
-    public long getFavourite() {
+    public int getFavourite() {
             return favourite;
         }
 
-    public long getReminder() {
+    public int getReminder() {
             return reminder;
         }
 
@@ -75,10 +74,10 @@ public class Event {
 
 
     public Event(String name, String description, String category, String venue, String time, String registration, String prizes, String contact1_name, String contact1_no, String contact2_name, String contact2_no, String color) {
+        //Used for inserting events in database on first launch
             this.name = name;
             this.description = description;
             this.category = category;
-            this.image = extractImage(name);
             this.venue = venue;
             this.time = time;
             this.registration = registration;
@@ -87,18 +86,16 @@ public class Event {
             this.contact1_no = contact1_no;
             this.contact2_name = contact2_name;
             this.contact2_no = contact2_no;
-            this.favourite=0;
-            this.reminder=0;
             this.color=color;
         }
 
-        public Event(String name, String description, String category, String venue, String time, String registration, String prizes, String contact1_name, String contact1_no, String contact2_name, String contact2_no, int favourite, int reminder, String color)
+        public Event(String name, String description, String category, int image, String venue, String time, String registration, String prizes, String contact1_name, String contact1_no, String contact2_name, String contact2_no, int favourite, int reminder, String color)
         {
-            //used while fetching data
+            //Used while fetching data
             this.name = name;
             this.description = description;
             this.category = category;
-            this.image = extractImage(name);
+            this.image = image;
             this.venue = venue;
             this.time = time;
             this.registration = registration;
@@ -107,34 +104,8 @@ public class Event {
             this.contact1_no = contact1_no;
             this.contact2_name = contact2_name;
             this.contact2_no = contact2_no;
-            this.favourite=favourite;
-            this.reminder=reminder;
-            this.color=color;
+            this.favourite = favourite;
+            this.reminder = reminder;
+            this.color = color;
         }
-
-    private int extractImage(String name) {
-        switch(name){
-            case "VSM": return R.drawable.virtual_stock_market;
-            case "Codatron": return R.drawable.codatron;
-            case "Laser Maze": return R.drawable.laser_maze;
-            case "Laser Tag": return R.drawable.laser_tag;
-
-            case "Tech Charades": return R.drawable.tech_charades;
-            case "Battle Frontier": return R.drawable.battle_frontier;
-            case "Escape Plan": return R.drawable.escape_plan;
-            case "Technovanza": return R.drawable.technovanza;
-            case "TechXplosion": return R.drawable.tech_xplosion;
-            case "No Escape": return R.drawable.no_escape;
-            case "Techeshi's Castle": return R.drawable.techeshis_castle;
-            case "Tesseract": return R.drawable.tesseract;
-
-            case "Human Foosball": return R.drawable.human_foosball;
-            case "Battle of Brains": return R.drawable.battle_of_brains;
-            case "LAN Gaming": return R.drawable.lan_gaming;
-            case "Pokemon Showdown": return R.drawable.pokemon_showdown;
-            case "LAN Mafia": return R.drawable.lan_mafia;
-            case "Mind That Word": return R.drawable.mind_that_word;
-        }
-        return 0;
-    }
     }

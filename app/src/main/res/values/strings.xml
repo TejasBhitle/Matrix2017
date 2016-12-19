@@ -1,10 +1,22 @@
 <resources>
     <string name="app_name">Matrix 17</string>
+
     <string name="playstore_link">https://play.google.com/store/apps/details?id=spit.matrix2017</string>
+
+    <string name="visit_website">Visit website</string>
+    <string name="matrix_website">http://www.matrixthefest.in</string>
+
+    <string name="follow_facebook">Follow on Facebook</string>
     <string name="matrix_fb_link">https://www.facebook.com/TheMatrixSPIT</string>
-    <string name="matrix_insta_link">https://www.instagram.com/matrixthefest</string>
-    <string name="matrix_snap_link">https://www.snapchat.com/add/matrixthefest</string>
+
+    <string name="follow_twitter">Follow on Twitter</string>
     <string name="matrix_twit_link">https://twitter.com/SPIT_Matrix</string>
+
+    <string name="follow_instagram">Follow on Instagram</string>
+    <string name="matrix_insta_link">https://www.instagram.com/matrixthefest</string>
+
+    <string name="follow_snapchat">Follow on Snapchat</string>
+    <string name="matrix_snap_link">https://www.snapchat.com/add/matrixthefest</string>
 
     <string name="sponsors">Sponsors</string>
     <string name="share">Share app</string>

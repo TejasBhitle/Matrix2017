@@ -18,8 +18,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -30,7 +30,6 @@ import spit.matrix2017.Fragments.ContactUsFragment;
 import spit.matrix2017.Fragments.DevelopersFragment;
 import spit.matrix2017.Fragments.FavoritesFragment;
 import spit.matrix2017.Fragments.MainFragment;
-import spit.matrix2017.Fragments.SponsorsFragment;
 import spit.matrix2017.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_activity_main);
+        setContentView(R.layout.activity_main);
 
         int[] images = {R.drawable.codatron,
         R.drawable.laser_maze,
@@ -256,15 +255,40 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Uri uri=null;
         switch (item.getItemId()) {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
+            case R.id.menu_empty:
+                return true;
+            case R.id.visitWebsite:
+                uri = Uri.parse(getResources().getString(R.string.matrix_website));
+                break;
+            case R.id.menu_follow_facebook:
+                uri = Uri.parse(getResources().getString(R.string.matrix_fb_link));
+                break;
+            case R.id.menu_follow_twitter:
+                uri = Uri.parse(getResources().getString(R.string.matrix_twit_link));
+                break;
+            case R.id.menu_follow_instagram:
+                uri = Uri.parse(getResources().getString(R.string.matrix_insta_link));
+                break;
+            case R.id.menu_follow_snapchat:
+                uri = Uri.parse(getResources().getString(R.string.matrix_snap_link));
+                break;
         }
 
+        Intent i = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(i);
         return super.onOptionsItemSelected(item);
     }
     

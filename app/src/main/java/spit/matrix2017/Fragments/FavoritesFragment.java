@@ -68,8 +68,7 @@ public class FavoritesFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        final List<Event> favoriteEvents = dbConnectionHelper.getData(String.valueOf(1),12);
-        eventListAdapter =new EventListAdapter(getContext(), favoriteEvents);
+        eventListAdapter = new EventListAdapter(getContext(),dbConnectionHelper.getData(String.valueOf(1),12));
         mRecyclerView.swapAdapter(eventListAdapter, false);
         //12 is the index of favourites in the column array of DB. If value is 1, it has been set as a favourite event
         mRecyclerView.scrollToPosition(0);
@@ -84,8 +83,7 @@ public class FavoritesFragment extends Fragment {
         mRecyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getContext(), mRecyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
-                        // do whatever
-                        Event event = favoriteEvents.get(position);
+                        Event event = (dbConnectionHelper.getData(String.valueOf(1),12)).get(position);
 
                         Intent i = new Intent(getContext(), EventDetails.class);
                         i.putExtra("image",event.getImage());

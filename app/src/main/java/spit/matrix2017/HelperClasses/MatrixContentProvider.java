@@ -67,6 +67,29 @@ public class MatrixContentProvider extends ContentProvider {
             new Event("Mind That Word", "A word-based game between two teams of four members each.\nA team selects a gamemaster, who is provided with 10 codenames which the team has to guess.", "Fun", "Room 404", "9am to 1pm\n2pm to 6pm", "\u20B920 per person", "\u20B91000 for winning team", "Anirvin Vishwanatan", "9167957770", "Ankit Sawant", "9869549744", "#F6EE00")
     };
 
+    private static final int[] images = {
+            R.drawable.virtual_stock_market,
+            R.drawable.codatron,
+            R.drawable.laser_maze,
+            R.drawable.laser_tag,
+
+            R.drawable.tech_charades,
+            R.drawable.battle_frontier,
+            R.drawable.escape_plan,
+            R.drawable.technovanza,
+            R.drawable.tech_xplosion,
+            R.drawable.no_escape,
+            R.drawable.techeshis_castle,
+            R.drawable.tesseract,
+
+            R.drawable.human_foosball,
+            R.drawable.battle_of_brains,
+            R.drawable.lan_gaming,
+            R.drawable.pokemon_showdown,
+            R.drawable.lan_mafia,
+            R.drawable.mind_that_word
+    };
+
 
     SQLiteDatabase db;
     MatrixDBConnectionHelper helper;
@@ -158,6 +181,7 @@ public class MatrixContentProvider extends ContentProvider {
             String[] columns = {COL_EVENT_ID, COL_EVENT_NAME, COL_EVENT_DESCRIPTION, COL_EVENT_CATEGORY, COL_EVENT_VENUE, COL_EVENT_REGISTRATION, COL_EVENT_PRIZES, COL_EVENT_TIME, COL_EVENT_CONTACT1_NAME, COL_EVENT_CONTACT1_NO, COL_EVENT_CONTACT2_NAME, COL_EVENT_CONTACT2_NO, COL_EVENT_FAVORITE, COL_EVENT_REMINDER,COL_COLOR};
             Cursor cursor= db.query(TABLE_EVENTS, columns, columns[db_position] + " = '" + name + "'", null, null, null, null);
 
+            int index0 = cursor.getColumnIndex(COL_EVENT_ID);
             int index1 = cursor.getColumnIndex(COL_EVENT_NAME);
             int index2 = cursor.getColumnIndex(COL_EVENT_DESCRIPTION);
             int index3 = cursor.getColumnIndex(COL_EVENT_CATEGORY);
@@ -174,12 +198,13 @@ public class MatrixContentProvider extends ContentProvider {
             int index14 = cursor.getColumnIndex(COL_COLOR);
 
             String name_event, desc, category, venue, time, registration, prizes, contact_name1, contact_name2, contact_no1, contact_no2, color;
-            int fav, reminder;
+            int img, fav, reminder;
 
             while (cursor.moveToNext()) {
                 name_event = cursor.getString(index1);
                 desc = cursor.getString(index2);
                 category = cursor.getString(index3);
+                img = images[cursor.getInt(index0)-1];
                 venue = cursor.getString(index4);
                 time = cursor.getString(index5);
                 registration = cursor.getString(index6);
@@ -191,7 +216,7 @@ public class MatrixContentProvider extends ContentProvider {
                 fav = cursor.getInt(index12);
                 reminder = cursor.getInt(index13);
                 color = cursor.getString(index14);
-                Event event = new Event(name_event, desc, category, venue, time, registration, prizes, contact_name1, contact_no1, contact_name2, contact_no2, fav, reminder, color);
+                Event event = new Event(name_event, desc, category, img, venue, time, registration, prizes, contact_name1, contact_no1, contact_name2, contact_no2, fav, reminder, color);
                 list.add(event);
             }
             cursor.close();

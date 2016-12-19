@@ -14,10 +14,9 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/thumbnail"
                 android:adjustViewBounds="true"
-                android:scaleType="fitXY"
                 android:transitionName="poster"
                 android:src="@drawable/virtual_stock_market" />
 
