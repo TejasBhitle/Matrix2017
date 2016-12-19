@@ -270,7 +270,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.menu_empty:
                 return true;
-            case R.id.visitWebsite:
+            case R.id.menu_visit_website:
                 uri = Uri.parse(getResources().getString(R.string.matrix_website));
                 break;
             case R.id.menu_follow_facebook:
