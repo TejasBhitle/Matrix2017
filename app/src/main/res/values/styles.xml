@@ -11,6 +11,15 @@
         <item name="android:colorBackground">@color/background</item>
         <item name="android:textColorPrimary">@color/primary_text</item>
         <item name="android:textColorSecondary">@color/secondary_text</item>
+
+        <!--Overflow Menu Coloring-->
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <item name="android:itemBackground">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@android:color/white</item>
     </style>
 
     <style name="MyToolBarStyle" parent="Theme.AppCompat">

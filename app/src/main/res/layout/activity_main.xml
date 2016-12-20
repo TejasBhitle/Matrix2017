@@ -49,7 +49,7 @@
                     android:background="?attr/colorPrimary"
                     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     app:layout_collapseMode="pin"
-                    app:layout_scrollFlags="scroll|enterAlways"/>
+                    app:layout_scrollFlags="scroll|enterAlways" />
 
             </android.support.design.widget.CollapsingToolbarLayout>
 
