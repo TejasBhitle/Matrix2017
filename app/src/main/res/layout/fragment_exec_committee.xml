@@ -139,7 +139,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="5dp"
-                            android:src="@drawable/shubhammahajan"
+                            android:src="@drawable/exec_arnnava_sharma"
                             app:civ_border_color="@color/exec"
                             app:civ_border_width="2dp" />
                     </LinearLayout>

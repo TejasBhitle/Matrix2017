@@ -57,11 +57,11 @@
                         android:layout_height="@dimen/profile_height">
 
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/pic_security_russel"
+                            android:id="@+id/pic_security_russell"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="5dp"
-                            android:src="@drawable/shubhammahajan"
+                            android:src="@drawable/security_russell_dmonte"
                             app:civ_border_color="@color/security"
                             app:civ_border_width="2dp" />
                     </LinearLayout>
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <Button
-                        android:id="@+id/google_security_russel"
+                        android:id="@+id/google_security_russell"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                         android:textColor="@color/security"
                         android:text="Google+"/>
                     <Button
-                        android:id="@+id/linkedin_security_russel"
+                        android:id="@+id/linkedin_security_russell"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="5dp"
-                            android:src="@drawable/shubhammahajan"
+                            android:src="@drawable/security_shadab_khan"
                             app:civ_border_color="@color/security"
                             app:civ_border_width="2dp" />
                     </LinearLayout>
@@ -194,7 +194,7 @@
                             android:layout_marginTop="16dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Saniya Santhosh"
+                            android:text="Saniya Santosh"
                             android:textSize="18sp"
                             android:textAlignment="center"/>
                         <TextView
@@ -203,7 +203,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="14sp"
-                            android:text="Unconfirmed"/>
+                            android:text="3rd year, EXTC"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -217,7 +217,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="5dp"
-                            android:src="@drawable/shubhammahajan"
+                            android:src="@drawable/security_saniya_santosh"
                             app:civ_border_color="@color/security"
                             app:civ_border_width="2dp" />
                     </LinearLayout>
@@ -295,7 +295,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="5dp"
-                            android:src="@drawable/shubhammahajan"
+                            android:src="@drawable/security_akhil_sardesai"
                             app:civ_border_color="@color/security"
                             app:civ_border_width="2dp" />
                     </LinearLayout>
@@ -373,7 +373,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="5dp"
-                            android:src="@drawable/shubhammahajan"
+                            android:src="@drawable/security_amit_sonawane"
                             app:civ_border_color="@color/security"
                             app:civ_border_width="2dp" />
                     </LinearLayout>
