@@ -30,8 +30,6 @@ public class ContactUsFragment extends Fragment {
     TextView emailId_matrix_TextView;
     Button findOnMap;
     Button visitWebsite;
-    ImageView college_image;
-    ImageButton fb,insta,snap,twit;
 
     public ContactUsFragment(){}
 
@@ -52,51 +50,6 @@ public class ContactUsFragment extends Fragment {
         save_one_Button =(AppCompatImageButton)view.findViewById(R.id.contact_us_save_one);
         save_two_Button=(AppCompatImageButton)view.findViewById(R.id.contact_us_save_two);
         emailId_matrix_TextView= (TextView)view.findViewById(R.id.emailId_matrix_TextView);
-        college_image =(ImageView)view.findViewById(R.id.college_image);
-        fb=(ImageButton)view.findViewById(R.id.fb_imageView);
-        twit=(ImageButton)view.findViewById(R.id.twit_imageView);
-        snap=(ImageButton)view.findViewById(R.id.snap_imageView);
-        insta=(ImageButton)view.findViewById(R.id.insta_imageView);
-
-        Picasso.with(getActivity()).load(R.drawable.spit).into(college_image);
-        Picasso.with(getActivity()).load(R.drawable.facebook_icon).into(fb);
-        Picasso.with(getActivity()).load(R.drawable.twitter_icon).into(twit);
-        Picasso.with(getActivity()).load(R.drawable.snapchat_icon).into(snap);
-        Picasso.with(getActivity()).load(R.drawable.instagram_icon).into(insta);
-
-        View.OnClickListener social_onClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri;
-                switch (v.getId()){
-                    case R.id.fb_imageView:
-                        uri = Uri.parse(getResources().getString(R.string.matrix_fb_link));
-                        break;
-                    case R.id.insta_imageView:
-                        uri = Uri.parse(getResources().getString(R.string.matrix_insta_link));
-                        break;
-                    case R.id.snap_imageView:
-                        uri = Uri.parse(getResources().getString(R.string.matrix_snap_link));
-                        break;
-                    case R.id.twit_imageView:
-                        uri = Uri.parse(getResources().getString(R.string.matrix_twit_link));
-                        break;
-                    default:uri = Uri.parse(getResources().getString(R.string.matrix_fb_link));
-                }
-                Intent i = new Intent(Intent.ACTION_VIEW,uri);
-                try{
-                    startActivity(i);
-                }
-                catch (Exception e){
-                    Toast.makeText(getActivity(),"Error Loading Link",Toast.LENGTH_SHORT).show();
-                }
-            }
-        };
-
-        fb.setOnClickListener(social_onClickListener);
-        twit.setOnClickListener(social_onClickListener);
-        snap.setOnClickListener(social_onClickListener);
-        insta.setOnClickListener(social_onClickListener);
 
 
         emailId_matrix_TextView.setOnClickListener(new View.OnClickListener() {
