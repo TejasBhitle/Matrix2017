@@ -1,7 +1,5 @@
 package spit.matrix2017.HelperClasses;
 
-import spit.matrix2017.R;
-
 /**
  * Created by Rohit on 13/11/16.
  */

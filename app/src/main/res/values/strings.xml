@@ -43,12 +43,24 @@
     <string name="contact_us_contact2_number">0000000045</string>
 
     <!-- Email Ids-->
+    <string name="send_email">Send an email</string>
     <string name="email_tejas"><u>bhitletejas@gmail.com</u></string>
     <string name="email_shubham"><u>shubh12197@gmail.com</u></string>
     <string name="email_adnan"><u>adnan.ans26@gmail.com</u></string>
     <string name="email_rohit"><u>rnahata1997@gmail.com</u></string>
     <string name="email_mithil"><u>mithilgotarne@gmail.com</u></string>
     <string name="email_akshay"><u>akshah1997@gmail.com</u></string>
+
+    <string name="secretary_email"><u>technicalheadspit@gmail.com</u></string>
+    <string name="core_email"><u>matrixthefest@gmail.com</u></string>
+    <string name="exec_email"><u>exec.matrix2k17@gmail.com</u></string>
+    <string name="tech_email"><u>webdesignspit@gmail.com</u></string>
+    <string name="pr_email"><u>pr.matrix17@gmail.com</u></string>
+    <string name="marketing_email"><u>marketing.matrix2k17@gmail.com</u></string>
+    <string name="events_email"><u>eventheadspit17@gmail.com</u></string>
+    <string name="decor_email"><u>decorspit17@gmail.com</u></string>
+    <string name="admin_email"><u>aspit333@gmail.com</u></string>
+    <string name="security_email"><u>secspit@gmail.com</u></string>
 
     <!--Google+-->
     <string name="googleplus_tejas">https://plus.google.com/116889615357123798600</string>
@@ -58,7 +70,7 @@
     <string name="googleplus_mithil">https://plus.google.com/+MitzzGotarne</string>
     <string name="googleplus_akshay">https://plus.google.com/+AkshayShahakshah1997</string>
 
-    <!--LinkedIN-->
+    <!--LinkedIn-->
     <string name="linkedin_tejas">https://www.linkedin.com/in/tejas-bhitle-ab6597126</string>
     <string name="linkedin_shubham">https://www.linkedin.com/profile/view?id=116787827</string>
     <string name="linkedin_adnan">https://www.linkedin.com/in/adnan-ansari-819898131</string>
@@ -87,6 +99,14 @@
     <string name="contact_us">Contact us</string>
     <string name="imgthumbnail">imgThumbnail</string>
     <string name="no_favorites_text">No Favorites</string>
+
+    <!-- Classes -->
+    <string name="se_it">2nd year, IT</string>
+    <string name="se_comps">2nd year, Comps</string>
+    <string name="te_it">3rd year, IT</string>
+    <string name="te_comps">3rd year, Comps</string>
+    <string name="te_extc">3rd year, EXTC</string>
+    <string name="mca">MCA</string>
 
     <!--Libraries-->
     <string name="picasso_name">Picasso</string>
