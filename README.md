@@ -1,6 +1,6 @@
-# MATRIX 2017
+# Matrix 2017
 
-Official Android App for S.P.I.T Matrix 2017
+An open source application for the annual technical festival of Sardar Patel Institute of Technology.
 
 # License
 ```
