@@ -58,7 +58,7 @@
         <item
             android:title="@string/aboutapp"
             android:id="@+id/about_menuItem"
-            android:icon="@drawable/svg_help_white_24px"/>
+            android:icon="@drawable/svg_info_outline_white_24px"/>
 
     </group>
 
