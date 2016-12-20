@@ -95,25 +95,16 @@
     <string name="picasso_license">Licensed under Apache License 2.0</string>
     <string name="picasso_copyright">&#169; 2013 Square, Inc.</string>
 
-    <string name="moonshine_name">Moonshine Icons</string>
-    <string name="moonshine_author">Pedro Peguero Jr.</string>
-    <string name="moonshine_license">Creative Commons Attribution 4.0 International (CC BY 4.0)</string>
-
     <string name="circular_image_view_name">Circular ImageView</string>
     <string name="circular_image_view_author">Henning Dodenhof</string>
     <string name="circular_image_view_description">A circular ImageView for Android.</string>
     <string name="circular_image_view_license">Licensed under Apache License 2.0</string>
     <string name="circular_image_view_copyright">&#169; 2016 Henning Dodenhof</string>
 
-    <string name="android_support">Android Support Library</string>
+    <string name="android_support">Android Support Libraries</string>
     <string name="android_support_author">Google Inc.</string>
     <string name="android_support_license">Licensed under Apache License 2.0</string>
     <string name="android_support_copyright">&#169; 2016 Google Inc.</string>
-
-    <string name="android_design">Android Design Support Library</string>
-    <string name="android_design_author">Google Inc.</string>
-    <string name="android_design_license">Licensed under Apache License 2.0</string>
-    <string name="android_design_copyright">&#169; 2016 Google Inc.</string>
 
     <string name="app_description">An open source application for the annual technical festival of Sardar Patel Institute of Technology.</string>
     <string name="app_licence">Licensed under the MIT license.</string>

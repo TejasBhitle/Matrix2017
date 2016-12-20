@@ -30,7 +30,6 @@ public class ContactUsFragment extends Fragment {
     TextView emailId_matrix_TextView;
     Button findOnMap;
     Button visitWebsite;
-    ImageView college_image;
 
     public ContactUsFragment(){}
 
@@ -51,10 +50,6 @@ public class ContactUsFragment extends Fragment {
         save_one_Button =(AppCompatImageButton)view.findViewById(R.id.contact_us_save_one);
         save_two_Button=(AppCompatImageButton)view.findViewById(R.id.contact_us_save_two);
         emailId_matrix_TextView= (TextView)view.findViewById(R.id.emailId_matrix_TextView);
-        college_image =(ImageView)view.findViewById(R.id.college_image);
-
-        Picasso.with(getActivity()).load(R.drawable.spit).into(college_image);
-
 
 
         emailId_matrix_TextView.setOnClickListener(new View.OnClickListener() {

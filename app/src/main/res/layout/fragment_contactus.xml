@@ -21,7 +21,9 @@
                 <ImageView
                     android:id="@+id/college_image"
                     android:layout_width="match_parent"
-                    android:layout_height="208dp" />
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/spit" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -52,7 +54,7 @@
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             style="@style/About_Card">
             <LinearLayout
                 android:layout_width="match_parent"
