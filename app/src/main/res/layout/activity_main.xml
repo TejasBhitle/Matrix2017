@@ -30,7 +30,7 @@
                 android:layout_height="200dp"
                 android:fitsSystemWindows="true"
                 app:contentScrim="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                app:layout_scrollFlags="scroll|snap">
 
                 <!--Add ViewPager instead of ImageView-->
                 <ImageView

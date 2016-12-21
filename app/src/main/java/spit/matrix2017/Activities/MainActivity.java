@@ -51,36 +51,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         int[] images = {R.drawable.codatron,
-        R.drawable.laser_maze,
-        R.drawable.laser_tag,
-        R.drawable.virtual_stock_market,
-        R.drawable.battle_frontier,
-        R.drawable.escape_plan,
-        R.drawable.tech_charades,
-        R.drawable.tech_xplosion,
-        R.drawable.no_escape,
-        R.drawable.techeshis_castle,
-        R.drawable.technovanza,
-        R.drawable.tesseract,
-        R.drawable.battle_of_brains,
-        R.drawable.human_foosball,
-        R.drawable.lan_gaming,
-        R.drawable.lan_mafia,
-        R.drawable.mind_that_word,
-        R.drawable.pokemon_showdown};
+                R.drawable.laser_maze,
+                R.drawable.laser_tag,
+                R.drawable.virtual_stock_market,
+                R.drawable.battle_frontier,
+                R.drawable.escape_plan,
+                R.drawable.tech_charades,
+                R.drawable.tech_xplosion,
+                R.drawable.no_escape,
+                R.drawable.techeshis_castle,
+                R.drawable.technovanza,
+                R.drawable.tesseract,
+                R.drawable.battle_of_brains,
+                R.drawable.human_foosball,
+                R.drawable.lan_gaming,
+                R.drawable.lan_mafia,
+                R.drawable.mind_that_word,
+                R.drawable.pokemon_showdown};
 
-        for(int i: images)
+        for (int i : images)
             Picasso.with(getApplicationContext()).load(i).resize(400, 400).centerCrop().fetch();
-        
+
         //instantiation
-        toolbar = (Toolbar)findViewById(R.id.toolbar_main);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
 
-        navigationView =(NavigationView)findViewById(R.id.navigation_view);
-        drawerLayout =(DrawerLayout)findViewById(R.id.drawer_layout);
-        collapsingToolbarLayout= (CollapsingToolbarLayout)findViewById(R.id.collapsingToolbar_main);
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbar_main);
         collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);
-        appBarLayout = (AppBarLayout)findViewById(R.id.app_bar_layout);
+        appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
 
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) appBarLayout.getLayoutParams();
         AppBarLayout.Behavior appBarLayoutBehaviour = new AppBarLayout.Behavior();
@@ -92,19 +92,19 @@ public class MainActivity extends AppCompatActivity {
         });
         layoutParams.setBehavior(appBarLayoutBehaviour);
 
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,
-                R.string.drawer_open,R.string.drawer_close);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
+                R.string.drawer_open, R.string.drawer_close);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             fm = getSupportFragmentManager();
             FragmentTransaction transaction = fm.beginTransaction();
             MainFragment mainFragment = MainFragment.newInstance();
-            transaction.replace(R.id.fragment_container,mainFragment).commit();
+            transaction.replace(R.id.fragment_container, mainFragment).commit();
         }
 
         setupDrawerLayout();
@@ -116,13 +116,13 @@ public class MainActivity extends AppCompatActivity {
         navigationView.getMenu().getItem(0).setChecked(true);
     }
 
-    public void setupDrawerLayout(){
+    public void setupDrawerLayout() {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem item) {
                         drawerLayout.closeDrawers();
-                        if(!item.isChecked()) {
+                        if (!item.isChecked()) {
                             final FragmentTransaction fragmentTransaction = fm.beginTransaction();
                             switch (item.getItemId()) {
                                 case R.id.homepage_menuItem:
@@ -249,6 +249,20 @@ public class MainActivity extends AppCompatActivity {
                                     }, DRAWER_DELAY);
                             }
                         }
+
+                        AppBarLayout.LayoutParams params =
+                                (AppBarLayout.LayoutParams) collapsingToolbarLayout.getLayoutParams();
+
+                        if (item.getItemId() == R.id.homepage_menuItem)
+
+                            params.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
+                                    | AppBarLayout.LayoutParams.SCROLL_FLAG_SNAP);
+
+                        else
+
+                            params.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
+                                    | AppBarLayout.LayoutParams.SCROLL_FLAG_EXIT_UNTIL_COLLAPSED);
+
                         return true;
                     }
                 }
@@ -257,13 +271,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main,menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Uri uri=null;
+        Uri uri = null;
         switch (item.getItemId()) {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
@@ -291,11 +305,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
         return super.onOptionsItemSelected(item);
     }
-    
+
     @Override
-    public void onBackPressed()
-    {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START))
             drawerLayout.closeDrawers();
         else {
             navigationView.getMenu().getItem(0).setChecked(true);
