@@ -27,6 +27,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
 import android.transition.Transition;
@@ -57,6 +58,7 @@ public class EventDetails
     ImageView mainImageView;
     View background;
     CollapsingToolbarLayout collapsingToolbarLayout;
+    CardView organizers_card,prizes_card,registration_card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,9 @@ public class EventDetails
 
         background = findViewById(R.id.event_details_background);
         collapsingToolbarLayout=(CollapsingToolbarLayout)findViewById(R.id.collapsingToolbar_event);
+        organizers_card =(CardView)findViewById(R.id.organizers_card);
+        prizes_card = (CardView)findViewById(R.id.prizes_card);
+        registration_card =(CardView)findViewById(R.id.registration_card);
 
         visitedCalendar = false;
         isFirstLaunch = true;
@@ -464,6 +469,9 @@ public class EventDetails
         if(fab.isShown())
             mainImageView.bringToFront();
         fab.setVisibility(View.GONE);
+        registration_card.setVisibility(View.GONE);
+        prizes_card.setVisibility(View.GONE);
+        organizers_card.setVisibility(View.GONE);
         super.onBackPressed();
     }
 }
