@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private AppBarLayout appBarLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     CollapsingToolbarLayout collapsingToolbarLayout;
+    private AppBarLayout.LayoutParams collapsingToolbarLayoutLayoutParams;
+
 
     FragmentManager fm;
     String backStageName;
@@ -80,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbar_main);
         collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);
+        collapsingToolbarLayoutLayoutParams = (AppBarLayout.LayoutParams) collapsingToolbarLayout.getLayoutParams();
         appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
 
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) appBarLayout.getLayoutParams();
@@ -250,17 +253,14 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
 
-                        AppBarLayout.LayoutParams params =
-                                (AppBarLayout.LayoutParams) collapsingToolbarLayout.getLayoutParams();
-
                         if (item.getItemId() == R.id.homepage_menuItem)
 
-                            params.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
+                            collapsingToolbarLayoutLayoutParams.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
                                     | AppBarLayout.LayoutParams.SCROLL_FLAG_SNAP);
 
                         else
 
-                            params.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
+                            collapsingToolbarLayoutLayoutParams.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
                                     | AppBarLayout.LayoutParams.SCROLL_FLAG_EXIT_UNTIL_COLLAPSED);
 
                         return true;
@@ -313,8 +313,11 @@ public class MainActivity extends AppCompatActivity {
         else {
             navigationView.getMenu().getItem(0).setChecked(true);
             collapsingToolbarLayout.setTitle("Matrix 17");
-            appBarLayout.setExpanded(true, true);
 
+            collapsingToolbarLayoutLayoutParams.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
+                    | AppBarLayout.LayoutParams.SCROLL_FLAG_SNAP);
+
+            appBarLayout.setExpanded(true, true);
             super.onBackPressed();
         }
     }
