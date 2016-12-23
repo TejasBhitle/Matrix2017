@@ -22,12 +22,12 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
 import android.transition.Transition;
@@ -36,8 +36,6 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.PathInterpolator;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -58,8 +56,8 @@ public class EventDetails
     private long mEventID;
     private boolean visitedCalendar, isFirstLaunch;
     ImageView mainImageView;
-    View background;
     CollapsingToolbarLayout collapsingToolbarLayout;
+    CardView organizers_card,prizes_card,registration_card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,8 +76,10 @@ public class EventDetails
                 (AppCompatTextView) findViewById(R.id.tv_event_organizers)
         };
 
-        background = findViewById(R.id.event_details_background);
         collapsingToolbarLayout=(CollapsingToolbarLayout)findViewById(R.id.collapsingToolbar_event);
+        organizers_card =(CardView)findViewById(R.id.organizers_card);
+        prizes_card = (CardView)findViewById(R.id.prizes_card);
+        registration_card =(CardView)findViewById(R.id.registration_card);
 
         visitedCalendar = false;
         isFirstLaunch = true;
@@ -197,8 +197,7 @@ public class EventDetails
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu)
-    {
+    public boolean onPrepareOptionsMenu(Menu menu) {
         mi_reminder = menu.findItem(R.id.action_set_reminder);
         if(isReminderSet)
             mi_reminder.setIcon(R.drawable.svg_alarm_on_white_48px);
@@ -251,7 +250,6 @@ public class EventDetails
     }
 
     private void setTitle(final String title) {
-        /*Code to make title visible only in collapsed state*/
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbar_event);
         collapsingToolbarLayout.setTitle(title);
         collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);
@@ -344,8 +342,7 @@ public class EventDetails
         saveTwo.setOnClickListener(saveOnClickListener);
     }
 
-    private void setReminder()
-    {
+    private void setReminder() {
         if(ContextCompat.checkSelfPermission(EventDetails.this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR}, 1);
         else
@@ -396,8 +393,7 @@ public class EventDetails
         }
     }
 
-    private void goToCalendar(Calendar beginTime, Calendar endTime)
-    {
+    private void goToCalendar(Calendar beginTime, Calendar endTime) {
         mEventID = getLastEventId(getContentResolver())+1;
 
         Intent intent = new Intent(Intent.ACTION_INSERT)
@@ -414,8 +410,7 @@ public class EventDetails
         startActivity(intent);
     }
 
-    private long getLastEventId(ContentResolver cr)
-    {
+    private long getLastEventId(ContentResolver cr) {
         if(ContextCompat.checkSelfPermission(EventDetails.this, Manifest.permission.READ_CALENDAR) == PackageManager.PERMISSION_GRANTED) {
             Cursor cursor = cr.query(CalendarContract.Events.CONTENT_URI, new String[]{"MAX(_id) as max_id"}, null, null, "_id");
             assert cursor != null;
@@ -428,8 +423,7 @@ public class EventDetails
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
-    {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if(grantResults[0] != 0)
             Toast.makeText(EventDetails.this, "Reminder cannot be added without permission to read calendar", Toast.LENGTH_SHORT).show();
         else
@@ -437,8 +431,7 @@ public class EventDetails
     }
 
     @Override
-    public void onResume()
-    {
+    public void onResume() {
         super.onResume();
 
         if (visitedCalendar)
@@ -467,6 +460,9 @@ public class EventDetails
         if(fab.isShown())
             mainImageView.bringToFront();
         fab.setVisibility(View.GONE);
+        registration_card.setVisibility(View.GONE);
+        prizes_card.setVisibility(View.GONE);
+        organizers_card.setVisibility(View.GONE);
         super.onBackPressed();
     }
 }

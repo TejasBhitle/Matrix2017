@@ -108,9 +108,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_margin="8dp"
-                    android:foregroundTint="@color/secondary_text"
-                    android:clickable="true">
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:background="?attr/selectableItemBackground">
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
@@ -121,7 +121,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="40dp"
-                        android:text="Fork on GitHub" />
+                        android:text="Fork us on GitHub" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -131,8 +131,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="External libraries used:"
-            android:textSize="16sp"
+            android:text="External Libraries Used:"
+            android:textSize="20sp"
             android:layout_margin="10dp"
             android:textColor="@color/colorAccent"/>
 

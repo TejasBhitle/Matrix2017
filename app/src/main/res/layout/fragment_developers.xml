@@ -46,7 +46,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="16sp"
-                            android:text="2nd year, Comps"/>
+                            android:text="@string/se_comps"/>
 
                         <TextView
                             android:id="@+id/emailId_tejas"
@@ -133,7 +133,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="16sp"
-                            android:text="3rd year, IT"/>
+                            android:text="@string/te_it"/>
 
                         <TextView
                             android:id="@+id/emailId_adnan"
@@ -219,7 +219,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="16sp"
-                            android:text="3rd year, Comps"/>
+                            android:text="@string/te_comps"/>
 
                         <TextView
                             android:id="@+id/emailId_rohit"
@@ -305,7 +305,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="16sp"
-                            android:text="3rd year, Comps"/>
+                            android:text="@string/te_comps"/>
 
                         <TextView
                             android:id="@+id/emailId_mithil"
@@ -391,7 +391,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="16sp"
-                            android:text="3rd year, Comps"/>
+                            android:text="@string/te_comps"/>
 
                         <TextView
                             android:id="@+id/emailId_shubham"
@@ -477,7 +477,7 @@
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
                             android:textSize="16sp"
-                            android:text="2nd year, IT"/>
+                            android:text="@string/se_it"/>
 
                         <TextView
                             android:id="@+id/emailId_akshay"

@@ -26,6 +26,7 @@ public class AboutAppFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_aboutapp,container,false);
 
         rateThisApp = (LinearLayout)view.findViewById(R.id.fork_button);
+
         rateThisApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
