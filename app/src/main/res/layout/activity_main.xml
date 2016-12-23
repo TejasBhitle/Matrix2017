@@ -65,6 +65,7 @@
         android:layout_height="match_parent"
         app:menu="@menu/navdrawer_menu"
         app:headerLayout="@layout/navdrawer_header"
-        android:layout_gravity="start"/>
+        android:layout_gravity="start"
+        app:insetForeground="@android:color/transparent"/>
 
 </android.support.v4.widget.DrawerLayout>
