@@ -21,9 +21,9 @@ class CustomPagerAdapter extends PagerAdapter {
     //// TODO: 20-12-2016 Add the final images and change their dimensions for proper scaling
 
     private int[] mResources = {
-            R.drawable.laser_maze,
-            R.drawable.laser_tag,
-            R.drawable.virtual_stock_market
+            R.drawable.viewpager1,
+            R.drawable.viewpager2,
+            R.drawable.viewpager3
     };
 
     CustomPagerAdapter(Context context) {

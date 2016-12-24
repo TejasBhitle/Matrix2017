@@ -33,7 +33,6 @@
                 app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|snap">
 
-                <!--Add ViewPager instead of ImageView-->
                 <android.support.v4.view.ViewPager
                     android:id="@+id/viewpager_main"
                     android:layout_height="match_parent"
@@ -43,13 +42,6 @@
                     android:scaleType="fitCenter"
                     app:layout_collapseMode="parallax">
                 </android.support.v4.view.ViewPager>
-                <!--<ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
-                    android:fitsSystemWindows="true"
-                    android:scaleType="fitCenter"
-                    app:layout_collapseMode="parallax"/>-->
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar_main"
@@ -59,7 +51,10 @@
                     android:background="?attr/colorPrimary"
                     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     app:layout_collapseMode="pin"
-                    app:layout_scrollFlags="scroll|enterAlways" />
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    android:elevation="50dp"
+                    android:padding="2dp"
+                    android:paddingBottom="2dp" />
 
             </android.support.design.widget.CollapsingToolbarLayout>
 

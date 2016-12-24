@@ -13,6 +13,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
     String backStageName;
     private static final long DRAWER_DELAY = 250;
 
+    CustomPagerAdapter mCustomPagerAdapter;
+    ViewPager mViewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
 
         for(int i: images)
             Picasso.with(getApplicationContext()).load(i).resize(400, 400).centerCrop().fetch();
+
+        //ViewPager
+        mCustomPagerAdapter = new CustomPagerAdapter(this);
+        mViewPager = (ViewPager)findViewById(R.id.viewpager_main);
+        mViewPager.setAdapter(mCustomPagerAdapter);
         
         //instantiation
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
