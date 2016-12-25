@@ -1,3 +1,19 @@
+/*
+ * *
+ *  * This file is part of Matrix2017
+ *  * Created for the annual technical festival of Sardar Patel Institute of Technology
+ *  *
+ *  * The original contributors of the software include:
+ *  * - Adnan Ansari (psyclone20)
+ *  * - Tejas Bhitle (TejasBhitle)
+ *  * - Mithil Gotarne (mithilgotarne)
+ *  * - Rohit Nahata (rohitnahata)
+ *  * - Akshay Shah (akshah1997)
+ *  *
+ *  * Matrix2017 is free software: you can redistribute it and/or modify
+ *  * it under the terms of the MIT License as published by the Massachusetts Institute of Technology
+*/
+
 package spit.matrix2017.Activities;
 
 import android.content.Intent;
@@ -14,7 +30,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,14 +37,11 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.Scroller;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import java.lang.reflect.Field;
-
+import me.relex.circleindicator.CircleIndicator;
 import spit.matrix2017.Fragments.AboutAppFragment;
 import spit.matrix2017.Fragments.CommitteeFragment;
 import spit.matrix2017.Fragments.ContactUsFragment;
@@ -51,10 +63,11 @@ public class MainActivity extends AppCompatActivity {
 
     FragmentManager fm;
     String backStageName;
-    private static final long DRAWER_DELAY = 250;
 
     CustomPagerAdapter mCustomPagerAdapter;
     CustomViewPager mViewPager;
+
+    private static final long DRAWER_DELAY = 250;
     private static int NUM_PAGES = 3;
 
     @Override
@@ -89,19 +102,9 @@ public class MainActivity extends AppCompatActivity {
         //ViewPager
         mCustomPagerAdapter = new CustomPagerAdapter(this);
         mViewPager = (CustomViewPager) findViewById(R.id.viewpager_main);
+        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
         mViewPager.setAdapter(mCustomPagerAdapter);
-
-//        Field mScroller = null;
-//        try {
-//            mScroller = ViewPager.class.getDeclaredField("mScroller");
-//            mScroller.setAccessible(true);
-//            Scroller scroller = new Scroller(this, new DecelerateInterpolator());
-//            mScroller.set(mViewPager, scroller);
-//        } catch (NoSuchFieldException e) {
-//            e.printStackTrace();
-//        } catch (IllegalAccessException e) {
-//            e.printStackTrace();
-//        }
+        indicator.setViewPager(mViewPager);
 
         final Handler h = new Handler(Looper.getMainLooper());
         final Runnable r = new Runnable() {
@@ -198,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
                                         @Override
                                         public void run() {
                                             Toast.makeText(MainActivity.this, "Coming soon!", Toast.LENGTH_SHORT).show();
+
                                             // IMPORTANT: Remove checkable=false from the 'Sponsors' menu item in res/menu/navdrawer_menu.xml when Sponsors fragment is complete
 
                                             /* Delete later
@@ -210,8 +214,7 @@ public class MainActivity extends AppCompatActivity {
                                             */
                                         }
                                     }, DRAWER_DELAY);
-                                    //break;
-                                    return true; //Delete later
+                                    return true; //Replace by 'break' later
 
                                 case R.id.commitee_menuItem:
                                     new Handler().postDelayed(new Runnable() {
@@ -308,7 +311,7 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
-            case R.id.menu_empty:
+            case R.id.follow_us:
                 return true;
             case R.id.menu_visit_website:
                 uri = Uri.parse(getResources().getString(R.string.matrix_website));

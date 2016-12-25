@@ -7,7 +7,7 @@
         android:title="@string/visit_website"
         app:showAsAction="never" />
     <item
-        android:id="@+id/menu_empty"
+        android:id="@+id/follow_us"
         android:title="Follow us"
         app:showAsAction="never" >
         <menu>

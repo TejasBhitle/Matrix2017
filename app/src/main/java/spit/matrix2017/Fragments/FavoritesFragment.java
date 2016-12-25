@@ -1,3 +1,19 @@
+/*
+ * *
+ *  * This file is part of Matrix2017
+ *  * Created for the annual technical festival of Sardar Patel Institute of Technology
+ *  *
+ *  * The original contributors of the software include:
+ *  * - Adnan Ansari (psyclone20)
+ *  * - Tejas Bhitle (TejasBhitle)
+ *  * - Mithil Gotarne (mithilgotarne)
+ *  * - Rohit Nahata (rohitnahata)
+ *  * - Akshay Shah (akshah1997)
+ *  *
+ *  * Matrix2017 is free software: you can redistribute it and/or modify
+ *  * it under the terms of the MIT License as published by the Massachusetts Institute of Technology
+*/
+
 package spit.matrix2017.Fragments;
 
 import android.content.Intent;
@@ -24,10 +40,6 @@ import spit.matrix2017.HelperClasses.EventListAdapter;
 import spit.matrix2017.HelperClasses.MatrixContentProvider;
 import spit.matrix2017.HelperClasses.RecyclerItemClickListener;
 import spit.matrix2017.R;
-
-/**
- * Created by Tejas on 12/11/2016.
- */
 
 public class FavoritesFragment extends Fragment {
 

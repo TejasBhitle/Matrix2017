@@ -1,3 +1,19 @@
+/*
+ * *
+ *  * This file is part of Matrix2017
+ *  * Created for the annual technical festival of Sardar Patel Institute of Technology
+ *  *
+ *  * The original contributors of the software include:
+ *  * - Adnan Ansari (psyclone20)
+ *  * - Tejas Bhitle (TejasBhitle)
+ *  * - Mithil Gotarne (mithilgotarne)
+ *  * - Rohit Nahata (rohitnahata)
+ *  * - Akshay Shah (akshah1997)
+ *  *
+ *  * Matrix2017 is free software: you can redistribute it and/or modify
+ *  * it under the terms of the MIT License as published by the Massachusetts Institute of Technology
+*/
+
 package spit.matrix2017.HelperClasses;
 
 import android.content.Context;
@@ -10,20 +26,14 @@ import android.widget.LinearLayout;
 
 import spit.matrix2017.R;
 
-/**
- * Created by akshay on 20-12-2016.
- */
-
 public class CustomPagerAdapter extends PagerAdapter {
     private Context mContext;
     private LayoutInflater mLayoutInflater;
 
-    //// TODO: 20-12-2016 Add the final images and change their dimensions for proper scaling
-
     private int[] mResources = {
-            R.drawable.viewpager1,
-            R.drawable.viewpager2,
-            R.drawable.viewpager3
+            R.drawable.viewpager_1,
+            R.drawable.viewpager_2,
+            R.drawable.viewpager_3
     };
 
     public CustomPagerAdapter(Context context) {
@@ -45,7 +55,7 @@ public class CustomPagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         View itemView = mLayoutInflater.inflate(R.layout.pager_item, container, false);
 
-        ImageView imageView = (ImageView) itemView.findViewById(R.id.imageView);
+        ImageView imageView = (ImageView) itemView.findViewById(R.id.viewpager_image);
         imageView.setImageResource(mResources[position]);
 
         container.addView(itemView);
