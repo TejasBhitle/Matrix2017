@@ -22,9 +22,13 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.Scroller;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+
+import java.lang.reflect.Field;
 
 import spit.matrix2017.Fragments.AboutAppFragment;
 import spit.matrix2017.Fragments.CommitteeFragment;
@@ -33,6 +37,7 @@ import spit.matrix2017.Fragments.DevelopersFragment;
 import spit.matrix2017.Fragments.FavoritesFragment;
 import spit.matrix2017.Fragments.MainFragment;
 import spit.matrix2017.HelperClasses.CustomPagerAdapter;
+import spit.matrix2017.HelperClasses.CustomViewPager;
 import spit.matrix2017.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private static final long DRAWER_DELAY = 250;
 
     CustomPagerAdapter mCustomPagerAdapter;
-    ViewPager mViewPager;
+    CustomViewPager mViewPager;
     private static int NUM_PAGES = 3;
 
     @Override
@@ -83,20 +88,25 @@ public class MainActivity extends AppCompatActivity {
 
         //ViewPager
         mCustomPagerAdapter = new CustomPagerAdapter(this);
-        mViewPager = (ViewPager)findViewById(R.id.viewpager_main);
+        mViewPager = (CustomViewPager) findViewById(R.id.viewpager_main);
         mViewPager.setAdapter(mCustomPagerAdapter);
+
+//        Field mScroller = null;
+//        try {
+//            mScroller = ViewPager.class.getDeclaredField("mScroller");
+//            mScroller.setAccessible(true);
+//            Scroller scroller = new Scroller(this, new DecelerateInterpolator());
+//            mScroller.set(mViewPager, scroller);
+//        } catch (NoSuchFieldException e) {
+//            e.printStackTrace();
+//        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
+//        }
 
         final Handler h = new Handler(Looper.getMainLooper());
         final Runnable r = new Runnable() {
             public void run() {
-                int currentPage = mViewPager.getCurrentItem();
-                if(currentPage != (NUM_PAGES-1)) {
-                    mViewPager.beginFakeDrag();
-                    mViewPager.fakeDragBy(-500);
-                    mViewPager.endFakeDrag();
-                }
-                else
-                    mViewPager.setCurrentItem(0, true);
+                mViewPager.setCurrentItem((mViewPager.getCurrentItem()+1)%NUM_PAGES, true);
                 h.postDelayed(this, 5000);
             }
         };

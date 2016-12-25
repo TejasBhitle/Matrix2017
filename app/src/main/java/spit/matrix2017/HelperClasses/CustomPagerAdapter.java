@@ -46,7 +46,6 @@ public class CustomPagerAdapter extends PagerAdapter {
         View itemView = mLayoutInflater.inflate(R.layout.pager_item, container, false);
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.imageView);
-        //Picasso.with(mContext.getApplicationContext()).load(mResources[position]).into(imageView);
         imageView.setImageResource(mResources[position]);
 
         container.addView(itemView);
@@ -59,4 +58,3 @@ public class CustomPagerAdapter extends PagerAdapter {
         container.removeView((LinearLayout) object);
     }
 }
-
