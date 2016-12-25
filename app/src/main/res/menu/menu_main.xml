@@ -3,36 +3,30 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/menu_visit_website"
+        android:title="@string/visit_website"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu_empty"
-        android:title="Social Media Links"
-        android:icon="@drawable/svg_overflow_24px"
-        app:showAsAction="always">
+        android:title="Follow us"
+        app:showAsAction="never" >
         <menu>
-            <item
-                android:id="@+id/menu_visit_website"
-                android:icon="@drawable/svg_website_24px"
-                app:showAsAction="always|withText"
-                android:title="@string/visit_website"/>
             <item
                 android:id="@+id/menu_follow_facebook"
                 android:icon="@drawable/svg_logo_facebook"
-                app:showAsAction="always|withText"
-                android:title="@string/follow_facebook"/>
+                android:title="@string/follow_facebook" />
             <item
                 android:id="@+id/menu_follow_twitter"
                 android:icon="@drawable/svg_logo_twitter"
-                app:showAsAction="always|withText"
-                android:title="@string/follow_twitter"/>
+                android:title="@string/follow_twitter" />
             <item
                 android:id="@+id/menu_follow_instagram"
                 android:icon="@drawable/svg_logo_instagram"
-                app:showAsAction="always|withText"
-                android:title="@string/follow_instagram"/>
+                android:title="@string/follow_instagram" />
             <item
                 android:id="@+id/menu_follow_snapchat"
                 android:icon="@drawable/svg_logo_snapchat"
-                app:showAsAction="always|withText"
-                android:title="@string/follow_snapchat"/>
+                android:title="@string/follow_snapchat" />
         </menu>
     </item>
 </menu>

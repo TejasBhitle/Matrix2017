@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.AppBarLayout;
@@ -31,6 +32,7 @@ import spit.matrix2017.Fragments.ContactUsFragment;
 import spit.matrix2017.Fragments.DevelopersFragment;
 import spit.matrix2017.Fragments.FavoritesFragment;
 import spit.matrix2017.Fragments.MainFragment;
+import spit.matrix2017.HelperClasses.CustomPagerAdapter;
 import spit.matrix2017.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -48,30 +50,33 @@ public class MainActivity extends AppCompatActivity {
 
     CustomPagerAdapter mCustomPagerAdapter;
     ViewPager mViewPager;
+    private static int NUM_PAGES = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int[] images = {R.drawable.codatron,
-        R.drawable.laser_maze,
-        R.drawable.laser_tag,
-        R.drawable.virtual_stock_market,
-        R.drawable.battle_frontier,
-        R.drawable.escape_plan,
-        R.drawable.tech_charades,
-        R.drawable.tech_xplosion,
-        R.drawable.no_escape,
-        R.drawable.techeshis_castle,
-        R.drawable.technovanza,
-        R.drawable.tesseract,
-        R.drawable.battle_of_brains,
-        R.drawable.human_foosball,
-        R.drawable.lan_gaming,
-        R.drawable.lan_mafia,
-        R.drawable.mind_that_word,
-        R.drawable.pokemon_showdown};
+        int[] images = {
+                R.drawable.codatron,
+                R.drawable.laser_maze,
+                R.drawable.laser_tag,
+                R.drawable.virtual_stock_market,
+                R.drawable.battle_frontier,
+                R.drawable.escape_plan,
+                R.drawable.tech_charades,
+                R.drawable.tech_xplosion,
+                R.drawable.no_escape,
+                R.drawable.techeshis_castle,
+                R.drawable.technovanza,
+                R.drawable.tesseract,
+                R.drawable.battle_of_brains,
+                R.drawable.human_foosball,
+                R.drawable.lan_gaming,
+                R.drawable.lan_mafia,
+                R.drawable.mind_that_word,
+                R.drawable.pokemon_showdown
+        };
 
         for(int i: images)
             Picasso.with(getApplicationContext()).load(i).resize(400, 400).centerCrop().fetch();
@@ -80,6 +85,22 @@ public class MainActivity extends AppCompatActivity {
         mCustomPagerAdapter = new CustomPagerAdapter(this);
         mViewPager = (ViewPager)findViewById(R.id.viewpager_main);
         mViewPager.setAdapter(mCustomPagerAdapter);
+
+        final Handler h = new Handler(Looper.getMainLooper());
+        final Runnable r = new Runnable() {
+            public void run() {
+                int currentPage = mViewPager.getCurrentItem();
+                if(currentPage != (NUM_PAGES-1)) {
+                    mViewPager.beginFakeDrag();
+                    mViewPager.fakeDragBy(-500);
+                    mViewPager.endFakeDrag();
+                }
+                else
+                    mViewPager.setCurrentItem(0, true);
+                h.postDelayed(this, 5000);
+            }
+        };
+        h.postDelayed(r, 5000);
         
         //instantiation
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
@@ -88,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView =(NavigationView)findViewById(R.id.navigation_view);
         drawerLayout =(DrawerLayout)findViewById(R.id.drawer_layout);
         collapsingToolbarLayout= (CollapsingToolbarLayout)findViewById(R.id.collapsingToolbar_main);
-        collapsingToolbarLayout.setExpandedTitleColor(Color.TRANSPARENT);
+        collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
         appBarLayout = (AppBarLayout)findViewById(R.id.app_bar_layout);
 
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) appBarLayout.getLayoutParams();

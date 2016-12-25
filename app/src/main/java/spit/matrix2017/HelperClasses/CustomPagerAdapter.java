@@ -1,4 +1,4 @@
-package spit.matrix2017.Activities;
+package spit.matrix2017.HelperClasses;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
@@ -14,7 +14,7 @@ import spit.matrix2017.R;
  * Created by akshay on 20-12-2016.
  */
 
-class CustomPagerAdapter extends PagerAdapter {
+public class CustomPagerAdapter extends PagerAdapter {
     private Context mContext;
     private LayoutInflater mLayoutInflater;
 
@@ -26,7 +26,7 @@ class CustomPagerAdapter extends PagerAdapter {
             R.drawable.viewpager3
     };
 
-    CustomPagerAdapter(Context context) {
+    public CustomPagerAdapter(Context context) {
         mContext = context;
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -46,6 +46,7 @@ class CustomPagerAdapter extends PagerAdapter {
         View itemView = mLayoutInflater.inflate(R.layout.pager_item, container, false);
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.imageView);
+        //Picasso.with(mContext.getApplicationContext()).load(mResources[position]).into(imageView);
         imageView.setImageResource(mResources[position]);
 
         container.addView(itemView);
