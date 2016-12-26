@@ -167,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         if(!item.isChecked()) {
                             final FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                            fragmentTransaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
                             switch (item.getItemId()) {
                                 case R.id.homepage_menuItem:
                                     new Handler().postDelayed(new Runnable() {
