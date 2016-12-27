@@ -25,6 +25,9 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import spit.matrix2017.Fragments.AboutAppFragment;
 import spit.matrix2017.Fragments.CommitteeFragment;
 import spit.matrix2017.Fragments.ContactUsFragment;
@@ -46,8 +49,11 @@ public class MainActivity extends AppCompatActivity {
     String backStageName;
     private static final long DRAWER_DELAY = 250;
 
+    // declarations for viewpager
     CustomPagerAdapter mCustomPagerAdapter;
     ViewPager mViewPager;
+    Timer timer;
+    int page = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +86,9 @@ public class MainActivity extends AppCompatActivity {
         mCustomPagerAdapter = new CustomPagerAdapter(this);
         mViewPager = (ViewPager)findViewById(R.id.viewpager_main);
         mViewPager.setAdapter(mCustomPagerAdapter);
-        
+        mViewPager.setCurrentItem(0);
+        pageSwitcher(4); // calling function to autoswipe
+
         //instantiation
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
@@ -123,6 +131,29 @@ public class MainActivity extends AppCompatActivity {
             navigationMenuView.setVerticalScrollBarEnabled(false);
         }
         navigationView.getMenu().getItem(0).setChecked(true);
+    }
+
+    // method for autoswipe in viewpager
+    public void pageSwitcher(int seconds) {
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new RemindTask(), 0, seconds * 1000); // delay in milliseconds
+    }
+
+    // inner class for autoswipe in viewpager
+    class RemindTask extends TimerTask {
+        @Override
+        public void run() {
+            runOnUiThread(new Runnable() {
+                public void run() {
+
+                    if (page > 2) { // enter the number of pages
+                        page=0;
+                    } else {
+                        mViewPager.setCurrentItem(page++);
+                    }
+                }
+            });
+        }
     }
 
     public void setupDrawerLayout(){
