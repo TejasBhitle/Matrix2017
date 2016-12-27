@@ -7,16 +7,16 @@
     <string name="visit_website">Visit website</string>
     <string name="matrix_website">http://www.matrixthefest.in</string>
 
-    <string name="follow_facebook">Follow on Facebook</string>
+    <string name="follow_facebook">Facebook</string>
     <string name="matrix_fb_link">https://www.facebook.com/TheMatrixSPIT</string>
 
-    <string name="follow_twitter">Follow on Twitter</string>
+    <string name="follow_twitter">Twitter</string>
     <string name="matrix_twit_link">https://twitter.com/SPIT_Matrix</string>
 
-    <string name="follow_instagram">Follow on Instagram</string>
+    <string name="follow_instagram">Instagram</string>
     <string name="matrix_insta_link">https://www.instagram.com/matrixthefest</string>
 
-    <string name="follow_snapchat">Follow on Snapchat</string>
+    <string name="follow_snapchat">Snapchat</string>
     <string name="matrix_snap_link">https://www.snapchat.com/add/matrixthefest</string>
 
     <string name="sponsors">Sponsors</string>
@@ -121,12 +121,18 @@
     <string name="circular_image_view_license">Licensed under Apache License 2.0</string>
     <string name="circular_image_view_copyright">&#169; 2016 Henning Dodenhof</string>
 
+    <string name="circle_indicator_name">CircleIndicator</string>
+    <string name="circle_indicator_author">Relex</string>
+    <string name="circle_indicator_description">A lightweight ViewPager indicator like in the Nexus 5 launcher.</string>
+    <string name="circle_indicator_license">Licensed under Apache License 2.0</string>
+    <string name="circle_indicator_copyright">&#169; 2014 Relex</string>
+
     <string name="android_support">Android Support Libraries</string>
     <string name="android_support_author">Google Inc.</string>
     <string name="android_support_license">Licensed under Apache License 2.0</string>
     <string name="android_support_copyright">&#169; 2016 Google Inc.</string>
 
-    <string name="app_description">An Open Source Application for the Annual Technical Festival of Sardar Patel Institute of Technology.</string>
+    <string name="app_description">An open source application for the annual technical festival of Sardar Patel Institute of Technology.</string>
     <string name="app_licence">Licensed under the MIT license.</string>
     <string name="app_copyright">&#169; 2016 Sardar Patel Institute of Technology.</string>
     <string name="aboutapp">About</string>
