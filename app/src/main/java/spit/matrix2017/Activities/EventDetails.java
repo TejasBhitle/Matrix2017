@@ -419,7 +419,7 @@ public class EventDetails
                 .putExtra(CalendarContract.Events._ID, mEventID)
                 .putExtra(CalendarContract.Events.TITLE, event_name)
                 .putExtra(CalendarContract.Events.DESCRIPTION, "Event at Matrix 17")
-                .putExtra(CalendarContract.Events.EVENT_LOCATION, getIntent().getStringExtra("venue"))
+                .putExtra(CalendarContract.Events.EVENT_LOCATION, getIntent().getStringExtra("venue")+", S.P.I.T.")
                 .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
 
         visitedCalendar = true;
