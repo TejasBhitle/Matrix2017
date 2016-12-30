@@ -5,7 +5,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowContentTransitions">true</item>
         <item name="android:scrollbarSize">4dp</item>
         <item name="android:scrollbarThumbVertical">@color/colorAccent</item>
         <item name="android:colorBackground">@color/background</item>
@@ -16,7 +15,7 @@
         <!--Overflow Menu Coloring-->
         <item name="android:popupMenuStyle">@style/PopupMenu</item>
         <item name="android:itemBackground">@android:color/white</item>
-        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textColor">@color/grey</item>
     </style>
 
     <style name="AppThemeWithNoWindowTranslucentStatus" parent="Theme.AppCompat.Light.NoActionBar">
@@ -24,7 +23,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowContentTransitions">true</item>
         <item name="android:scrollbarSize">4dp</item>
         <item name="android:scrollbarThumbVertical">@color/colorAccent</item>
         <item name="android:colorBackground">@color/background</item>
