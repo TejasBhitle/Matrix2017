@@ -119,7 +119,7 @@ public class EventDetails
 
         mainImageView = (ImageView) findViewById(R.id.main_imageView);
         assert mainImageView != null;
-        mainImageView.setImageResource(getIntent().getIntExtra("image", R.drawable.virtual_stock_market));
+        mainImageView.setImageResource(getIntent().getIntExtra("image", R.drawable.event_vsm));
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;

@@ -83,26 +83,26 @@ public class MatrixContentProvider extends ContentProvider {
     };
 
     private static final int[] images = {
-            R.drawable.virtual_stock_market,
-            R.drawable.codatron,
-            R.drawable.laser_maze,
-            R.drawable.laser_tag,
+            R.drawable.event_vsm,
+            R.drawable.event_codatron,
+            R.drawable.event_laser_maze,
+            R.drawable.event_laser_tag,
 
-            R.drawable.tech_charades,
-            R.drawable.battle_frontier,
-            R.drawable.escape_plan,
-            R.drawable.technovanza,
-            R.drawable.tech_xplosion,
-            R.drawable.no_escape,
-            R.drawable.techeshis_castle,
-            R.drawable.tesseract,
+            R.drawable.event_tech_charades,
+            R.drawable.event_battle_frontier,
+            R.drawable.event_escape_plan,
+            R.drawable.event_technovanza,
+            R.drawable.event_tech_xplosion,
+            R.drawable.event_no_escape,
+            R.drawable.event_techeshis_castle,
+            R.drawable.event_tesseract,
 
-            R.drawable.human_foosball,
-            R.drawable.battle_of_brains,
-            R.drawable.lan_gaming,
-            R.drawable.pokemon_showdown,
-            R.drawable.lan_mafia,
-            R.drawable.mind_that_word
+            R.drawable.event_human_foosball,
+            R.drawable.event_battle_of_brains,
+            R.drawable.event_lan_gaming,
+            R.drawable.event_pokemon_showdown,
+            R.drawable.event_lan_mafia,
+            R.drawable.event_mind_that_word
     };
 
 
