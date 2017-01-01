@@ -19,6 +19,7 @@ package spit.matrix2017.Activities;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
@@ -73,7 +74,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        if(Build.VERSION.SDK_INT >= 21) {
+            setContentView(R.layout.activity_main_v21);
+        }
+        else{
+            setContentView(R.layout.activity_main);
+        }
 
         int[] images = {
                 R.drawable.event_codatron,
