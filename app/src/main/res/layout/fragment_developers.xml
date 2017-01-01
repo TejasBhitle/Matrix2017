@@ -85,7 +85,7 @@
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
-                        android:text="Google+"/>
+                        android:text="Website"/>
                     <Button
                         android:id="@+id/linkedin_tejas"
                         android:layout_width="0dp"
