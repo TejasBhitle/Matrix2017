@@ -19,6 +19,7 @@
         android:layout_centerVertical="true"
         android:text="@string/no_favorites_text"
         android:textSize="20dp"
+        android:textColor="@color/secondary_text"
         android:visibility="gone"/>
 
 </RelativeLayout>
