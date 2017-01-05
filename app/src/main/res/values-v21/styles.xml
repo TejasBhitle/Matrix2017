@@ -12,11 +12,6 @@
         <item name="android:textColorPrimary">@color/primary_text</item>
         <item name="android:textColorSecondary">@color/secondary_text</item>
         <item name="android:windowTranslucentStatus">true</item>
-
-        <!--Overflow Menu Coloring-->
-        <item name="android:popupMenuStyle">@style/PopupMenu</item>
-        <item name="android:itemBackground">@android:color/white</item>
-        <item name="android:textColor">@color/grey</item>
     </style>
 
     <style name="AppThemeWithNoWindowTranslucentStatus" parent="Theme.AppCompat.Light.NoActionBar">
@@ -30,15 +25,6 @@
         <item name="android:colorBackground">@color/background</item>
         <item name="android:textColorPrimary">@color/primary_text</item>
         <item name="android:textColorSecondary">@color/secondary_text</item>
-
-        <!--Overflow Menu Coloring-->
-        <item name="android:popupMenuStyle">@style/PopupMenu</item>
-        <item name="android:itemBackground">@android:color/white</item>
-        <item name="android:textColor">@color/secondary_text</item>
-    </style>
-
-    <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
-        <item name="android:popupBackground">@android:color/white</item>
     </style>
 
     <style name="MyToolBarStyle" parent="Theme.AppCompat">
@@ -61,7 +47,6 @@
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginBottom">5dp</item>
     </style>
-
 
     <style name="RippleEffectCardView" parent="CardView">
         <item name="android:focusable">true</item>

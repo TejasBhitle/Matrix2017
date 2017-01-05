@@ -75,32 +75,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(Build.VERSION.SDK_INT >= 21) {
+        if(Build.VERSION.SDK_INT >= 21)
             setContentView(R.layout.activity_main_v21);
-        }
-        else{
+        else
             setContentView(R.layout.activity_main);
-        }
 
         int[] images = {
+                R.drawable.event_vsm,
                 R.drawable.event_codatron,
                 R.drawable.event_laser_maze,
                 R.drawable.event_laser_tag,
-                R.drawable.event_vsm,
+
+                R.drawable.event_tech_charades,
                 R.drawable.event_battle_frontier,
                 R.drawable.event_escape_plan,
-                R.drawable.event_tech_charades,
+                R.drawable.event_technovanza,
                 R.drawable.event_tech_xplosion,
                 R.drawable.event_no_escape,
                 R.drawable.event_techeshis_castle,
-                R.drawable.event_technovanza,
                 R.drawable.event_tesseract,
-                R.drawable.event_battle_of_brains,
+
                 R.drawable.event_human_foosball,
+                R.drawable.event_battle_of_brains,
                 R.drawable.event_lan_gaming,
+                R.drawable.event_pokemon_showdown,
                 R.drawable.event_lan_mafia,
-                R.drawable.event_mind_that_word,
-                R.drawable.event_pokemon_showdown
+                R.drawable.event_mind_that_word
         };
 
         for(int i: images)

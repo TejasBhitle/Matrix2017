@@ -30,7 +30,7 @@
                 android:layout_height="match_parent"
                 app:contentScrim="?attr/colorPrimary"
                 app:insetForeground="@android:color/transparent"
-                app:expandedTitleGravity="center_vertical"
+                app:expandedTitleMarginBottom="48dp"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <FrameLayout
@@ -58,6 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                     app:layout_collapseMode="pin"
                     app:layout_scrollFlags="scroll|enterAlways"/>
 
