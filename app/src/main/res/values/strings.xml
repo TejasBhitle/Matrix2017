@@ -63,7 +63,7 @@
     <string name="security_email"><u>secspit@gmail.com</u></string>
 
     <!--Google+-->
-    <string name="googleplus_tejas">https://plus.google.com/116889615357123798600</string>
+    <string name="googleplus_tejas">https://tejasbhitle.github.io</string>
     <string name="googleplus_shubham">https://plus.google.com/105339466507922161056</string>
     <string name="googleplus_adnan">https://plus.google.com/+AdnanAnsari26</string>
     <string name="googleplus_rohit">https://plus.google.com/u/0/102509309260551395915</string>
@@ -73,7 +73,7 @@
     <!--LinkedIn-->
     <string name="linkedin_tejas">https://www.linkedin.com/in/tejas-bhitle-ab6597126</string>
     <string name="linkedin_shubham">https://www.linkedin.com/profile/view?id=116787827</string>
-    <string name="linkedin_adnan">https://www.linkedin.com/in/adnan-ansari-819898131</string>
+    <string name="linkedin_adnan">https://www.linkedin.com/in/adnan-ansari</string>
     <string name="linkedin_rohit">https://www.linkedin.com/in/rohit-nahata-513aa912a</string>
     <string name="linkedin_mithil">https://www.linkedin.com/in/mithil-gotarne-470786131</string>
     <string name="linkedin_akshay">https://in.linkedin.com/in/akshah1997</string>
@@ -133,8 +133,8 @@
     <string name="android_support_copyright">&#169; 2016 Google Inc.</string>
 
     <string name="app_description">An open source application for the annual technical festival of Sardar Patel Institute of Technology.</string>
-    <string name="app_licence">Licensed under the MIT license.</string>
-    <string name="app_copyright">&#169; 2016 Sardar Patel Institute of Technology.</string>
+    <string name="app_licence">Licensed under the MIT license</string>
+    <string name="app_copyright">&#169; 2016 Sardar Patel Institute of Technology</string>
     <string name="aboutapp">About</string>
 
 </resources>

@@ -8,7 +8,9 @@
     <color name="card_background">#FAFAFA</color>
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#757575</color>
+
     <color name="dark_gray">#505050</color>
+    <color name="grey">#454545</color>
 
     <color name="secretary">#E91E63</color>
     <color name="cp">#FFA000</color>

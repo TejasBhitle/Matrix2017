@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/cv"
-    android:layout_margin="4dp"
+    android:layout_margin="3dp"
     style="@style/RippleEffectCardView" >
 
     <LinearLayout
@@ -18,7 +18,7 @@
                 android:id="@+id/thumbnail"
                 android:adjustViewBounds="true"
                 android:transitionName="poster"
-                android:src="@drawable/virtual_stock_market" />
+                android:src="@drawable/event_vsm" />
 
             <LinearLayout
                 android:id="@+id/textView_background"

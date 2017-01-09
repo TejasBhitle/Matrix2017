@@ -28,7 +28,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/college_address"
-                    android:textSize="14sp"
+                    android:textSize="17sp"
+                    android:textIsSelectable="true"
                     android:padding="15dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"

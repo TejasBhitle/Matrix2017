@@ -30,7 +30,7 @@
             android:label="@string/title_activity_event_details"
             android:screenOrientation="portrait"
             android:parentActivityName=".Activities.MainActivity"
-            android:theme="@style/AppThemeWithNoWindowTranslucentStatus">
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="spit.matrix2017.Activities.MainActivity" />

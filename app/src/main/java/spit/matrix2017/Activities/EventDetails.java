@@ -119,7 +119,7 @@ public class EventDetails
 
         mainImageView = (ImageView) findViewById(R.id.main_imageView);
         assert mainImageView != null;
-        mainImageView.setImageResource(getIntent().getIntExtra("image", R.drawable.virtual_stock_market));
+        mainImageView.setImageResource(getIntent().getIntExtra("image", R.drawable.event_vsm));
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
@@ -419,7 +419,7 @@ public class EventDetails
                 .putExtra(CalendarContract.Events._ID, mEventID)
                 .putExtra(CalendarContract.Events.TITLE, event_name)
                 .putExtra(CalendarContract.Events.DESCRIPTION, "Event at Matrix 17")
-                .putExtra(CalendarContract.Events.EVENT_LOCATION, getIntent().getStringExtra("venue"))
+                .putExtra(CalendarContract.Events.EVENT_LOCATION, getIntent().getStringExtra("venue")+", S.P.I.T.")
                 .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
 
         visitedCalendar = true;

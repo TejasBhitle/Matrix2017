@@ -81,12 +81,12 @@ public class DevelopersFragment extends Fragment {
 
 
         /*Add Your Pics Here And Not In Xml*/
-        Picasso.with(getActivity()).load(R.drawable.tejasbhitle).into(image1);
-        Picasso.with(getActivity()).load(R.drawable.shubhammahajan).into(image2);
-        Picasso.with(getActivity()).load(R.drawable.shubhammahajan).into(image3);
-        Picasso.with(getActivity()).load(R.drawable.shubhammahajan).into(image4);
-        Picasso.with(getActivity()).load(R.drawable.shubhammahajan).into(image5);
-        Picasso.with(getActivity()).load(R.drawable.shubhammahajan).into(image6);
+        Picasso.with(getActivity()).load(R.drawable.dev_tejas_bhitle).into(image1);
+        Picasso.with(getActivity()).load(R.drawable.dev_shubham_mahajan).into(image2);
+        Picasso.with(getActivity()).load(R.drawable.dev_shubham_mahajan).into(image3);
+        Picasso.with(getActivity()).load(R.drawable.dev_shubham_mahajan).into(image4);
+        Picasso.with(getActivity()).load(R.drawable.dev_shubham_mahajan).into(image5);
+        Picasso.with(getActivity()).load(R.drawable.dev_shubham_mahajan).into(image6);
 
 
         View.OnClickListener linkListener = new View.OnClickListener() {
