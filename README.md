@@ -2,6 +2,8 @@
 
 An open source application for the annual technical festival of Sardar Patel Institute of Technology.
 
+![Alt text](https://github.com/TejasBhitle/Matrix2017/blob/master/screenshot.jpg "Screenshots")
+
 # License
 ```
 MIT License
