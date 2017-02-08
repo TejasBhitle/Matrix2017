@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.event_tech_charades,
                 R.drawable.event_battle_frontier,
                 R.drawable.event_escape_plan,
-                R.drawable.event_technovanza,
+                //R.drawable.event_technovanza,
                 R.drawable.event_tech_xplosion,
                 R.drawable.event_no_escape,
                 R.drawable.event_techeshis_castle,
