@@ -16,6 +16,7 @@
 
 package spit.matrix2017.Fragments;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -88,10 +89,25 @@ public class ContactUsFragment extends Fragment {
         findOnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("geo:0,0?q="+ Uri.encode(getString(R.string.college_name)));
+                Uri uri = Uri.parse("http://maps.google.com/maps?q="+Uri.encode(getString(R.string.college_name)));
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW,uri);
                 mapIntent.setPackage("com.google.android.apps.maps");
-                startActivity(mapIntent);
+                try
+                {
+                    startActivity(mapIntent);
+                }
+                catch(ActivityNotFoundException ex)
+                {
+                    try
+                    {
+                        Intent newIntent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(newIntent);
+                    }
+                    catch(ActivityNotFoundException innerEx)
+                    {
+                        Toast.makeText(getContext(), "Please install a maps application", Toast.LENGTH_LONG).show();
+                    }
+                }
             }
         });
 
