@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "600218730464",
+    "firebase_url": "https://matrix2017-e9610.firebaseio.com",
+    "project_id": "matrix2017-e9610",
+    "storage_bucket": "matrix2017-e9610.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600218730464:android:b57bcaf4e727ecde",
+        "android_client_info": {
+          "package_name": "spit.matrix2017"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600218730464-un43lgqe99qhhb6do0he9oocdo0181ov.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzZmw1jNXAQOUOOV1ENdGVSHbfua7JToA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600218730464-un43lgqe99qhhb6do0he9oocdo0181ov.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

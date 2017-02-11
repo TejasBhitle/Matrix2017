@@ -371,13 +371,13 @@ public class EventDetails
 
                 if(event_name != null && event_name.equals("VSM"))
                 {
-                    beginTime.set(2017, 1, 16, 13, 0);
-                    endTime.set(2017, 1, 16, 14, 0);
+                    beginTime.set(2017, 1, 15, 13, 0);
+                    endTime.set(2017, 1, 15, 14, 0);
                 }
                 else
                 {
-                    beginTime.set(2017, 1, 16, 9, 0);
-                    endTime.set(2017, 1, 16, 18, 0);
+                    beginTime.set(2017, 1, 15, 9, 0);
+                    endTime.set(2017, 1, 15, 18, 0);
                 }
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -389,13 +389,13 @@ public class EventDetails
                         {
                             if(event_name != null && event_name.equals("VSM"))
                             {
-                                beginTime.set(2017, 1, 17, 13, 0);
-                                endTime.set(2017, 1, 17, 14, 0);
+                                beginTime.set(2017, 1, 16, 13, 0);
+                                endTime.set(2017, 1, 16, 14, 0);
                             }
                             else
                             {
-                                beginTime.set(2017, 1, 17, 9, 0);
-                                endTime.set(2017, 1, 17, 18, 0);
+                                beginTime.set(2017, 1, 16, 9, 0);
+                                endTime.set(2017, 1, 16, 18, 0);
                             }
 
                             goToCalendar(beginTime, endTime);
