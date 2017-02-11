@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
@@ -34,11 +35,9 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -52,6 +51,7 @@ import spit.matrix2017.Fragments.ContactUsFragment;
 import spit.matrix2017.Fragments.DevelopersFragment;
 import spit.matrix2017.Fragments.FavoritesFragment;
 import spit.matrix2017.Fragments.MainFragment;
+import spit.matrix2017.Fragments.SponsorsFragment;
 import spit.matrix2017.HelperClasses.CustomPagerAdapter;
 import spit.matrix2017.HelperClasses.CustomViewPager;
 import spit.matrix2017.R;
@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
     // declarations for viewpager
     CustomPagerAdapter mCustomPagerAdapter;
-    ViewPager mViewPager;
     Timer timer;
     int page = 0;
     CustomViewPager mViewPager;
@@ -241,21 +240,15 @@ public class MainActivity extends AppCompatActivity {
                                     new Handler().postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
-                                            Toast.makeText(MainActivity.this, "Coming soon!", Toast.LENGTH_SHORT).show();
-
-                                            // IMPORTANT: Remove checkable=false from the 'Sponsors' menu item in res/menu/navdrawer_menu.xml when Sponsors fragment is complete
-
-                                            /* Delete later
                                             getSupportFragmentManager().popBackStackImmediate();
                                             fragmentTransaction.replace(R.id.fragment_container, new SponsorsFragment());
                                             appBarLayout.setExpanded(false, true);
                                             fragmentTransaction.addToBackStack(null);
                                             fragmentTransaction.commit();
                                             collapsingToolbarLayout.setTitle("Sponsors");
-                                            */
                                         }
                                     }, DRAWER_DELAY);
-                                    return true; //Replace by 'break' later
+                                    break;
 
                                 case R.id.commitee_menuItem:
                                     new Handler().postDelayed(new Runnable() {

@@ -15,7 +15,6 @@
 
         <item
             android:title="@string/sponsors"
-            android:checkable="false"
             android:id="@+id/sponsors_menuItem"
             android:icon="@drawable/svg_new_releases_white_48px"/>
 
