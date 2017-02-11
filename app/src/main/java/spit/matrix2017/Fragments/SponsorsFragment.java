@@ -64,7 +64,7 @@ public class SponsorsFragment extends Fragment {
         arrayList.add("More - Nactus");
         arrayList.add("More - RentSetGo");
 
-        Integer[] drawableArray = {R.drawable.tcs,R.drawable.campuscommune,R.drawable.madbrewcafe,R.drawable.maharastratimes,R.drawable.brainheater,R.drawable.careers360,R.drawable.scotlane,R.drawable.internshala,R.drawable.nactus,R.drawable.rentsetgo};
+        Integer[] drawableArray = {R.drawable.sponsor_tcs,R.drawable.sponsor_campuscommune,R.drawable.sponsor_madbrewcafe,R.drawable.sponsor_maharastratimes,R.drawable.sponsor_brainheater,R.drawable.sponsor_careers360,R.drawable.sponsor_scotlane,R.drawable.sponsor_internshala,R.drawable.sponsor_nactus,R.drawable.sponsor_rentsetgo};
         recyclerView.setAdapter(new SponsorRecyclerAdapter(arrayList,drawableArray));
 
         return view;
