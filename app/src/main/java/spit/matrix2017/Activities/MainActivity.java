@@ -20,7 +20,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
@@ -35,14 +34,12 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.squareup.picasso.Picasso;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
 import spit.matrix2017.Fragments.AboutAppFragment;
@@ -68,10 +65,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fm;
     String backStageName;
 
-    // declarations for viewpager
     CustomPagerAdapter mCustomPagerAdapter;
-    Timer timer;
-    int page = 0;
     CustomViewPager mViewPager;
 
     private static final long DRAWER_DELAY = 250;
@@ -95,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.event_tech_charades,
                 R.drawable.event_battle_frontier,
                 R.drawable.event_escape_plan,
-                //R.drawable.event_technovanza,
                 R.drawable.event_tech_xplosion,
                 R.drawable.event_no_escape,
                 R.drawable.event_techeshis_castle,
@@ -127,9 +120,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         h.postDelayed(r, 5000);
-
-        mViewPager.setCurrentItem(0);
-        pageSwitcher(4); // calling function to autoswipe
 
         //instantiation
         toolbar = (Toolbar)findViewById(R.id.toolbar_main);
@@ -173,29 +163,6 @@ public class MainActivity extends AppCompatActivity {
             navigationMenuView.setVerticalScrollBarEnabled(false);
         }
         navigationView.getMenu().getItem(0).setChecked(true);
-    }
-
-    // method for autoswipe in viewpager
-    public void pageSwitcher(int seconds) {
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new RemindTask(), 0, seconds * 1000); // delay in milliseconds
-    }
-
-    // inner class for autoswipe in viewpager
-    class RemindTask extends TimerTask {
-        @Override
-        public void run() {
-            runOnUiThread(new Runnable() {
-                public void run() {
-
-                    if (page > 2) { // enter the number of pages
-                        page=0;
-                    } else {
-                        mViewPager.setCurrentItem(page++);
-                    }
-                }
-            });
-        }
     }
 
     public void setupDrawerLayout(){
@@ -368,7 +335,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
         return super.onOptionsItemSelected(item);
     }
-    
+
     @Override
     public void onBackPressed()
     {

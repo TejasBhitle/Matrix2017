@@ -6,6 +6,7 @@ package spit.matrix2017.HelperClasses;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +39,8 @@ public class SponsorRecyclerAdapter extends RecyclerView.Adapter<SponsorRecycler
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            holder.info.setText(String.format(arrayList.get(position)));
+            holder.category.setText(String.format(arrayList.get(position).split(" - ")[0]));
+            holder.name.setText(String.format(arrayList.get(position).split(" - ")[1]));
             holder.imageView.setImageResource(drawableList[position]);
         }
 
@@ -49,14 +51,15 @@ public class SponsorRecyclerAdapter extends RecyclerView.Adapter<SponsorRecycler
 
         public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-            TextView info;
+            TextView category, name;
             ImageView imageView;
 
 
             public ViewHolder(View itemView) {
                 super(itemView);
                 context = itemView.getContext();
-                info = (TextView)itemView.findViewById(R.id.info_text);
+                category = (TextView)itemView.findViewById(R.id.info_category);
+                name = (TextView)itemView.findViewById(R.id.info_name);
                 imageView = (ImageView)itemView.findViewById(R.id.imageView);
                 itemView.setOnClickListener(this);
             }
@@ -64,12 +67,9 @@ public class SponsorRecyclerAdapter extends RecyclerView.Adapter<SponsorRecycler
             @Override
             public void onClick(View view) {
                 if(getLink()=="NULL")
-                    Toast.makeText(context,"Webpage not available for selected sponsor",Toast.LENGTH_SHORT).show();
-                else {
-                    Intent intent = new Intent(context, web.class);
-                    intent.putExtra("SITE", getLink());
-                    context.startActivity(intent);
-                }
+                    Toast.makeText(context,"Webpage not available for selected sponsor", Toast.LENGTH_SHORT).show();
+                else
+                    context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getLink())));
             }
 
             String getLink(){
