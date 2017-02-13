@@ -81,7 +81,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/date"
-                        android:id="@+id/harcodedDate"
+                        android:id="@+id/hardcodedDate"
                         android:paddingEnd="8dp"
                         android:paddingStart="8dp"/>
 

@@ -79,24 +79,17 @@ public class MatrixContentProvider extends ContentProvider {
             new Event("LAN Gaming", "Compete for glory in 4 different games: FIFA, Counter-Strike, Need for Speed and Mini Militia, and take home exciting prizes!", "Fun", "Lab 007", "9am to 1pm\n2pm to 6pm", "Counter-Strike:\n₹300 for a team of 5\n\nFIFA:\n₹60 per person\n\nNFS Most Wanted:\n\u20B950 per person\n\nMini Militia:\n\u20B9100 for a team of 5", "Counter-Strike:\n\u20B95000\n\nFIFA:\n\u20B91000 and a controller\n\nNFS Most Wanted:\n\u20B9500 cash and a \u20B9250 BookMyShow voucher\n\nMini Militia:\n\u20B91500", "Sai Yerremreddy", "8652259207", "Manas Shukla", "9987014677", "#D50000"),
             new Event("Pokemon Showdown", "The mages and warlocks of Westeros have opened up a portal and Pokémon have landed here from nowhere!\nDefeat anyone who comes in your way to the Iron Throne, and fight your way against the other false claimants.\nFor there can be only one champion, there will be two great wars.", "Fun", "Lab 403", "9am to 1pm\n2pm to 6pm", "\u20B940 per person", "\u2022 1st Place: \u20B91500\n\u2022 2nd Place: \u20B91000", "Rajorshi Chaudhuri", "7738413449", "Sarvesh Patil", "8898698546", "#A49013"),
             new Event("LAN Mafia", "Never let anyone know what you are thinking.\n\n\u2022 Each of the students will be assigned specific roles in the game by 'God'\n\u2022 3 of the best players who outplay others in the GDs will be selected from the slot\n\u2022 There will be a finale of all the people shortlisted from previous games", "Fun", "Lab 404", "9am to 1pm\n2pm to 6pm", "\u20B920 per person", "10000mAh power bank", "Krishna Kancharla", "9022057698", "Nishchint Jagdale", "8425097544", "#AC2018"),
-            new Event("Mind That Word", "In this maze of words, trust your grandmaster to hunt down your words. Be wary of the trickster as he tries to deter you. The quickest and the smartest prevails.\nJust 'mind that word' all along!", "Fun", "Lab 402", "9am to 1pm\n2pm to 6pm", "\u20B920 per person", "\u20B91000 for winning team", "Anirvin Vishwanatan", "9167957770", "Ankit Sawant", "9869549744", "#F6EE00"),
-
-            new Event("Project Mania","Showcase your innovative projects that you have done during your engineering life and get an opportunity to be an intern in TCS and Emtron Technologies", "Mega", "Room 105", "9am to 6pm","\u20B9400 for a maximum of 5 team members", "Top winning Projects will get the internship in Tata Consultancy Services (TCS) and Emtron Technologies.","Gaurav","7738009849","Sharvika","9420772761","#799399"),
-            new Event("Startup Showcase","Present your ideas with your objectives and get a chance to interact and learn different models and solutions from other great minds.", "Mega", "Room 009", "9am to 6pm","\u20B9150 per person", "The winner will get a chance to be incubated at Sardar Patel Technology Business Incubator (SP-TBI)","Devanshi","8898629895","Janit","7208121331","#C80000"),
-            new Event("Ethical Hacking","IEEE-SPIT brings a certified workshop on Ethical Hacking and Cyber Security conducted by Professor Dayanand Ambawade.\nLunch and refreshments will be provided.", "Mega", "None", "None","\u20B9600 for IEEE members\n\u20B9750 for non members", "None","Ankesh","9029162041","Pratik","9619020970","#605026"),
-            new Event("Sky Observation","Sky Observation Program organized by Star Gazers SPIT-SPCE", "Mega", "SPIT", "16th Feb 2017\n6pm to 9pm ","Free for members\n\u20B930 for non-members", "None","Michelle","7506180370","Kautuk","7738321484","#186088"),
-            new Event("Hackathon","The Hackathon is an overnight competition organised by ITSA along with CSI(Mumbai Chapter) Cerelabs and AI Mumbai.\nParticipants must select from the OCR, IoT and Block Chain from which a problem statement will be given to them.", "Mega", "None", "Starts on 15th Feb in the morning and will continue throughout upto the next morning","\u20B950 per team", "Participants are required to pitch their solution to the judges. All participants will receive a participating certificate. The winners will get the winning certificate.","Prem Raheja","9004654497","Ayesha Kazi","9029933484","#73730C"),
-            new Event("Techshiksha","An intriguing talk by Mr. Henry R.P on Big data analytics. An expert speaker from TOGAF- Enterprise Architecture Map and certified Hadoop cluster administrator.", "Mega", "Quadrangle", "15th Feb 2017\n6pm to 7pm","Free Entry", "None","Tanisha","9769678461","Maitri","9167608808","#0070E8"),
-            new Event("Daniel Fernandes","Get ready to have your funny bones tickled by Mr. Daniel Fernandes!", "Mega", "Quadrangle", "15th Feb 2017\n4 pm","\u20B9100 per person", "None","Surmeet Kaur","9869112609","Shreya S","8652707799","#737986"),
+            new Event("Mind That Word", "In this maze of words, trust your grandmaster to hunt down your words. Be wary of the trickster as he tries to deter you. The quickest and the smartest prevails.\nJust 'mind that word' all along!", "Fun", "Lab 402", "9am to 1pm\n2pm to 6pm", "\u20B920 per person", "\u20B91000 for winning team", "Anirvin Vishwanatan", "9167957770", "Ankit Sawant", "9869549744", "#F6EE00")
     };
 
+//
     //new mega events
     private final Event[] eventsNew=new Event[]{
             new Event("Project Mania","Showcase your innovative projects that you have done during your engineering life and get an opportunity to be an intern in TCS and Emtron Technologies", "Mega", "Room 105", "9am to 6pm","\u20B9400 for a maximum of 5 team members", "Top winning Projects will get the internship in Tata Consultancy Services (TCS) and Emtron Technologies.","Gaurav","7738009849","Sharvika","9420772761","#799399"),
             new Event("Startup Showcase","Present your ideas with your objectives and get a chance to interact and learn different models and solutions from other great minds.", "Mega", "Room 009", "9am to 6pm","\u20B9150 per person", "The winner will get a chance to be incubated at Sardar Patel Technology Business Incubator (SP-TBI)","Devanshi","8898629895","Janit","7208121331","#C80000"),
             new Event("Ethical Hacking","IEEE-SPIT brings a certified workshop on Ethical Hacking and Cyber Security conducted by Professor Dayanand Ambawade.\nLunch and refreshments will be provided.", "Mega", "None", "None","\u20B9600 for IEEE members\n\u20B9750 for non members", "None","Ankesh","9029162041","Pratik","9619020970","#605026"),
-            new Event("Sky Observation","Sky Observation Program organized by Star Gazers SPIT-SPCE", "Mega", "SPIT", "16th Feb 2017\n6pm to 9pm ","Free for members\n\u20B930 for non-members", "None","Michelle","7506180370","Kautuk","7738321484","#186088"),
-            new Event("Hackathon","The Hackathon is an overnight competition organised by ITSA along with CSI(Mumbai Chapter) Cerelabs and AI Mumbai.\nParticipants must select from the OCR, IoT and Block Chain from which a problem statement will be given to them.", "Mega", "None", "Starts on 15th Feb in the morning and will continue throughout upto the next morning","\u20B950 per team", "Participants are required to pitch their solution to the judges. All participants will receive a participating certificate. The winners will get the winning certificate.","Prem Raheja","9004654497","Ayesha Kazi","9029933484","#73730C"),
+            new Event("Sky Observation","Sky Observation Program organized by Star Gazers SPIT-SPCE", "Mega", "SP Jain ground", "16th Feb 2017\n6pm to 9pm ","Free for members\n\u20B930 for non-members", "None","Michelle","7506180370","Kautuk","7738321484","#186088"),
+            new Event("Hackathon","The Hackathon is an overnight competition organised by ITSA along with CSI(Mumbai Chapter) Cerelabs and AI Mumbai.\nParticipants must select from the OCR, IoT and Block Chain from which a problem statement will be given to them.", "Mega", "Room 408, 407, 410, 008", "Starts on 15th Feb at 9am and will continue throughout upto the next morning","\u20B950 per team", "Participants are required to pitch their solution to the judges. All participants will receive a participating certificate. The winners will get the winning certificate.","Prem Raheja","9004654497","Ayesha Kazi","9029933484","#73730C"),
             new Event("Techshiksha","An intriguing talk by Mr. Henry R.P on Big data analytics. An expert speaker from TOGAF- Enterprise Architecture Map and certified Hadoop cluster administrator.", "Mega", "Quadrangle", "15th Feb 2017\n6pm to 7pm","Free Entry", "None","Tanisha","9769678461","Maitri","9167608808","#0070E8"),
             new Event("Daniel Fernandes","Get ready to have your funny bones tickled by Mr. Daniel Fernandes!", "Mega", "Quadrangle", "15th Feb 2017\n4 pm","\u20B9100 per person", "None","Surmeet Kaur","9869112609","Shreya S","8652707799","#737986"),
 
@@ -185,6 +178,21 @@ public class MatrixContentProvider extends ContentProvider {
             cv.put(COL_EVENT_FAVORITE, 0);
             cv.put(COL_EVENT_REMINDER, 0);
             for (Event event : events) {
+                cv.put(COL_EVENT_NAME, event.getName());
+                cv.put(COL_EVENT_DESCRIPTION, event.getDescription());
+                cv.put(COL_EVENT_CATEGORY, event.getCategory());
+                cv.put(COL_EVENT_VENUE, event.getVenue());
+                cv.put(COL_EVENT_TIME, event.getTime());
+                cv.put(COL_EVENT_REGISTRATION, event.getRegistration());
+                cv.put(COL_EVENT_PRIZES, event.getPrizes());
+                cv.put(COL_EVENT_CONTACT1_NAME, event.getContact1_name());
+                cv.put(COL_EVENT_CONTACT1_NO, event.getContact1_no());
+                cv.put(COL_EVENT_CONTACT2_NAME, event.getContact2_name());
+                cv.put(COL_EVENT_CONTACT2_NO, event.getContact2_no());
+                cv.put(COL_COLOR,event.getColor());
+                db.insert(TABLE_EVENTS, null, cv);
+            }
+            for (Event event : eventsNew) {
                 cv.put(COL_EVENT_NAME, event.getName());
                 cv.put(COL_EVENT_DESCRIPTION, event.getDescription());
                 cv.put(COL_EVENT_CATEGORY, event.getCategory());

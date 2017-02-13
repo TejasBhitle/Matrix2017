@@ -74,8 +74,8 @@ public class EventDetails
     private boolean visitedCalendar, isFirstLaunch;
     ImageView mainImageView;
     CollapsingToolbarLayout collapsingToolbarLayout;
-    CardView organizers_card,prizes_card,registration_card;
-    TextView harcodedDate;
+    CardView organizers_card,prizes_card,registration_card,venue_time_card;
+    TextView hardcodedDate;
 
 
     @Override
@@ -99,8 +99,9 @@ public class EventDetails
         organizers_card =(CardView)findViewById(R.id.organizers_card);
         prizes_card = (CardView)findViewById(R.id.prizes_card);
         registration_card =(CardView)findViewById(R.id.registration_card);
+        venue_time_card=(CardView)findViewById(R.id.venue_time_card);
 
-        harcodedDate=(TextView)findViewById(R.id.harcodedDate);
+        hardcodedDate=(TextView)findViewById(R.id.hardcodedDate);
 
         visitedCalendar = false;
         isFirstLaunch = true;
@@ -113,8 +114,8 @@ public class EventDetails
         else
             this.setTitle("Some event");
 
-        if(Objects.equals(event_name, "Daniel Fernandes")||Objects.equals(event_name, "Techshiksha")||Objects.equals(event_name, "Sky Observation")||Objects.equals(event_name, "Hackathon")){
-            harcodedDate.setVisibility(View.GONE);
+        if(Objects.equals(event_name, "Daniel Fernandes")||Objects.equals(event_name, "Techshiksha")||Objects.equals(event_name, "Sky Observation")||Objects.equals(event_name, "Hackathon")||Objects.equals(event_name, "Ethical Hacking")){
+            hardcodedDate.setVisibility(View.GONE);
         }
 
         setDescription(getIntent().getStringExtra("description"));
@@ -291,8 +292,9 @@ public class EventDetails
     private void setVenueAndTime(String venue, String time) {
         AppCompatTextView venueTimeTextView = (AppCompatTextView) findViewById(R.id.venue_time_textView);
         assert venueTimeTextView != null;
+        System.out.println(venue+time);
         if(Objects.equals(venue, "None")&&Objects.equals(time, "None")){
-            venueTimeTextView.setVisibility(View.GONE);
+            venue_time_card.setVisibility(View.GONE);
             return;
         }
         if(Objects.equals(venue, "None")){
