@@ -81,6 +81,13 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
 
         int[] images = {
+                R.drawable.event_daniel_fernandes,
+                R.drawable.event_techshiksha,
+                R.drawable.event_ethical_hacking,
+                R.drawable.event_startup_showcase,
+                R.drawable.event_hackathon,
+                R.drawable.event_project_mania,
+                R.drawable.event_sky_observation,
                 R.drawable.event_vsm,
                 R.drawable.event_codatron,
                 R.drawable.event_laser_maze,
@@ -99,7 +106,8 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.event_lan_gaming,
                 R.drawable.event_pokemon_showdown,
                 R.drawable.event_lan_mafia,
-                R.drawable.event_mind_that_word
+                R.drawable.event_mind_that_word,
+
         };
 
         for(int i: images)
