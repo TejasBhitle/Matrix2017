@@ -34,7 +34,7 @@ import spit.matrix2017.R;
 public class MatrixContentProvider extends ContentProvider {
     //////////Database strings//////////
     private static final String DB_NAME = "MatrixDB.sqlite";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     //////////Strings to help create the events table//////////
     private static final String TABLE_EVENTS = "events";
@@ -81,6 +81,17 @@ public class MatrixContentProvider extends ContentProvider {
             new Event("Mind That Word", "In this maze of words, trust your grandmaster to hunt down your words. Be wary of the trickster as he tries to deter you. The quickest and the smartest prevails.\nJust 'mind that word' all along!", "Fun", "Lab 402", "9am to 1pm\n2pm to 6pm", "\u20B920 per person", "\u20B91000 for winning team", "Anirvin Vishwanatan", "9167957770", "Ankit Sawant", "9869549744", "#F6EE00")
     };
 
+    //new mega events
+    private final Event[] eventsNew=new Event[]{
+            new Event("Project Mania","Showcase your innovative projects that you have done during your engineering life and get an opportunity to be an intern in TCS and Emtron Technologies", "Mega", "Room 105", "9am to 6pm","\u20B9400 for maximum 5 team members", "Top winning Projects will get the internship in Tata Consultancy Services &#40;TCS&#41; and Emtron Technologies.","Gaurav","7738009849","Sharvika","9420772761",""),
+            new Event("Startup Showcase","Present your ideas with your objectives and get a chance to interact and learn different models and solutions from other great minds.", "Mega", "Room 009", "9am to 6pm","\u20B9150 per person", "The winner will get a chance to be incubated at Sardar Patel Technology Business Incubator &#40;SP\t&#45;TBI\t&#41;","Devanshi","8898629895","Janit","7208121331",""),
+            new Event("Ethical Hacking","IEEE&#45;SPIT brings a certified workshop on Ethical Hacking and Cyber Security conducted by Professor Dayanand Ambawade.\nLunch and refreshments will be provided.", "Mega", "Room 403", "","\u20B9600 for IEEE members\n\u20B9750 for non members", "None","Ankesh","9029162041","Pratik","9619020970",""),
+            new Event("Sky Observation","Sky Observation Program organized by Star Gazers SPIT-SPCE", "Mega", "", "16th Feb- 6pm to 9pm ","Free for members\n\u20B930 for non-members", "None","Michelle","7506180370","Kautuk","7738321484",""),
+            new Event("Hackathon","The Hackathon is an overnight competition organised by ITSA along with CSI&#40;Mumbai Chapter&#41, Cerelabs and AI Mumbai.\nParticipants must select from the following fields of interests from which a problem statement will be given to them:\n\u2022OCR\n\u2022IoT\n\u2022Block Chain.", "Mega", "", "Starts on 15th Feb in the morning and will continue throughout upto the next morning","4\u20B950 per team", "Participants are required to pitch their solution to the judges.\nAll participants will receive a participating certificate. The winners will get the winning certificate.","Prem Raheja","9004654497","Ayesha Kazi","9029933484",""),
+            new Event("Techshiksha","An intriguing talk by Mr. Henry R.P on Big data analytics.\nAn expert speaker from TOGAF- Enterprise Architecture Mapr and certified Hadoop cluster administrator.", "Mega", "Quadrangle", "15th Feb 2017\n6pm to 7pm","Free Entry", "None","Tanisha","9769678461","Maitri","9167608808",""),
+            new Event("Daniel Fernandes","Get ready to have your funny bones tickled by Mr. Daniel Fernandes&#33", "Mega", "Quadrangle", "15th Feb, 2017- 4 pm","\u20B9100 per person", "None","Surmeet Kaur","9869112609","Shreya S","8652707799",""),
+    };
+
     private static final int[] images = {
             R.drawable.event_vsm,
             R.drawable.event_codatron,
@@ -100,7 +111,15 @@ public class MatrixContentProvider extends ContentProvider {
             R.drawable.event_lan_gaming,
             R.drawable.event_pokemon_showdown,
             R.drawable.event_lan_mafia,
-            R.drawable.event_mind_that_word
+            R.drawable.event_mind_that_word,
+
+            R.drawable.event_project_mania,
+            R.drawable.event_startup_showcase,
+            R.drawable.event_ethical_hacking,
+            R.drawable.event_sky_observation,
+            R.drawable.event_hackathon,
+            R.drawable.event_techshiksha,
+            R.drawable.event_daniel_fernandes
     };
 
 
@@ -174,6 +193,7 @@ public class MatrixContentProvider extends ContentProvider {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
         }
 
         public MatrixDBConnectionHelper(Context context) {
