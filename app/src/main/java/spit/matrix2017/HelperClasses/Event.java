@@ -54,7 +54,7 @@ public class Event {
             return contact2_no;
         }
 
-    public String getCategory() {
+    String getCategory() {
             return category;
         }
 
@@ -83,7 +83,7 @@ public class Event {
     }
 
 
-    public Event(String name, String description, String category, String venue, String time, String registration, String prizes, String contact1_name, String contact1_no, String contact2_name, String contact2_no, String color) {
+    Event(String name, String description, String category, String venue, String time, String registration, String prizes, String contact1_name, String contact1_no, String contact2_name, String contact2_no, String color) {
         //Used for inserting events in database on first launch
             this.name = name;
             this.description = description;
@@ -99,23 +99,23 @@ public class Event {
             this.color=color;
         }
 
-        public Event(String name, String description, String category, int image, String venue, String time, String registration, String prizes, String contact1_name, String contact1_no, String contact2_name, String contact2_no, int favourite, int reminder, String color)
-        {
-            //Used while fetching data
-            this.name = name;
-            this.description = description;
-            this.category = category;
-            this.image = image;
-            this.venue = venue;
-            this.time = time;
-            this.registration = registration;
-            this.prizes = prizes;
-            this.contact1_name = contact1_name;
-            this.contact1_no = contact1_no;
-            this.contact2_name = contact2_name;
-            this.contact2_no = contact2_no;
-            this.favourite = favourite;
-            this.reminder = reminder;
-            this.color = color;
-        }
+    Event(String name, String description, String category, int image, String venue, String time, String registration, String prizes, String contact1_name, String contact1_no, String contact2_name, String contact2_no, int favourite, int reminder, String color)
+    {
+        //Used while fetching data
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        this.image = image;
+        this.venue = venue;
+        this.time = time;
+        this.registration = registration;
+        this.prizes = prizes;
+        this.contact1_name = contact1_name;
+        this.contact1_no = contact1_no;
+        this.contact2_name = contact2_name;
+        this.contact2_no = contact2_no;
+        this.favourite = favourite;
+        this.reminder = reminder;
+        this.color = color;
+    }
     }
