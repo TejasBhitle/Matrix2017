@@ -385,6 +385,10 @@ public class EventDetails
     }
 
     private void setReminder() {
+        if(Objects.equals(event_name, "Ethical Hacking")){
+            Toast.makeText(this,"Date and time have not yet been finalized!",Toast.LENGTH_SHORT).show();
+            return;
+        }
         if(ContextCompat.checkSelfPermission(EventDetails.this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR}, 1);
         else
@@ -400,6 +404,21 @@ public class EventDetails
                     beginTime.set(2017, 1, 15, 13, 0);
                     endTime.set(2017, 1, 15, 14, 0);
                 }
+                else if(event_name != null && event_name.equals("Daniel Fernandes"))
+                {
+                    beginTime.set(2017, 1, 15, 16, 0);
+                    endTime.set(2017, 1, 15, 17, 0);
+                }
+                else if(event_name != null && event_name.equals("Techshiksha"))
+                {
+                    beginTime.set(2017, 1, 15, 18, 0);
+                    endTime.set(2017, 1, 15, 19, 0);
+                }
+                else if(event_name != null && event_name.equals("Sky Observation"))
+                {
+                    beginTime.set(2017, 1, 16, 18, 0);
+                    endTime.set(2017, 1, 16, 21, 0);
+                }
                 else
                 {
                     beginTime.set(2017, 1, 15, 9, 0);
@@ -408,10 +427,20 @@ public class EventDetails
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Remind on?");
-                builder.setItems(new String[]{"Day 1", "Day 2"}, new DialogInterface.OnClickListener() {
+                CharSequence day[];
+                if(Objects.equals(event_name, "Daniel Fernandes")||Objects.equals(event_name,"Techshiksha"))
+                    day=new CharSequence[]{"Day 1"};
+                else if(Objects.equals(event_name,"Sky Observation"))
+                    day=new CharSequence[]{"Day 2"};
+                else
+                    day=new CharSequence[]{"Day 1","Day 2"};
+                builder.setItems(day, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        if (i == 1)
+                        if(i == 0){
+                            goToCalendar(beginTime,endTime);
+                        }
+                        else
                         {
                             if(event_name != null && event_name.equals("VSM"))
                             {
@@ -426,8 +455,6 @@ public class EventDetails
 
                             goToCalendar(beginTime, endTime);
                         }
-                        else
-                            goToCalendar(beginTime, endTime);
                     }
                 });
                 builder.show();
