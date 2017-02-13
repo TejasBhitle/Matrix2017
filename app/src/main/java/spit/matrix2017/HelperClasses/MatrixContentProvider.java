@@ -215,7 +215,6 @@ public class MatrixContentProvider extends ContentProvider {
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             ContentValues cv = new ContentValues();
-            if(oldVersion<2){
                 cv.put(COL_EVENT_DESCRIPTION,"Compete for glory in 6 different games: FIFA 16, Counter-Strike 1.6, Need for Speed, Mini Militia, WWE and Mortal Kombat, and take home exciting prizes!");
                 cv.put(COL_EVENT_PRIZES,"Counter-Strike 1.6:\n\u20B95000\n\nFIFA 16:\n\u20B93000\n\nNFS:\n\u20B91000\n\nMini Militia:\n\u20B91000\n\nWWE:\n\u20B9500\n\nMortal Kombat:\n\u20B9500");
                 db.update(TABLE_EVENTS, cv, "_id="+id, null);
@@ -233,7 +232,7 @@ public class MatrixContentProvider extends ContentProvider {
                     cv.put(COL_EVENT_CONTACT2_NO, event.getContact2_no());
                     cv.put(COL_COLOR,event.getColor());
                     db.insert(TABLE_EVENTS, null, cv);
-                }
+
             }
         }
 
