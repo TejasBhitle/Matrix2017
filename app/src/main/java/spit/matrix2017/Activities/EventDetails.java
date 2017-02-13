@@ -447,8 +447,11 @@ public class EventDetails
                                 beginTime.set(2017, 1, 16, 13, 0);
                                 endTime.set(2017, 1, 16, 14, 0);
                             }
-                            else
-                            {
+                            else if((event_name!=null) && (event_name.equals("Battle Frontier")||event_name.equals("TechXplosion")||event_name.equals("Techeshi's Castle"))){
+                                beginTime.set(2017, 1, 16, 9, 0);
+                                endTime.set(2017, 1, 16, 15, 0);
+                            }
+                            else{
                                 beginTime.set(2017, 1, 16, 9, 0);
                                 endTime.set(2017, 1, 16, 18, 0);
                             }
