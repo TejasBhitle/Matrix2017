@@ -58,6 +58,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 import spit.matrix2017.R;
 
@@ -74,6 +75,8 @@ public class EventDetails
     ImageView mainImageView;
     CollapsingToolbarLayout collapsingToolbarLayout;
     CardView organizers_card,prizes_card,registration_card;
+    TextView harcodedDate;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +100,8 @@ public class EventDetails
         prizes_card = (CardView)findViewById(R.id.prizes_card);
         registration_card =(CardView)findViewById(R.id.registration_card);
 
+        harcodedDate=(TextView)findViewById(R.id.harcodedDate);
+
         visitedCalendar = false;
         isFirstLaunch = true;
 
@@ -107,6 +112,10 @@ public class EventDetails
         }
         else
             this.setTitle("Some event");
+
+        if(Objects.equals(event_name, "Daniel Fernandes")||Objects.equals(event_name, "Techshiksha")||Objects.equals(event_name, "Sky Observation")||Objects.equals(event_name, "Hackathon")){
+            harcodedDate.setVisibility(View.GONE);
+        }
 
         setDescription(getIntent().getStringExtra("description"));
         setVenueAndTime(getIntent().getStringExtra("venue"), getIntent().getStringExtra("time"));
@@ -282,6 +291,18 @@ public class EventDetails
     private void setVenueAndTime(String venue, String time) {
         AppCompatTextView venueTimeTextView = (AppCompatTextView) findViewById(R.id.venue_time_textView);
         assert venueTimeTextView != null;
+        if(Objects.equals(venue, "None")&&Objects.equals(time, "None")){
+            venueTimeTextView.setVisibility(View.GONE);
+            return;
+        }
+        if(Objects.equals(venue, "None")){
+            venueTimeTextView.setText(time);
+            return;
+        }
+        if(Objects.equals(time, "None")) {
+            venueTimeTextView.setText(venue);
+            return;
+        }
         venueTimeTextView.setText(venue + "\n" + time);
     }
 
@@ -294,7 +315,10 @@ public class EventDetails
     private void setPrizes(String prizes) {
         AppCompatTextView prizesTextView = (AppCompatTextView) findViewById(R.id.prizes_textView);
         assert prizesTextView != null;
+        if(Objects.equals(prizes, "None"))
+            prizes_card.setVisibility(View.GONE);
         prizesTextView.setText(prizes);
+
     }
 
     private void setContacts(final String name1, final String number1, final String name2, final String number2) {
